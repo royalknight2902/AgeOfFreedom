@@ -1,0 +1,333 @@
+fileFormatVersion: 2
+guid: 5a8b8aaaa4ddb424e972162dccaab5fc
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bullet-ice-3_0
+    21300002: bullet-ice-3_1
+    21300004: bullet-ice-3_2
+    21300006: bullet-ice-3_3
+    21300008: bullet-ice-3_4
+    21300010: bullet-ice-3_5
+    21300012: bullet-ice-3_6
+    21300014: bullet-ice-3_7
+    21300016: bullet-ice-3_8
+    21300018: bullet-ice-3_9
+    21300020: bullet-ice-3_10
+    21300022: bullet-ice-3_11
+    21300024: bullet-ice-3_12
+    21300026: bullet-ice-3_13
+    21300028: bullet-ice-3_14
+    21300030: bullet-ice-3_15
+    21300032: bullet-ice-3_16
+    21300034: bullet-ice-3_17
+    21300036: bullet-ice-3_18
+    21300038: bullet-ice-3_19
+    21300040: bullet-ice-3_20
+    21300042: bullet-ice-3_21
+    21300044: bullet-ice-3_22
+    21300046: bullet-ice-3_23
+    21300048: bullet-ice-3_24
+    21300050: bullet-ice-3_25
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: bullet-ice-3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 444
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_1
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 444
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_2
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 444
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_3
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 444
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_4
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 444
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_5
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 444
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 333
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_7
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 333
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_8
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 333
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_9
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 333
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_10
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 333
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_11
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 333
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 222
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_13
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 222
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_14
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 222
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_15
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 222
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_16
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 222
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_17
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 222
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_19
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 111
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_20
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 111
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_21
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 111
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_22
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 111
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_23
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 111
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-ice-3_25
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 132
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

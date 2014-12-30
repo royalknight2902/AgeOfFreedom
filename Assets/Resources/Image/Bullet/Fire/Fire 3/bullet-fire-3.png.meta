@@ -1,0 +1,366 @@
+fileFormatVersion: 2
+guid: e6b780a6af410f842a4c631d53484714
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: bullet-fire-3_0
+    21300002: bullet-fire-3_1
+    21300004: bullet-fire-3_2
+    21300006: bullet-fire-3_3
+    21300008: bullet-fire-3_4
+    21300010: bullet-fire-3_5
+    21300012: bullet-fire-3_6
+    21300014: bullet-fire-3_7
+    21300016: bullet-fire-3_8
+    21300018: bullet-fire-3_9
+    21300020: bullet-fire-3_10
+    21300022: bullet-fire-3_11
+    21300024: bullet-fire-3_12
+    21300026: bullet-fire-3_13
+    21300028: bullet-fire-3_14
+    21300030: bullet-fire-3_15
+    21300032: bullet-fire-3_16
+    21300034: bullet-fire-3_17
+    21300036: bullet-fire-3_18
+    21300038: bullet-fire-3_19
+    21300040: bullet-fire-3_20
+    21300042: bullet-fire-3_21
+    21300044: bullet-fire-3_22
+    21300046: bullet-fire-3_23
+    21300048: bullet-fire-3_24
+    21300050: bullet-fire-3_25
+    21300052: bullet-fire-3_26
+    21300054: bullet-fire-3_27
+    21300056: bullet-fire-3_28
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: bullet-fire-3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_1
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 216
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_2
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 216
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_3
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 216
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 216
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 162
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_6
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 162
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_7
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 162
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_8
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 162
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_9
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 162
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_10
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 162
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 108
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_12
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 108
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_13
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 108
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_14
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 108
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_15
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 108
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_16
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 108
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 54
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_18
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 54
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_19
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 54
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_20
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 54
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_21
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 54
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_22
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 54
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_24
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 0
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_25
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_26
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_27
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: bullet-fire-3_28
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 0
+        width: 76
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

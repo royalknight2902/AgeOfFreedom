@@ -1,0 +1,443 @@
+fileFormatVersion: 2
+guid: 1a69d6380cedecf4caddf9c3826c7d9e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: play-tower-fire-3_0
+    21300002: play-tower-fire-3_1
+    21300004: play-tower-fire-3_2
+    21300006: play-tower-fire-3_3
+    21300008: play-tower-fire-3_4
+    21300010: play-tower-fire-3_5
+    21300012: play-tower-fire-3_6
+    21300014: play-tower-fire-3_7
+    21300016: play-tower-fire-3_8
+    21300018: play-tower-fire-3_9
+    21300020: play-tower-fire-3_10
+    21300022: play-tower-fire-3_11
+    21300024: play-tower-fire-3_12
+    21300026: play-tower-fire-3_13
+    21300028: play-tower-fire-3_14
+    21300030: play-tower-fire-3_15
+    21300032: play-tower-fire-3_16
+    21300034: play-tower-fire-3_17
+    21300036: play-tower-fire-3_18
+    21300038: play-tower-fire-3_19
+    21300040: play-tower-fire-3_20
+    21300042: play-tower-fire-3_21
+    21300044: play-tower-fire-3_22
+    21300046: play-tower-fire-3_23
+    21300048: play-tower-fire-3_24
+    21300050: play-tower-fire-3_25
+    21300052: play-tower-fire-3_26
+    21300054: play-tower-fire-3_27
+    21300056: play-tower-fire-3_28
+    21300058: play-tower-fire-3_29
+    21300060: play-tower-fire-3_30
+    21300062: play-tower-fire-3_31
+    21300064: play-tower-fire-3_32
+    21300066: play-tower-fire-3_33
+    21300068: play-tower-fire-3_34
+    21300070: play-tower-fire-3_35
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: play-tower-fire-3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 625
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 625
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 625
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_3
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 625
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_4
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 625
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_5
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 625
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_7
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 500
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_8
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 500
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_9
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 500
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_10
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 500
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_11
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 500
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 375
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_13
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 375
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_14
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 375
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_15
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 375
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_16
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 375
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_17
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 375
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 250
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_19
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 250
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_20
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 250
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_21
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 250
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_22
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 250
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_23
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 250
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 125
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_25
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 125
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_26
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 125
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_27
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 125
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_28
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 125
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_29
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 125
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_31
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 0
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_32
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 0
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_33
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 0
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_34
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 0
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: play-tower-fire-3_35
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 0
+        width: 111
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
