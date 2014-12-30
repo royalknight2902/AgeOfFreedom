@@ -1,0 +1,29 @@
+SCHEDULE FOR GAME TOWER DEFENDE STAGE 2 - WITH HERO GAME
+------------------------------------//--------------------------------
+
+Week 1 (13/10/2014 to 20/10/2014):
+    - Received request from Japan head.
+	- Requirements analysis.
+	- Create schedule for game
+	- Add Tower for game
+	- Add Animation with tower for game
+Week 2 (20/10/2014 to 27/10/2014):
+	- Effect for game.
+	- Search resource game
+	- Item for game
+		+ Item attack speed for game
+		+ Item attack range
+		+ Item explosion.
+Week 3 (27/10/2014 to 3/11/2014)
+
+Week 4 (3/11/2014 to 10/11/2014)
+
+Week 5 (10/11/2014 to 17/11/2014)
+
+Week 6 (17/11/2014 to 24/11/2014)
+
+Week 7 (24/11/2014 to 1/12/2014)
+
+Week 8 (1/12/2014 to 8/12/2014)
+
+Week 9 (8/12/2014 to 15/12/2014)

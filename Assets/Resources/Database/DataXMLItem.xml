@@ -1,0 +1,107 @@
+<?xml version="1.0" standalone="yes"?>
+<ItemGame>	
+	<Item ID = "HandOfMidas">
+		<Name>Hand Of-Midas</Name>
+		<ValueEffect>0.5</ValueEffect>
+		<ValueText>+ 50% (gold)</ValueText>
+		<Package ID="1">
+			<Diamond>1</Diamond>
+			<Gold>100</Gold>
+			<Wave>1</Wave>
+		</Package>
+		<Package ID="2">
+			<Diamond>5</Diamond>
+			<Gold>500</Gold>
+			<Wave>Half</Wave>
+		</Package>
+		<Package ID="3">
+			<Diamond>9</Diamond>
+			<Gold>900</Gold>
+			<Wave>Full</Wave>
+		</Package>
+	</Item>
+	
+	<Item ID = "ATK+">
+		<Name>ATK+</Name>
+		<ValueEffect>0.2</ValueEffect>
+		<ValueText>+ 20% (atk)</ValueText>
+		<Package ID="1">
+			<Diamond>2</Diamond>
+			<Gold>200</Gold>
+			<Wave>1</Wave>
+		</Package>
+		<Package ID="2">
+			<Diamond>5</Diamond>
+			<Gold>500</Gold>
+			<Wave>Half</Wave>
+		</Package>
+		<Package ID="3">
+			<Diamond>8</Diamond>
+			<Gold>800</Gold>
+			<Wave>Full</Wave>
+		</Package>
+	</Item>
+	
+	<Item ID = "SpawnShoot+">
+		<Name>Spawn-Shoot+</Name>
+		<ValueEffect>0.2</ValueEffect>
+		<ValueText>- 20% (spawnshoot)</ValueText>
+		<Package ID="1">
+			<Diamond>1</Diamond>
+			<Gold>100</Gold>
+			<Wave>1</Wave>
+		</Package>
+		<Package ID="2">
+			<Diamond>4</Diamond>
+			<Gold>400</Gold>
+			<Wave>Half</Wave>
+		</Package>
+		<Package ID="3">
+			<Diamond>7</Diamond>
+			<Gold>700</Gold>
+			<Wave>Full</Wave>
+		</Package>
+	</Item>
+	
+	<Item ID = "Range+">
+		<Name>Range+</Name>
+		<ValueEffect>0.1</ValueEffect>
+		<ValueText>+ 10% (range)</ValueText>
+		<Package ID="1">
+			<Diamond>1</Diamond>
+			<Gold>100</Gold>
+			<Wave>1</Wave>
+		</Package>
+		<Package ID="2">
+			<Diamond>5</Diamond>
+			<Gold>500</Gold>
+			<Wave>Half</Wave>
+		</Package>
+		<Package ID="3">
+			<Diamond>8</Diamond>
+			<Gold>800</Gold>
+			<Wave>Full</Wave>
+		</Package>
+	</Item>
+	
+	<Item ID = "Tower+">
+		<Name>Tower+</Name>
+		<ValueEffect>0.2</ValueEffect>
+		<ValueText>+ 20% ALL</ValueText>
+		<Package ID="1">
+			<Diamond>3</Diamond>
+			<Gold>300</Gold>
+			<Wave>1</Wave>
+		</Package>
+		<Package ID="2">
+			<Diamond>9</Diamond>
+			<Gold>900</Gold>
+			<Wave>Half</Wave>
+		</Package>
+		<Package ID="3">
+			<Diamond>15</Diamond>
+			<Gold>1500</Gold>
+			<Wave>Full</Wave>
+		</Package>
+	</Item>
+</ItemGame>

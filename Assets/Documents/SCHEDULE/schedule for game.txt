@@ -1,0 +1,46 @@
+SCHEDULE FOR GAME TOWER DEFENDE
+------------------------------------//--------------------------------
+
+Week 1 (4/8/2014 to 11/8/2014):
+    - Designing idea gameplay.
+	- Searching image for game (some tower, map, enemy, image mune game...)
+	- Design the structure of maps which can update easily later.
+	- Design structure code and setup rules coding convension for team.
+	- Start coding menu for game
+		+ coding base scene menu game
+Week 2 (11/8/2014 to 18/8/2014):
+		+ Continue design graphics with scene menu for game
+		+ complete scene menu for game.
+Week 3 (18/8/2014 to 25/8/2014):
+	- Create scene map game.
+	- Continue design graphics with scene play for game
+	- Create scene play game:
+		+ Coding tower's activity.
+	- Continue develope scene play game:
+		+ Coding Eneymy's activity.
+		+ Coding bullet's activity.
+	- Demo base game and fix error with scene play game.
+Week 4 (25/8/2014 to 1/9/2014):
+	- Continue design graphics with scene level for game.
+	- Create scene level game:
+		+ Coding scene level game.
+		+ Integrated scene level with scene play game
+	- Complete base scene play game
+Week 5 (1/9/2014 to 8/9/2014):
+	- Demo game and fix error for game.
+	- Continue design graphics with scene setting for game
+	- Create scene setting for game.
+	- Create scene save for game.
+	- Create scene purchase items (shop game)
+Week 6 (8/9/2014 to 15/9/2014):
+	- Integrated scene setting game, scene save game, shop game with game play.
+	- Demo game and fix error.
+Week 7 (15/9/2014 to 22/9/2014):
+	- Test game before up to store.
+	- improve something features for game
+	- Run game with version Alpha.
+week 8 (22/09/2014 to 29/09/2014):
+	- Test game final
+	- Run game with version Beta.
+	- Port game to Multi-platform
+	- Up store

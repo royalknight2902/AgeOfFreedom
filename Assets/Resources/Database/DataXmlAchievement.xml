@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Achievements>
+	<Achievement ID="0">
+		<Icon>achievement-kill1000</Icon>
+		<Name>KILL 1000 ENEMIES</Name>
+		<Value>1000</Value>
+		<Reward>
+			<Amount>5</Amount>
+			<Value>Diamond</Value>
+		</Reward>
+	</Achievement>
+	
+	<Achievement ID="1">
+		<Icon>achievement-kill5000</Icon>
+		<Name>KILL 5000 ENEMIES</Name>
+		<Value>5000</Value>
+		<Reward>
+			<Amount>25</Amount>
+			<Value>Diamond</Value>
+		</Reward>
+	</Achievement>
+	
+	<Achievement ID="2">
+		<Icon>achievement-kill10000</Icon>
+		<Name>KILL 10000 ENEMIES</Name>
+		<Value>10000</Value>
+		<Reward>
+			<Amount>50</Amount>
+			<Value>Diamond</Value>
+		</Reward>
+	</Achievement>
+
+	<Achievement ID="3">
+		<Icon>achievement-kill500-air</Icon>
+		<Name>KILL 500 ENEMIES AIR</Name>
+		<Value>500</Value>
+		<Reward>
+			<Amount>4</Amount>
+			<Value>Diamond</Value>
+		</Reward>
+	</Achievement>
+
+
+	<Achievement ID="4">
+		<Icon>achievement-kill1000-air</Icon>
+		<Name>KILL 1000 ENEMIES AIR</Name>
+		<Value>1000</Value>
+		<Reward>
+			<Amount>8</Amount>
+			<Value>Diamond</Value>
+		</Reward>
+	</Achievement>
+
+	<Achievement ID="5">
+		<Icon>achievement-kill5000-air</Icon>
+		<Name>KILL 5000 ENEMIES AIR</Name>
+		<Value>5000</Value>
+		<Reward>
+			<Amount>40</Amount>
+			<Value>Diamond</Value>
+		</Reward>
+	</Achievement>
+	
+</Achievements>

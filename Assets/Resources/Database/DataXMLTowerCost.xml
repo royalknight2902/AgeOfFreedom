@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<TowerCost>
+  <Tower id="ARCHITECT">
+    <Diamond>1</Diamond>
+    <Gold>100</Gold>
+  </Tower>
+  <Tower id="ICE">
+    <Diamond>2</Diamond>
+    <Gold>200</Gold>
+  </Tower>
+  <Tower id="ROCK">
+    <Diamond>3</Diamond>
+    <Gold>300</Gold>
+  </Tower>
+  <Tower id="FIRE">
+    <Diamond>4</Diamond>
+    <Gold>400</Gold>
+  </Tower>
+  <Tower id="POISON">
+    <Diamond>2</Diamond>
+    <Gold>200</Gold>
+  </Tower>
+</TowerCost>
