@@ -87,8 +87,8 @@ public class UILevelButton : MonoBehaviour
                 {
                     audio.volume = (float)PlayerInfo.Instance.userInfo.volumeSound / 100;
                     audio.PlayScheduled(0.5f);
-                    LevelManager.Instance.Objects.btnDragon .GetComponent<UIButtonScale>().enabled = false;
-                    LevelManager.Instance.Objects.btnDragonHouseTemp.SetActive(true);
+                    LevelManager.Instance.Objects.btnDragon.GetComponent<UIButtonScale>().enabled = false;
+                    //LevelManager.Instance.Objects.btnDragonHouseTemp.SetActive(true);
                     LevelManager.Instance.openDragonHosuse();
                 }
                 break;
@@ -140,6 +140,10 @@ public class UILevelButton : MonoBehaviour
         if (LevelManager.Instance.mapInfoController.gameObject.activeSelf)
         {
             LevelManager.Instance.mapInfoController.gameObject.SetActive(false);
+        }
+        if (LevelPanel.Instance.Dragon.gameObject.activeSelf)
+        {
+            LevelPanel.Instance.Dragon.gameObject.SetActive(false);
         }
     }
 

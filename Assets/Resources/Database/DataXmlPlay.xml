@@ -10,9 +10,9 @@
 				<TimeWave>1</TimeWave>
 				<TimeEnemy>5</TimeEnemy>
 				
-        <Enemy>Amy-10-1.5</Enemy>
+				<Enemy>Amy-10-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Amy-10-100.0</Enemy>
+				<Enemy>Wolf-10-2.5</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-8-2.0</Enemy>
 				<!--Level 1-->

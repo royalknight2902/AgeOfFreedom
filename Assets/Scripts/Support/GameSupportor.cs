@@ -5,6 +5,7 @@ public class GameSupportor
 {
     public static void transferEnemyData(EnemyController controller, EnemyData data)
     {
+        controller.ID = data.Name;
         controller.attribute.HP.Max = controller.attribute.HP.Current = data.HP;
         controller.attribute.DEF = data.DEF;
         controller.level = data.Level;

@@ -2,8 +2,8 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.unity3d.player"
-  android:installLocation="preferExternal"
-  android:theme="@android:style/Theme.NoTitleBar"
+	android:installLocation="preferExternal"
+	android:theme="@android:style/Theme.NoTitleBar"
     android:versionCode="6"
     android:versionName="1.5">
   <supports-screens
@@ -30,4 +30,6 @@
     </activity>
   </application>
   <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+  <uses-permission android:name="android.permission.BLUETOOTH"/>
 </manifest>

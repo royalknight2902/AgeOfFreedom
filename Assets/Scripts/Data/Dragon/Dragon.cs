@@ -10,5 +10,6 @@ public class Dragon
     public int DEF { get; set; }
     public int ATK { get; set; }
     public int Speed { get; set; }
+    public int ATKSpeed { get; set; }
     public string Branch { get; set; }
 }

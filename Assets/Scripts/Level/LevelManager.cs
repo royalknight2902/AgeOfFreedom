@@ -8,11 +8,23 @@ public class LevelManager : Singleton<LevelManager>
 	public MapInfoController mapInfoController;
 	public LevelModel Model;
     public LevelObject Objects;
+    public GameObject[] buttonHiden;
 
 	private GameObject root;
 	private GameObject[] m_objMocks;
 	[HideInInspector]
     public GameObject tutorial;
+
+    void Awake()
+    {
+        if (SceneState.Instance.State == ESceneState.BLUETOOTH)
+        {
+            for (int i = 0; i < buttonHiden.Length; i++)
+            {
+                buttonHiden[i].SetActive(false);
+            }
+        }
+    }
 
 	void Start ()
 	{
@@ -81,67 +93,86 @@ public class LevelManager : Singleton<LevelManager>
 
 	public void getMocks()
 	{
-		Dictionary<int, PlayerMap> playerMaps = PlayerInfo.Instance.listMap;
-		//int lenghtMap = playerMaps.Count;
+        int lenghtMock = mockRoutine.transform.childCount;
+        m_objMocks = new GameObject[lenghtMock];
 
-		int lenghtMock = mockRoutine.transform.childCount;
-		m_objMocks = new GameObject[lenghtMock];
+        for (int i = 0; i < lenghtMock; i++)
+        {
+            m_objMocks[i] = mockRoutine.transform.GetChild(i).gameObject;
+        }
 
-		for (int i = 0; i < lenghtMock; i++)
-		{
-			m_objMocks[i] = mockRoutine.transform.GetChild(i).gameObject;
-		}
+        #region BLUETOOTH
 
-		UISprite uiStar = Model.StarSucceed.GetComponent<UISprite>();
-		float starWidth = uiStar.width * 0.6f;
-		//float starHeight = uiStar.height;
-		UISprite uiUnlock = Model.Unlock.GetComponent<UISprite>();
-		//float unlockWidth = uiUnlock.width;
-		float unlockHeight = uiUnlock.height;
+        // khi choi o che do bluetooth, mo 5 map cho nguoi choi
+        if (SceneState.Instance.State == ESceneState.BLUETOOTH)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                GameObject objUnLock = Instantiate(Model.Unlock) as GameObject;
+                objUnLock.transform.parent = m_objMocks[i].transform;
+                objUnLock.transform.localPosition = Vector3.one;
+                objUnLock.transform.localScale = Vector3.one;
 
-		for (int j = 0; j < lenghtMock; j++)
-		{
-			int mapID = m_objMocks[j].GetComponent<MockController>().mapID;
+                m_objMocks[i].transform.GetChild(0).gameObject.SetActive(false);
+            }
+            return;
+        }
 
-			if (playerMaps.ContainsKey(mapID))
-			{
-				//m_objMocks[j].GetComponent<MockController>().mapName = playerMaps[mapID].
-				// show unlock
-				GameObject objUnLock = Instantiate(Model.Unlock) as GameObject;
-				objUnLock.transform.parent = m_objMocks[j].transform;
-				objUnLock.transform.localPosition = Vector3.one;
-				objUnLock.transform.localScale = Vector3.one;
-				objUnLock.GetComponent<UIStretch>().container = m_objMocks[j].transform.GetChild(0).gameObject;
-				objUnLock.GetComponent<UIUnlock>().starSuccess = playerMaps[mapID].starSuccess;
+        #endregion
 
-				// hide lock
-				m_objMocks[j].transform.GetChild(0).gameObject.SetActive(false);
+        #region ADVENTURE
 
-				// show star
-				Vector3 temp = new Vector3(-(float)(playerMaps[mapID].starTotal - 1) / 2 * starWidth, unlockHeight / 2, 0);
-				for (int k = 0; k < playerMaps[mapID].starSuccess; k++)
-				{
-					Vector3 starPosition = temp + new Vector3(starWidth * k, 0, 0);
-					GameObject objStarSuccess = Instantiate(Model.StarSucceed) as GameObject;
-					objStarSuccess.transform.parent = objUnLock.transform;
-					objStarSuccess.transform.localPosition = starPosition;
-					objStarSuccess.transform.localScale = Vector3.zero;
-					tweenStarScale(objStarSuccess, Vector3.one);
-				}
+        Dictionary<int, PlayerMap> playerMaps = PlayerInfo.Instance.listMap;
 
-				for (int k = playerMaps[mapID].starSuccess; k < playerMaps[mapID].starTotal; k++)
-				{
-					Vector3 starPosition = temp + new Vector3(starWidth * k, 0, 0);
-					GameObject objStarSuccess = Instantiate(Model.StarUnsucceed) as GameObject;
-					objStarSuccess.transform.parent = objUnLock.transform;
-					objStarSuccess.transform.localPosition = starPosition;
-					objStarSuccess.transform.localScale = Vector3.zero;
-					tweenStarScale(objStarSuccess, Vector3.one);
-				}
-			}
-		}
+        UISprite uiStar = Model.StarSucceed.GetComponent<UISprite>();
+        float starWidth = uiStar.width * 0.6f;
+        //float starHeight = uiStar.height;
+        UISprite uiUnlock = Model.Unlock.GetComponent<UISprite>();
+        //float unlockWidth = uiUnlock.width;
+        float unlockHeight = uiUnlock.height;
 
-		
+        for (int j = 0; j < lenghtMock; j++)
+        {
+            int mapID = m_objMocks[j].GetComponent<MockController>().mapID;
+
+            if (playerMaps.ContainsKey(mapID))
+            {
+                //m_objMocks[j].GetComponent<MockController>().mapName = playerMaps[mapID].
+                // show unlock
+                GameObject objUnLock = Instantiate(Model.Unlock) as GameObject;
+                objUnLock.transform.parent = m_objMocks[j].transform;
+                objUnLock.transform.localPosition = Vector3.one;
+                objUnLock.transform.localScale = Vector3.one;
+                objUnLock.GetComponent<UIStretch>().container = m_objMocks[j].transform.GetChild(0).gameObject;
+                objUnLock.GetComponent<UIUnlock>().starSuccess = playerMaps[mapID].starSuccess;
+
+                // hide lock
+                m_objMocks[j].transform.GetChild(0).gameObject.SetActive(false);
+
+                // show star
+                Vector3 temp = new Vector3(-(float)(playerMaps[mapID].starTotal - 1) / 2 * starWidth, unlockHeight / 2, 0);
+                for (int k = 0; k < playerMaps[mapID].starSuccess; k++)
+                {
+                    Vector3 starPosition = temp + new Vector3(starWidth * k, 0, 0);
+                    GameObject objStarSuccess = Instantiate(Model.StarSucceed) as GameObject;
+                    objStarSuccess.transform.parent = objUnLock.transform;
+                    objStarSuccess.transform.localPosition = starPosition;
+                    objStarSuccess.transform.localScale = Vector3.zero;
+                    tweenStarScale(objStarSuccess, Vector3.one);
+                }
+
+                for (int k = playerMaps[mapID].starSuccess; k < playerMaps[mapID].starTotal; k++)
+                {
+                    Vector3 starPosition = temp + new Vector3(starWidth * k, 0, 0);
+                    GameObject objStarSuccess = Instantiate(Model.StarUnsucceed) as GameObject;
+                    objStarSuccess.transform.parent = objUnLock.transform;
+                    objStarSuccess.transform.localPosition = starPosition;
+                    objStarSuccess.transform.localScale = Vector3.zero;
+                    tweenStarScale(objStarSuccess, Vector3.one);
+                }
+            }
+        }
+        #endregion
 	}
 
     // add tutorial detail into level
