@@ -332,8 +332,37 @@ public class ReadDatabase
     {
         DragonInfo = new DragonData();
 
+        readDragonInfo();
         readDragonHouse();
         readDragonItem();
+    }
+
+    void readDragonInfo()
+    {
+        TextAsset textAsset = (TextAsset)Resources.Load(GameConfig.DatabasePathDragon);
+        string[] temp = textAsset.text.Split('\n');
+
+        int lenght = temp.Length;
+        for (int i = 1; i <= lenght - 1; i++)
+        {
+            if (!string.IsNullOrEmpty(temp[i].Trim()))
+            {
+                Dragon data = new Dragon();
+
+                string[] s = temp[i].Trim().Split(';');
+
+                data.ID = int.Parse(s[0]);
+                data.Name = s[1];
+                data.HP = int.Parse(s[2]);
+                data.MP = int.Parse(s[3]);
+                data.DEF = int.Parse(s[4]);
+                data.ATK = int.Parse(s[5]);
+                data.Branch = s[6].Trim();
+                data.Speed = int.Parse(s[7]);
+
+                DragonInfo.DragonInfo.Add(data.ID, data);
+            }
+        }
     }
 
     void readDragonHouse()
@@ -344,17 +373,20 @@ public class ReadDatabase
         int lenght = temp.Length;
         for (int i = 1; i <= lenght - 1; i++)
         {
-            DragonHouseData data = new DragonHouseData();
+            if (!string.IsNullOrEmpty(temp[i].Trim()))
+            {
+                DragonHouseData data = new DragonHouseData();
 
-            string[] s = temp[i].Split(';');
-            data.Name = s[1];
-            data.Level = int.Parse(s[2]);
-            data.Cost = int.Parse(s[3]);
-            data.TimeBuild = float.Parse(s[4]);
-            data.TimeGenerateChild = float.Parse(s[5]);
-            data.LimitChild = int.Parse(s[6]);
+                string[] s = temp[i].Split(';');
+                data.Name = s[1];
+                data.Level = int.Parse(s[2]);
+                data.Cost = int.Parse(s[3]);
+                data.TimeBuild = float.Parse(s[4]);
+                data.TimeGenerateChild = float.Parse(s[5]);
+                data.LimitChild = int.Parse(s[6]);
 
-            DragonInfo.House.Add(data.Level, data);
+                DragonInfo.House.Add(data.Level, data);
+            }
         }
     }
 

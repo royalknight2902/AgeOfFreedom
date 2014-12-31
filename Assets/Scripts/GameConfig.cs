@@ -35,6 +35,7 @@ public class GameConfig
 	public const string DatabasePathAchievement = "Database/DataXmlAchievement";
     public const string DatabasePathDragonItem = "Database/DataXMLDragonItems";
     public const string DatabasePathDragonHouse = "Database/DragonHouseInfo";
+    public const string DatabasePathDragon = "Database/Dragon";
 
 	public const string PathMap = "Image/Map/map-";
 	public const string PathTowerIcon = "Image/Tower/TowerBuildIcon/tower-";
