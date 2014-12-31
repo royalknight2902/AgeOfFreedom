@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DragonAttack : MonoBehaviour 
 {
-	DragonController controller;
+	private DragonController controller;
 
 	void Start()
 	{
@@ -30,8 +30,6 @@ public class DragonAttack : MonoBehaviour
                     controller.stateMove.attackDirection = EDragonStateDirection.RIGHT;
 
                 controller.StateAction = EDragonStateAction.ATTACK;
-                //controller.StateAction = EDragonStateAction.MOVE;
-                //controller.stateMove.Movement = EDragonMovement.MOVE_TO_ENEMY;
             }
 		}
 	}

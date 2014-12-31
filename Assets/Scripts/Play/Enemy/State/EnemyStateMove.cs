@@ -73,9 +73,18 @@ public class EnemyStateMove : FSMState<EnemyController>
 
     void checkDireciotn(EnemyController controller)
     {
-        EDirection pathDirection = Paths[iCurrentPath].GetComponent<PathController>().Direction;
-        if (pathDirection != controller.StateDirection)
-            controller.StateDirection = pathDirection;
+        if (iCurrentPath >= Paths.Length)
+        {
+            EDirection pathDirection = Paths[iCurrentPath - 1].GetComponent<PathController>().Direction;
+            if (pathDirection != controller.StateDirection)
+                controller.StateDirection = pathDirection;
+        }
+        else
+        {
+            EDirection pathDirection = Paths[iCurrentPath].GetComponent<PathController>().Direction;
+            if (pathDirection != controller.StateDirection)
+                controller.StateDirection = pathDirection;
+        }
     }
 
 	void getSteer(EnemyController controller)
@@ -89,6 +98,9 @@ public class EnemyStateMove : FSMState<EnemyController>
 		// delete enemy when go to end path
 		if (iCurrentPath >= Paths.Length)
 		{
+            Debug.Log(Paths.Length);
+            Debug.Log(iCurrentPath);
+
 			if(SceneState.Instance.State != ESceneState.ADVENTURE)
 			{
 				MonoBehaviour.Destroy(controller.gameObject);

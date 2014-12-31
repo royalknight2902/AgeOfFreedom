@@ -57,7 +57,7 @@ public class EnemyStateAttack : FSMState<EnemyController>
 
 		float valueTo = dragonController.attribute.HP.Current / (float)dragonController.attribute.HP.Max;
 
-		dragonController.updateTextHP ();
+		dragonController.updateTextHP();
 
 		EffectSupportor.Instance.runSliderValue (dragonController.sliderHP, valueTo);
 		EffectSupportor.Instance.runSliderValue (PlayDragonInfoController.Instance.sliderHP, valueTo);
@@ -69,6 +69,39 @@ public class EnemyStateAttack : FSMState<EnemyController>
             target = null;
 		}
 	}
+
+    public void attackDragonBaby()
+    {
+        if (target == null)
+        {
+            return;
+        }
+        BabyDragonController babyController = target.GetComponent<BabyDragonController>();
+
+        if (babyController != null)
+        {
+            int dmg = PlayManager.Instance.pushDamagePhysics(controller.attribute.ATK.Min,
+                                                         controller.attribute.ATK.Max,
+                                                         babyController.attribute.DEF);
+            babyController.attribute.HP.Current -= dmg;
+            if (babyController.attribute.HP.Current < 0)
+                babyController.attribute.HP.Current = 0;
+
+            float valueTo = babyController.attribute.HP.Current / (float)babyController.attribute.HP.Max;
+
+            babyController.updateTextHP();
+
+            EffectSupportor.Instance.runSliderValue(babyController.sliderHP, valueTo);
+            EffectSupportor.Instance.runSliderValue(PlayDragonInfoController.Instance.sliderHP, valueTo);
+
+            if (babyController.attribute.HP.Current <= 0)
+            {
+                babyController.StateAction = EDragonStateAction.DIE;
+                controller.StateAction = EEnemyStateAction.MOVE;
+                target = null;
+            }
+        }
+    }
 
 	void setDirection()
 	{

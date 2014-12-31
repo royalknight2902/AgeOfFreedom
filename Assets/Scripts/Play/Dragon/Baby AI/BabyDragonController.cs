@@ -70,6 +70,8 @@ public class BabyDragonController : MonoBehaviour
         StateDirection = EDragonStateDirection.LEFT;
 
         isTargeted = false;
+
+        attribute.HP.Current = attribute.HP.Max;
     }
 
     void Start()
@@ -95,5 +97,10 @@ public class BabyDragonController : MonoBehaviour
     void runResources()
     {
         babyAnimation.changeResources(StateAction);
+    }
+
+    public void updateTextHP()
+    {
+        PlayDragonInfoController.Instance.labelHP.text = attribute.HP.Current + " / " + attribute.HP.Max;
     }
 }

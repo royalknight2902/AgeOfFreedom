@@ -31,7 +31,14 @@ public class EnemyAnimation : MonoBehaviour
         {
             case EEnemyStateAction.ATTACK:
                 animationFrames.createAnimation(EEnemyStateAction.ATTACK, "Image/Enemy/" + controller.ID + "/Attack", timeFrame, true);
-                callback = new EventDelegate(controller.stateAttack.attackDragon);
+                if (controller.stateAttack.target.GetComponent<DragonController>() != null)
+                {
+                    callback = new EventDelegate(controller.stateAttack.attackDragon);
+                }
+                else if (controller.stateAttack.target.GetComponent<BabyDragonController>() != null)
+                {
+                    callback = new EventDelegate(controller.stateAttack.attackDragonBaby);
+                }
                 currentKey = controller.StateAction;
                 break;
             case EEnemyStateAction.DIE:

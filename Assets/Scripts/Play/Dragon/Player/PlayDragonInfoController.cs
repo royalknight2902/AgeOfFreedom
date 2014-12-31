@@ -10,7 +10,5 @@ public class PlayDragonInfoController : Singleton<PlayDragonInfoController>
 	public UILabel labelMP;
 	public UISlider sliderHP;
 	public UISlider sliderMP;
-
-
 }
 

@@ -3,7 +3,9 @@ using System.Collections;
 
 public class BabyDragonStateMove : FSMState<BabyDragonController>
 {
-    EDragonStateDirection preStateDirection;
+    public EDragonStateDirection attackDirection { get; set; }
+
+    private EDragonStateDirection preStateDirection;
 
     public override void Enter(BabyDragonController obj)
     {

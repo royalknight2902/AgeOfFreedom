@@ -12,14 +12,12 @@ public class DragonItemsManager : Singleton<DragonItemsManager> {
 
     void Start()
     {
-        
         initDragonItems();
-        
     }
 
     void initDragonItems()
     {
-        listItems = new System.Collections.Generic.List< DragonItemData>();
+        listItems = new System.Collections.Generic.List<DragonItemData>();
         AutoDestroy.destroyChildren(tempListDragonItem,null);
         //Debug.Log(ReadDatabase.Instance.DragonItemInfo.Count);
         int i = 0;

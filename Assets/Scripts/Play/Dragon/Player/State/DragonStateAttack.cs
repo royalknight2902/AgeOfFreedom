@@ -47,6 +47,11 @@ public class DragonStateAttack : FSMState<DragonController>
 
     public void attackEnemy()
     {
+        if (target == null)
+        {
+            return;
+        }
+
         EnemyController enemyController = target.GetComponent<EnemyController>();
 
         int dmg = PlayManager.Instance.pushDamagePhysics(controller.attribute.ATK.Min,

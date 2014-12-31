@@ -24,6 +24,7 @@ public class BabyDragonAnimation : MonoBehaviour
                 break;
             case EDragonStateAction.ATTACK:
                 animationFrames.createAnimation(EDragonStateAction.ATTACK, "Image/Dragon/Baby/Attack", 0.3f, true);
+                animationFrames.addEvent(new object[] { 4 }, new EventDelegate(controller.stateAttack.attackEnemy), false);
                 break;
             case EDragonStateAction.DIE:
                 animationFrames.createAnimation(EDragonStateAction.DIE, "Image/Dragon/Baby/Die", 0.3f, true);
