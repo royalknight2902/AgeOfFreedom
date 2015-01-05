@@ -1,6 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public static class Extensions
+{
+    public static object GetEnum(System.Type type, string s)
+    {
+        System.Array arr = System.Enum.GetValues(type);
+        object[] objectValues = new object[arr.Length];
+        System.Array.Copy(arr, objectValues, arr.Length);
+
+        object result = null;
+        foreach (object e in objectValues)
+        {
+            if (e.ToString().Equals(s))
+            {
+                result = e;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public static T Next<T>(this T src) where T : struct
+    {
+        //if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argumnent {0} is not an Enum", typeof(T).FullName));
+        T[] Arr = (T[])System.Enum.GetValues(src.GetType());
+        int j = System.Array.IndexOf<T>(Arr, src) + 1;
+        return (Arr.Length == j) ? Arr[0] : Arr[j];
+    }
+
+    public static T Previous<T>(this T src) where T : struct
+    {
+        //if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argumnent {0} is not an Enum", typeof(T).FullName));
+        T[] Arr = (T[])System.Enum.GetValues(src.GetType());
+        int j = System.Array.IndexOf<T>(Arr, src) - 1;
+        return (j < 0) ? Arr[Arr.Length - 1] : Arr[j];
+    }
+}
+
 public class GameSupportor
 {
     public static void transferEnemyData(EnemyController controller, EnemyData data)

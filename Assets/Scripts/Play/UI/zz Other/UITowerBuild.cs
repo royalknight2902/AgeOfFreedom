@@ -36,9 +36,12 @@ public class UITowerBuild : MonoBehaviour
                     playManager.rangeTower.SetActive(false);
                     isChoosed = false;
 
-                    if (playManager.tempInit.panelDragonInfo.activeInHierarchy)
+                    if (playManager.tempInit.panelDragonInfo != null)
                     {
-                        playManager.tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayForward();
+                        if (playManager.tempInit.panelDragonInfo.activeInHierarchy)
+                        {
+                            playManager.tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayForward();
+                        }
                     }
                 }
                 else

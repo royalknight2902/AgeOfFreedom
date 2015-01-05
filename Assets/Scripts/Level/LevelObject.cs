@@ -8,4 +8,5 @@ public class LevelObject
     public GameObject btnDragon;
     public GameObject btnBag;
     public GameObject btnDragonHouseTemp;
+    public GameObject selectedDragon;
 }

@@ -27,16 +27,6 @@ public enum EShootAmount
 
 }
 
-public enum EBranchGame
-{
-
-	IRON, //Kim
-	PLANT, //Moc
-	ICE, //Thuy
-	FIRE, //Hoa
-    EARTH, //Tho
-}
-
 [System.Serializable]
 public class TowerController : MonoBehaviour
 {

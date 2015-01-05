@@ -98,9 +98,6 @@ public class EnemyStateMove : FSMState<EnemyController>
 		// delete enemy when go to end path
 		if (iCurrentPath >= Paths.Length)
 		{
-            Debug.Log(Paths.Length);
-            Debug.Log(iCurrentPath);
-
 			if(SceneState.Instance.State != ESceneState.ADVENTURE)
 			{
 				MonoBehaviour.Destroy(controller.gameObject);

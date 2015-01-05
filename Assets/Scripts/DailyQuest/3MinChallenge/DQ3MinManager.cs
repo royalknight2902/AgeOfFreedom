@@ -154,7 +154,8 @@ public class DQ3MinManager : Singleton<DQ3MinManager>
 			int iRandom = Random.Range(1, levelLength);
 			int routine = Random.Range(0, WaveController.Instance.enemyRoutine.Length);
            
-            GameSupportor.transferEnemyData(enemyController, listDictEnemy[enemyLevel - 1][iRandom]);
+            EnemyData data = listDictEnemy[enemyLevel - 1][iRandom];
+            GameSupportor.transferEnemyData(enemyController, data);
 
 			// show enemy
 			for(int i=0; i< amount;i++)

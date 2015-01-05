@@ -52,7 +52,11 @@ public class UITower : MonoBehaviour
             type = ETowerType.CHOOSED;
 
             panelTween.PlayForward();
-            playManager.tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayReverse();
+
+            if (playManager.tempInit.panelDragonInfo != null)
+            {
+                playManager.tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayReverse();
+            }
 
             playManager.objectUpgrade.Tower = towerController.gameObject;
             playManager.resetBuilding();

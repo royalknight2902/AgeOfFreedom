@@ -25,6 +25,7 @@ public class PlayerInfo
 	XCollection<PlayerAchievement> achievements = new XCollection<PlayerAchievement>();
 
 	public UserInfo userInfo = new UserInfo();
+    public PlayerDragon dragonInfo = new PlayerDragon();
     public TutorialInfo tutorialInfo = new TutorialInfo();
 	public Dictionary<int, PlayerMap> listMap = new Dictionary<int, PlayerMap>();
 	public Dictionary<string, bool> listEnemy = new Dictionary<string, bool>();
@@ -39,6 +40,8 @@ public class PlayerInfo
 	public void Save()
 	{
 		userInfo.Save();
+        dragonInfo.Save();
+        tutorialInfo.Save();
 		maps.Save();
 		enemies.Save();
 		dailyQuests.Save ();
@@ -53,13 +56,13 @@ public class PlayerInfo
         //userInfo = new UserInfo();
 
 		userInfo = userInfo.Load<UserInfo>();
+        dragonInfo = dragonInfo.Load<PlayerDragon>();
+        tutorialInfo.resetValue();
 
         // reset lai tutorial trong game, chi xuat hien mot lan duy nhat trong 1 lan choi game cua nguoi choi
 		userInfo.checkTutorialLevel = 0;
 		userInfo.checkTutorialPlay = 0;
 		userInfo.Save();
-
-        tutorialInfo.resetValue();
 
 		if (userInfo.check == 0)
 		{
@@ -115,31 +118,7 @@ public class PlayerInfo
 	#region USER
 	void updateVersion()
 	{
-        if (userInfo.version == 0)
-        {
-            userInfo.version = 1;
-            userInfo.Save();
-        }
-
-        if (userInfo.version == 1)
-        {
-            userInfo.version = 2;
-            userInfo.Save();
-        }
-
-        if (userInfo.version == 2)
-        {
-            userInfo.version = 3;
-            userInfo.Save();
-        }
-
-        if (userInfo.version == 3)
-        {
-            userInfo.version = 4;
-            userInfo.Save();
-        }
-
-        if (userInfo.version == 4)
+        if (userInfo.version <= 4)
         {
             PlayerMap[] tempMaps = maps.Load<PlayerMap>();
             int tempDiamond = userInfo.Load<UserInfo>().diamond + 10;
@@ -187,15 +166,20 @@ public class PlayerInfo
 
             Save();
         }
-
-        if (userInfo.version == 5)
+        if (userInfo.version > 4 && userInfo.version < 7) //version add dragon
         {
+            if (dragonInfo.id.Equals(""))
+            {
+                dragonInfo.id = EBranchGame.FIRE.ToString().ToUpper();
+                dragonInfo.rank = 1;
+                dragonInfo.Save();
+            }
+
             // version hien tai
-            userInfo.version = 6;
+            userInfo.version = 7;
             userInfo.Save();
         }
-
-        if (userInfo.version == 6)
+        if (userInfo.version == 7)
         {
         }
 
@@ -374,6 +358,9 @@ public class PlayerInfo
 	public void reset()
 	{
         int length;
+
+        //Dragon
+        dragonInfo.id = "FIRE";
 
 		//map
 		maps.DeleteAll();

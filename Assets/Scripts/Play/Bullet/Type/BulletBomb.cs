@@ -52,7 +52,6 @@ public class BulletBomb : BulletTemplate
 
     public override void Update()
     {
-        Debug.Log(Time.deltaTime);
         m_fTime += Time.deltaTime * 18;
 
         if (m_fTime >= (Mathf.Abs(m_fX) / (m_fVelocity * Mathf.Cos(m_fAngle))))

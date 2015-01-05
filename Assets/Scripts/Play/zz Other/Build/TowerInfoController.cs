@@ -56,7 +56,9 @@ public class TowerInfoController : MonoBehaviour
 	{
         isOnTowerInfo = true;   
         childTowerInfo.SetActive(true);
-        childDragonInfo.SetActive(false);
+
+        if(childDragonInfo != null)
+            childDragonInfo.SetActive(false);
 
 		controller = towerController;
 

@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum EDragonBranch
+{
+    FIRE,
+    ICE,
+    IRON,
+    PLANT,
+    EARTH,
+}
+
 public enum EDragonStateAction
 {
     IDLE,

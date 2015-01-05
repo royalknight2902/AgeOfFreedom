@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum EBranchGame
+{
+    IRON, //Kim
+    PLANT, //Moc
+    ICE, //Thuy
+    FIRE, //Hoa
+    EARTH, //Tho
+}
+
 public class GameConfig
 {
     //public const int VersionCode = 4;
@@ -25,17 +34,18 @@ public class GameConfig
     public const int RenderQueueFlag = 3810;
     public const int RenderQueueDragon = 3850;
 	//Path
-	public const string DatabasePathPlay = "Database/DataXmlPlay";
-	public const string DatabasePathTowerCost = "Database/DataXmlTowerCost";
-	public const string DatabasePathItem = "Database/DataXmlItem";
+	public const string DatabasePathPlay = "Database/XmlPlay";
+	public const string DatabasePathTowerCost = "Database/XmlTowerCost";
+	public const string DatabasePathItem = "Database/XmlItem";
+    public const string DatabasePathDailyQuest = "Database/XmlDailyQuest";
+    public const string DatabasePathAchievement = "Database/XmlAchievement";
+    public const string DatabasePathDragonItem = "Database/XmlDragonItems";
+
 	public const string DatabasePathEnemyInfo = "Database/EnemyInfo";
 	public const string DatabasePathTowerInfo = "Database/TowerInfo";
     public const string DatabasePathTowerPassiveInfo = "Database/TowerPassiveInfo";
-	public const string DatabasePathDailyQuest = "Database/DataXmlDailyQuest";
-	public const string DatabasePathAchievement = "Database/DataXmlAchievement";
-    public const string DatabasePathDragonItem = "Database/DataXMLDragonItems";
     public const string DatabasePathDragonHouse = "Database/DragonHouseInfo";
-    public const string DatabasePathDragon = "Database/Dragon";
+    public const string DatabasePathDragonPlayer = "Database/DragonPlayerInfo";
 
 	public const string PathMap = "Image/Map/map-";
 	public const string PathTowerIcon = "Image/Tower/TowerBuildIcon/tower-";

@@ -27,11 +27,13 @@ public class UITowerInfo : MonoBehaviour
 					playManager.sellTower();
 					playManager.resetRangeTower();
 
-                    if (playManager.tempInit.panelDragonInfo.activeInHierarchy)
+                    if (playManager.tempInit.panelDragonInfo != null)
                     {
-                        playManager.tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayForward();
+                        if (playManager.tempInit.panelDragonInfo.activeInHierarchy)
+                        {
+                            playManager.tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayForward();
+                        }
                     }
-
 				}
 				else // if choose sell
 				{
@@ -70,9 +72,12 @@ public class UITowerInfo : MonoBehaviour
 					playManager.towerInfoController.hasClickUpgrade = false;
 					playManager.upgradeTower();
 
-                    if (playManager.tempInit.panelDragonInfo.activeInHierarchy)
+                    if (playManager.tempInit.panelDragonInfo != null)
                     {
-                        playManager.tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayForward();
+                        if (playManager.tempInit.panelDragonInfo.activeInHierarchy)
+                        {
+                            playManager.tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayForward();
+                        }
                     }
 				}
 				// if choose upgrade tower

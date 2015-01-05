@@ -332,38 +332,35 @@ public class ReadDatabase
     {
         DragonInfo = new DragonData();
 
-        readDragonInfo();
+        readDragonPlayer();
         readDragonHouse();
         readDragonItem();
     }
 
-    void readDragonInfo()
+    void readDragonPlayer()
     {
-        TextAsset textAsset = (TextAsset)Resources.Load(GameConfig.DatabasePathDragon);
+        TextAsset textAsset = (TextAsset)Resources.Load(GameConfig.DatabasePathDragonPlayer);
         string[] temp = textAsset.text.Split('\n');
 
         int lenght = temp.Length;
         for (int i = 1; i <= lenght - 1; i++)
         {
-            if (!string.IsNullOrEmpty(temp[i].Trim()))
-            {
-                Dragon data = new Dragon();
+            DragonPlayerData data = new DragonPlayerData();
+            string[] s = temp[i].Split(';');
+            data.Name = s[1];
+            data.HP = int.Parse(s[2]);
+            data.MP = int.Parse(s[3]);
+            data.DEF = int.Parse(s[4]);
+            string[] tempATK = s[5].Split('-');
+            data.ATK = new SMinMax(int.Parse(tempATK[0]), int.Parse(tempATK[1]));
+            data.ATKSpeed = float.Parse(s[7]);
+            data.MoveSpeed = float.Parse(s[8]);
 
-                string[] s = temp[i].Trim().Split(';');
-
-                data.ID = int.Parse(s[0]);
-                data.Name = s[1];
-                data.HP = int.Parse(s[2]);
-                data.MP = int.Parse(s[3]);
-                data.DEF = int.Parse(s[4]);
-                data.ATK = int.Parse(s[5]);
-                data.Branch = s[6].Trim();
-                data.Speed = int.Parse(s[7]);
-
-                DragonInfo.DragonInfo.Add(data.ID, data);
-            }
+            string branch = s[6];
+            DragonInfo.Player.Add(branch.ToUpper(), data);
         }
     }
+
 
     void readDragonHouse()
     {

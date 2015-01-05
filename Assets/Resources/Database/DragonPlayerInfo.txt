@@ -1,0 +1,6 @@
+ID;Name;HP;MP;DEF;ATK;Branch;ATKSpeed;MoveSpeed;State;Time Frame;Frame Event;Skill
+1;Fire Dragon;500;100;20;30-50;Fire;10;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Fire1
+2;Ice Dragon;600;100;20;30-50;Ice;9;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Ice1
+3;Iron Dragon;700;100;20;30-50;Iron;8;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Iron1
+4;Plant Dragon;800;100;20;30-50;Plant;7;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Tree1
+5;Earth Dragon;900;100;20;30-50;Earth;6;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Land1

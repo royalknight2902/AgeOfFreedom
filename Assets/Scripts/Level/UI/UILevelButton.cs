@@ -180,7 +180,6 @@ public class UILevelButton : MonoBehaviour
 
     IEnumerator waitToBagPanel(float time)
     {
-
         yield return new WaitForSeconds(time);
         if (!LevelPanel.Instance.Bag.activeSelf)
         {
