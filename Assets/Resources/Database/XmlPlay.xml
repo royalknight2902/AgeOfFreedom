@@ -4,19 +4,19 @@
 		<Money>400</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
 				<TimeEnemy>4</TimeEnemy>
-				
+				<Enemy>Amy-6-2.5</Enemy>
+				<!--Level 1-->
 				<!--Level 1-->
 				<Enemy>Wolf-8-2.5</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Amy-6-2.5</Enemy>
-				<!--Level 1-->
+				
 				<Enemy>Red Bull-6-2.5</Enemy>
 				<!--Level 1-->
 				<Enemy>Orc Black-8-2.0</Enemy>
@@ -182,7 +182,7 @@
 		<Money>400</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -378,7 +378,7 @@
 		<Money>450</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -618,7 +618,7 @@
 		<Money>450</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -858,7 +858,7 @@
 		<Money>500</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -1170,7 +1170,7 @@
 		<Money>500</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -1482,7 +1482,7 @@
 		<Money>500</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -1794,7 +1794,7 @@
 		<Money>600</Money>
 		<Heart>15</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -2178,7 +2178,7 @@
 		<Money>600</Money>
 		<Heart>15</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -2562,7 +2562,7 @@
 		<Money>600</Money>
 		<Heart>15</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice</TowerUsed>
+		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
