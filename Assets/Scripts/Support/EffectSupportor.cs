@@ -57,6 +57,86 @@ public class EffectSupportor : Singleton<EffectSupportor>
     }
     #endregion
 
+    #region FADE OUT WITH CALLBACK EVENT
+    public void fadeOutWithEvent(GameObject target, ESpriteType type, float time, EventDelegate callback)
+    {
+        StartCoroutine(runfadeOutWithEvent(target, type, time, callback));
+    }
+
+    IEnumerator runfadeOutWithEvent(GameObject target, ESpriteType type, float time, EventDelegate callback)
+    {
+        if (type == ESpriteType.SPRITE_RENDERER)
+        {
+            SpriteRenderer render = target.GetComponent<SpriteRenderer>();
+            float ValueEachFrame = (float)Time.deltaTime / time;
+
+            while (true)
+            {
+                if (render == null)
+                    yield break;
+
+                Color color = render.color;
+
+                if (color.a <= 0)
+                {
+                    callback.Execute();
+                    yield break;
+                }
+                else
+                    render.color = new Color(color.r, color.g, color.b, color.a - ValueEachFrame);
+
+                yield return 0;
+            }
+        }
+        else if (type == ESpriteType.UI_SPRITE)
+        {
+            UISprite render = target.GetComponent<UISprite>();
+            float ValueEachFrame = (float)Time.deltaTime / time;
+
+            while (true)
+            {
+                if (render == null)
+                    yield break;
+
+                Color color = render.color;
+
+                if (color.a <= 0)
+                {
+                    callback.Execute();
+                    yield break;
+                }
+                else
+                    render.color = new Color(color.r, color.g, color.b, color.a - ValueEachFrame);
+
+                yield return 0;
+            }
+        }
+        else if (type == ESpriteType.UI_TEXTURE)
+        {
+            UITexture render = target.GetComponent<UITexture>();
+            float ValueEachFrame = (float)Time.deltaTime / time;
+
+            while (true)
+            {
+                if (render == null)
+                    yield break;
+
+                Color color = render.color;
+
+                if (color.a <= 0)
+                {
+                    callback.Execute();
+                    yield break;
+                }
+                else
+                    render.color = new Color(color.r, color.g, color.b, color.a - ValueEachFrame);
+
+                yield return 0;
+            }
+        }
+    }
+    #endregion
+
     #region FADE OUT AND DESTROY OBJECT
     public void fadeOutAndDestroy(GameObject target, ESpriteType type, float time)
     {

@@ -8,8 +8,7 @@ public class DragonItemsController : MonoBehaviour {
     public UILabel labelInfoBonus;
     public GameObject spriteEquipment;
     
-
-    public int ID { get; set; }
+    public string ID { get; set; }
 
     public void EquipItem()
     {

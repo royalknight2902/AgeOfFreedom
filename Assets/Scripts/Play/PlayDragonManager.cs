@@ -32,6 +32,9 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
         PlayerDragon.transform.GetChild(1).GetComponent<UIStretch>().container = GameObject.FindWithTag("Root");
 
         dragonController = PlayerDragon.GetComponent<DragonController>();
+
+        //Stretch selected arrow
+        dragonController.selected.transform.GetChild(0).GetComponent<UIStretch>().container = PlayManager.Instance.tempInit.cameraRender;
     }
 
     public void moveToHouse()

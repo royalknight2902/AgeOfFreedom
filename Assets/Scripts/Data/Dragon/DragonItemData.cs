@@ -8,5 +8,5 @@ public class DragonItemData
     public float[] Options { get; set; }
     public static string[] nameOptions = { "Atk", "Def", "HP", "MP", "AS", "MS" };
 
-    public int ID { get; set; }
+    public string ID { get; set; }
 }

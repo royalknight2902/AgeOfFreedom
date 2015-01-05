@@ -172,6 +172,7 @@ public class PlayerInfo
             {
                 dragonInfo.id = EBranchGame.FIRE.ToString().ToUpper();
                 dragonInfo.rank = 1;
+                dragonInfo.itemAmulet = dragonInfo.itemBody = dragonInfo.itemHead = dragonInfo.itemRing = dragonInfo.itemRune = dragonInfo.itemWing = "";
                 dragonInfo.Save();
             }
 

@@ -51,17 +51,21 @@ public class AnimationFrames : MonoBehaviour
     float elapsedTime;
     bool isEnable;
     bool isLoop;
+    bool isForced;
 
     void Awake()
     {
         render = GetComponent<SpriteRenderer>();
         frames = new Sprite[0];
+
+        isForced = false;
     }
 
     public void createAnimation(object state, string _path, float _timeFrame, bool looping)
     {
         currentState = state;
         isLoop = looping;
+        isForced = false;
 
         if (listData.ContainsKey(state))
         {
@@ -85,29 +89,29 @@ public class AnimationFrames : MonoBehaviour
         else
         {
             Resources.UnloadUnusedAssets();
-           // frames = Resources.LoadAll<Sprite>(_path);
-			Sprite[] temps = Resources.LoadAll<Sprite>(_path);
-			int len = temps.Length;
-			frames = new Sprite[len];
-			int index = 0, lenArr = 0;
-			for (int i = 0; i < len; i++)
-			{
-			
+            // frames = Resources.LoadAll<Sprite>(_path);
+            Sprite[] temps = Resources.LoadAll<Sprite>(_path);
+            int len = temps.Length;
+            frames = new Sprite[len];
+            int index = 0, lenArr = 0;
+            for (int i = 0; i < len; i++)
+            {
 
-				lenArr = temps[i].name.ToString().Split('_').Length;
-				if(lenArr == 1)
-				{
-					lenArr = temps[i].name.ToString().Split('-').Length;
-					index = int.Parse((temps[i].name.ToString().Split('-')[lenArr - 1]).ToString());
-					frames[index-1] = temps[i];	
-				}
-				else
-				{
-					index = int.Parse((temps[i].name.ToString().Split('_')[lenArr - 1]).ToString());
-					frames[index-1] = temps[i];
-				}
 
-			}
+                lenArr = temps[i].name.ToString().Split('_').Length;
+                if (lenArr == 1)
+                {
+                    lenArr = temps[i].name.ToString().Split('-').Length;
+                    index = int.Parse((temps[i].name.ToString().Split('-')[lenArr - 1]).ToString());
+                    frames[index - 1] = temps[i];
+                }
+                else
+                {
+                    index = int.Parse((temps[i].name.ToString().Split('_')[lenArr - 1]).ToString());
+                    frames[index - 1] = temps[i];
+                }
+
+            }
             timeFrame = _timeFrame;
             keyStart = currentKeyFrame = 0;
             keyEnd = frames.Length - 1;
@@ -127,6 +131,49 @@ public class AnimationFrames : MonoBehaviour
         }
 
         checkEventFrame();
+    }
+
+    public void createAnimation(string _path, float _timeFrame, bool looping)
+    {
+        isLoop = looping;
+        isForced = true;
+
+        Resources.UnloadUnusedAssets();
+        // frames = Resources.LoadAll<Sprite>(_path);
+        Sprite[] temps = Resources.LoadAll<Sprite>(_path);
+        int len = temps.Length;
+        frames = new Sprite[len];
+        int index = 0, lenArr = 0;
+        for (int i = 0; i < len; i++)
+        {
+            lenArr = temps[i].name.ToString().Split('_').Length;
+            if (lenArr == 1)
+            {
+                lenArr = temps[i].name.ToString().Split('-').Length;
+                index = int.Parse((temps[i].name.ToString().Split('-')[lenArr - 1]).ToString());
+                frames[index - 1] = temps[i];
+            }
+            else
+            {
+                index = int.Parse((temps[i].name.ToString().Split('_')[lenArr - 1]).ToString());
+                frames[index - 1] = temps[i];
+            }
+
+        }
+        timeFrame = _timeFrame;
+        keyStart = currentKeyFrame = 0;
+        keyEnd = frames.Length - 1;
+
+        if (frames.Length > 1)
+        {
+            render.sprite = frames[currentKeyFrame];
+            isEnable = true;
+        }
+        else if (frames.Length == 1)
+        {
+            render.sprite = frames[currentKeyFrame];
+            isEnable = false;
+        }
     }
 
     void Update()
@@ -150,7 +197,9 @@ public class AnimationFrames : MonoBehaviour
                     currentKeyFrame++;
                 render.sprite = frames[currentKeyFrame];
                 elapsedTime -= timeFrame;
-                checkEventFrame();
+
+                if(!isForced)
+                    checkEventFrame();
             }
         }
     }

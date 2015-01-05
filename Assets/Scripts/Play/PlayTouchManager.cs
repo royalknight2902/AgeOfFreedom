@@ -26,6 +26,9 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
             if (dragonController.HP <= 0 || dragonController.isCopulate)
                 return;
 
+            if (!dragonController.isSelected)
+                return;
+
             if (PlayDragonManager.Instance.currentHouse != null)
             {
                 PlayDragonManager.Instance.currentHouse.GetComponent<HouseController>().StateAction = EHouseStateAction.CLOSE;
@@ -46,6 +49,8 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
             dragonController.stateMove.destPosition = touchPos;
             dragonController.stateMove.destFrag = f;
             dragonController.stateMove.Movement = EDragonMovement.MOVE_TOUCH;
+            dragonController.isSelected = false;
+            EffectSupportor.Instance.fadeOutWithEvent(dragonController.selected.transform.GetChild(0).gameObject, ESpriteType.UI_SPRITE, 0.1f, new EventDelegate(unenableSelectedSprite));
 
             if (dragonController.stateMove.preFrag == null)
                 dragonController.stateMove.preFrag = f;
@@ -128,6 +133,14 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
 
             yield return 0;
         }
+    }
+
+    void unenableSelectedSprite()
+    {
+        UISprite sprite = dragonController.selected.transform.GetChild(0).GetComponent<UISprite>();
+        Color color = sprite.color;
+        sprite.color = new Color(color.r, color.g, color.b, 1);
+        dragonController.selected.SetActive(false);
     }
 }
 

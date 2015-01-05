@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DragonItems>
-  <Item ID="0">
+  <Item ID="head-nike">
     <Icon>head-nike</Icon>
     <Name>Nike Head</Name>
     <Option>
@@ -12,7 +12,7 @@
       <AtkSpeed>0</AtkSpeed> 
     </Option>
   </Item>
-  <Item ID="1">
+  <Item ID="body-dragon">
     <Icon>body-dragon</Icon>
     <Name>Dragon Body</Name>
     <Option>
@@ -24,7 +24,7 @@
       <AtkSpeed>0</AtkSpeed>
     </Option>
   </Item>
-  <Item ID="2">
+  <Item ID="ring-ruby">
     <Icon>ring-ruby</Icon>
     <Name>Ruby Ring</Name>
     <Option>
@@ -36,7 +36,7 @@
       <AtkSpeed>0</AtkSpeed>
     </Option>
   </Item>
-  <Item ID="3">
+  <Item ID="amulet-jewel">
     <Icon>amulet-jewel</Icon>
     <Name>Jewel Amulet</Name>
     <Option>
@@ -48,7 +48,7 @@
       <AtkSpeed>0</AtkSpeed>
     </Option>
   </Item>
-  <Item ID="4">
+  <Item ID="wing-elf">
     <Icon>wing-elf</Icon>
     <Name>Elf Wing</Name>
     <Option>
@@ -60,7 +60,7 @@
       <AtkSpeed>0.2</AtkSpeed>
     </Option>
   </Item>
-  <Item ID="5">
+  <Item ID="rune-purple">
     <Icon>rune-purple</Icon>
     <Name>Purple Rune</Name>
     <Option>

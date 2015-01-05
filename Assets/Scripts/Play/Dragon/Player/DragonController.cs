@@ -27,6 +27,7 @@ public enum EDragonStateDirection
 public class DragonController : MonoBehaviour
 {
     public SDragonAttribute attribute;
+    public GameObject selected;
 
     [HideInInspector]
     public DragonAnimation dragonAnimation;
@@ -35,6 +36,7 @@ public class DragonController : MonoBehaviour
     [HideInInspector]
     public UISlider sliderHP;
 
+    public bool isSelected { get; set; }
     public bool isCopulate { get; set; }
     public bool isTargeted { get; set; }
 
@@ -116,6 +118,22 @@ public class DragonController : MonoBehaviour
     }
 
     public EDragonStateDirection StateDirection { get; set; }
+
+    void changeState(FSMState<DragonController> e)
+    {
+        FSM.Change(e);
+        runResources();
+    }
+
+    void Update()
+    {
+        FSM.Update();
+    }
+
+    void runResources()
+    {
+        dragonAnimation.changeResources(StateAction);
+    }
     #endregion
 
     void Awake()
@@ -133,7 +151,9 @@ public class DragonController : MonoBehaviour
         StateAction = EDragonStateAction.IDLE;
         StateDirection = EDragonStateDirection.LEFT;
 
+        isSelected = false;
         isTargeted = false;
+        initalize();
     }
 
     void Start()
@@ -149,20 +169,17 @@ public class DragonController : MonoBehaviour
         runResources();
     }
 
-    void changeState(FSMState<DragonController> e)
+    void initalize()
     {
-        FSM.Change(e);
-        runResources();
-    }
-
-    void Update()
-    {
-        FSM.Update();
-    }
-
-    void runResources()
-    {
-        dragonAnimation.changeResources(StateAction);
+        string branch = PlayerInfo.Instance.dragonInfo.id;
+        DragonPlayerData data = ReadDatabase.Instance.DragonInfo.Player[branch];
+        attribute.Name = data.Name;
+        attribute.HP.Max = attribute.HP.Current = data.HP;
+        attribute.MP.Max = attribute.MP.Current = data.MP;
+        attribute.ATK.Min = data.ATK.Min;
+        attribute.ATK.Max = data.ATK.Max;
+        attribute.DEF = data.DEF;
+        attribute.Speed = data.MoveSpeed;
     }
 
     public void updateTextHP()

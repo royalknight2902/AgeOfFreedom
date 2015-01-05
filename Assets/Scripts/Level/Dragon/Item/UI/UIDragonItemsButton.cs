@@ -24,6 +24,7 @@ public class UIDragonItemsButton : MonoBehaviour
 
                 DragonItemsManager.Instance.updateAttribute(branch.ToString());
                 DragonItemsManager.Instance.runResources();
+                LevelDragonManager.Instance.updateSelectedDragon(branch.ToString());
                 break;
             case EUIDragonItemsButton.NEXT:
                 currentBranch = (EDragonBranch)Extensions.GetEnum(EDragonBranch.FIRE.GetType(), PlayerInfo.Instance.dragonInfo.id);
@@ -34,6 +35,7 @@ public class UIDragonItemsButton : MonoBehaviour
 
                 DragonItemsManager.Instance.updateAttribute(branch.ToString());
                 DragonItemsManager.Instance.runResources();
+                LevelDragonManager.Instance.updateSelectedDragon(branch.ToString());
                 break;
         }
     }

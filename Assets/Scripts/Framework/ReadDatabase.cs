@@ -411,7 +411,7 @@ public class ReadDatabase
                 dragonItemData.Options[4] = float.Parse(infoOption.SelectSingleNode("AtkSpeed").InnerText);
                 dragonItemData.Options[5] = float.Parse(infoOption.SelectSingleNode("MoveSpeed").InnerText);
             }
-            int id = int.Parse(infoDragonItem.Attributes["ID"].InnerText.Trim());
+            string id = infoDragonItem.Attributes["ID"].InnerText.Trim();
             dragonItemData.ID = id;
             DragonInfo.Item.Add(id, dragonItemData);
         }

@@ -19,16 +19,16 @@ public class LevelSelectDragonAnimation : MonoBehaviour
         switch (stateAction)
         {
             case EDragonStateAction.IDLE:
-                animationFrames.createAnimation(EDragonStateAction.IDLE, "Image/Dragon/Player/" + branch + "/Idle", 0.125f, true);
+                animationFrames.createAnimation("Image/Dragon/Player/" + branch + "/Idle", 0.125f, true);
                 break;
             case EDragonStateAction.MOVE:
-                animationFrames.createAnimation(EDragonStateAction.MOVE, "Image/Dragon/Player/" + branch + "/Move", 0.125f, true);
+                animationFrames.createAnimation("Image/Dragon/Player/" + branch + "/Move", 0.125f, true);
                 break;
             case EDragonStateAction.ATTACK:
-                animationFrames.createAnimation(EDragonStateAction.ATTACK, "Image/Dragon/Player/" + branch + "/Attack", 0.125f, true);
+                animationFrames.createAnimation("Image/Dragon/Player/" + branch + "/Attack", 0.125f, true);
                 break;
             case EDragonStateAction.DIE:
-                animationFrames.createAnimation(EDragonStateAction.DIE, "Image/Dragon/Player/" + branch + "/Die", 0.3f, true);
+                animationFrames.createAnimation("Image/Dragon/Player/" + branch + "/Die", 0.3f, true);
                 break;
         }
     }
