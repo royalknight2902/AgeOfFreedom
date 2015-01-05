@@ -24,6 +24,8 @@ public class EnemyStateAttack : FSMState<EnemyController>
 
 	public override void Execute (EnemyController obj)
 	{
+        if (target == null)
+            return;
 		if (target.transform.position.x >= controller.transform.position.x && direction == EDragonStateDirection.LEFT)
 		{
 			direction = EDragonStateDirection.RIGHT;
