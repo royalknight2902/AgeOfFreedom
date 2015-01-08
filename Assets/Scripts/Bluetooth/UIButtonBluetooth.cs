@@ -5,6 +5,8 @@ public enum ETypeButtonBluetooth
 {
     OPEN_PANEL,
     CLOSE_PANEL,
+	OPEN_ENEMY_SHOP,
+	CLOSE_ENEMY_SHOP
 }
 
 public class UIButtonBluetooth : MonoBehaviour
@@ -25,6 +27,16 @@ public class UIButtonBluetooth : MonoBehaviour
                 UIBluetooth.Instance.buttonOpen.GetComponent<TweenAlpha>().PlayReverse();
                 UIBluetooth.Instance.buttonClose.GetComponent<TweenAlpha>().PlayReverse();
                 break;
+			case ETypeButtonBluetooth.OPEN_ENEMY_SHOP:
+				UIEnemyShop.Instance.gameObject.GetComponent<TweenPosition>().PlayForward();
+				UIEnemyShop.Instance.buttonOpen.GetComponent<TweenAlpha>().PlayForward();
+				UIEnemyShop.Instance.buttonClose.GetComponent<TweenAlpha>().PlayForward();
+				break;
+			case ETypeButtonBluetooth.CLOSE_ENEMY_SHOP:
+				UIEnemyShop.Instance.gameObject.GetComponent<TweenPosition>().PlayReverse();
+				UIEnemyShop.Instance.buttonOpen.GetComponent<TweenAlpha>().PlayReverse();
+				UIEnemyShop.Instance.buttonClose.GetComponent<TweenAlpha>().PlayReverse();
+				break;
         }
     }
 }
