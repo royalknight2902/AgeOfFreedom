@@ -27,6 +27,7 @@ public class UIMenu : MonoBehaviour {
 
 	void OnClick()
 	{
+
 		switch(Type)
 		{
 			case EMenuButton.MODE_PLAY:

@@ -124,7 +124,7 @@ public class WaveController : Singleton<WaveController>
                 for (int i = 0; i < infoEnemy.Quantity; i++)
                 {
                     GameObject enemy = Instantiate(model, enemyStartPos[routine].transform.position, Quaternion.identity) as GameObject;
-
+					Debug.Log(enemyStartPos[routine].transform);
                     enemy.transform.parent = enemyStartPos[routine].transform;
                     enemy.transform.localScale = Vector3.one;
                     enemy.transform.localPosition = Vector3.zero;

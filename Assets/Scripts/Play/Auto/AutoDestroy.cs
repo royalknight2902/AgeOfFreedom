@@ -21,6 +21,7 @@ public class AutoDestroy : MonoBehaviour
 
     public static void destroyChildren(GameObject objParent, params string[] except)
     {
+
         int childCount = objParent.transform.childCount;
         if (except == null)
         {

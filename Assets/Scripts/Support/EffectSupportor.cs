@@ -40,10 +40,10 @@ public class EffectSupportor : Singleton<EffectSupportor>
         while (true)
         {
             if (fps == 60 * TimeValueRun)
-            {
-                list.Remove(slider.gameObject);
+			{
+				list.Remove(slider.gameObject);
                 yield break;
-            }
+	 		}
 
             if (isDown)
                 slider.value -= valueEachFrame;

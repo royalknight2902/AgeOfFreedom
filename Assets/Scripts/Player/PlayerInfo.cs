@@ -62,6 +62,7 @@ public class PlayerInfo
         // reset lai tutorial trong game, chi xuat hien mot lan duy nhat trong 1 lan choi game cua nguoi choi
 		userInfo.checkTutorialLevel = 0;
 		userInfo.checkTutorialPlay = 0;
+
 		userInfo.Save();
 
 		if (userInfo.check == 0)

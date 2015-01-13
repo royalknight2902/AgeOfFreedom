@@ -115,15 +115,17 @@ public class MenuManager : Singleton<MenuManager>
 
     public void openModePlay()
     {
+	
         StartCoroutine(waitToMode(0.2f));
     }
 
     IEnumerator waitToMode(float time)
     {
-        yield return new WaitForSeconds(time);
+
         foreach (var tween in tweenPositionMode)
         {
             tween.PlayForward();
+
             tween.enabled = true;
         }
         foreach (var tween in tweenAlphaMode)
@@ -131,6 +133,7 @@ public class MenuManager : Singleton<MenuManager>
             tween.PlayReverse();
             tween.enabled = true;
         }
+		yield return new WaitForSeconds(time);
     }
 
 	public void openMenu()
@@ -186,7 +189,7 @@ public class MenuManager : Singleton<MenuManager>
 
     IEnumerator waitBluetooth(float time)
     {
-        yield return new WaitForSeconds(time);
+        
         foreach (var tween in tweenPositionBluetooth)
         {
             tween.PlayReverse();
@@ -197,6 +200,7 @@ public class MenuManager : Singleton<MenuManager>
             tween.PlayForward();
             tween.enabled = true;
         }
+		yield return new WaitForSeconds(time);
     }
     #endregion
 
@@ -209,7 +213,7 @@ public class MenuManager : Singleton<MenuManager>
 
     IEnumerator waitBackFromServer(float time)
     {
-        yield return new WaitForSeconds(time);
+        
         foreach (var tween in tweenPositionBluetooth)
         {
             tween.PlayForward();
@@ -220,6 +224,7 @@ public class MenuManager : Singleton<MenuManager>
             tween.PlayReverse();
             tween.enabled = true;
         }
+		yield return new WaitForSeconds(time);
     }
     #endregion
 

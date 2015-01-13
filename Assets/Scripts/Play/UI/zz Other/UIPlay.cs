@@ -60,7 +60,7 @@ public class UIPlay : MonoBehaviour
 				audio.volume = (float)PlayerInfo.Instance.userInfo.volumeSound / 100;
 				audio.PlayScheduled(0.5f);
 				PlayManager.Instance.isZoom = false;
-
+				
 				Time.timeScale = 0.0f;
 				PlayManager.Instance.isOnShop = true;
 				PlayPanel.Instance.Shop.SetActive(true);

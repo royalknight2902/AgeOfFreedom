@@ -266,6 +266,7 @@ public class ReadDatabase
 				package.Wave = infoPackage.SelectSingleNode("Wave").InnerText;
 
 				itemData.Packages.Add(package);
+
 			}
 
 			ItemInfo.Add(infoItem.Attributes["ID"].InnerText.Trim(), itemData);

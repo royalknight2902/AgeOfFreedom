@@ -56,6 +56,9 @@ public class PlayManager : Singleton<PlayManager>
     public GameObject tutorial;
     [HideInInspector]
     public GameObject infoBluetooth;
+	[HideInInspector]
+	public GameObject enemyBluetoothShop;
+
     [HideInInspector]
     public GameObject bluetoothManager;
 
@@ -87,6 +90,7 @@ public class PlayManager : Singleton<PlayManager>
             uiTextureMap = GameObject.FindGameObjectWithTag("Map").GetComponent<UITexture>();
             uiWidgetCamera = GameObject.FindGameObjectWithTag("DragCamera").GetComponent<UIWidget>();
         }
+
 
         initGameObject();
         initTowerShop();
@@ -152,7 +156,7 @@ public class PlayManager : Singleton<PlayManager>
         initChooseTarget();
         initCheckOK();
         initAchievement();
-
+		initPrefab ();
         if (SceneState.Instance.State == ESceneState.ADVENTURE)
         {
             tempInit.initalizeAdventureMode();
@@ -161,6 +165,7 @@ public class PlayManager : Singleton<PlayManager>
             editDragCameraTween();
             initFlagTemp();
             initDragonTemp();
+			initBluetooth();
 
             AutoDestroy.destroyChildren(itemBuffTemp);
         }
@@ -171,7 +176,10 @@ public class PlayManager : Singleton<PlayManager>
             initBluetooth();
         }
     }
-
+	void initPrefab()
+	{
+		modelPlay.GoldBonus = Resources.Load ("Prefab/Effect/Gold Bonus") as GameObject;	
+	}
     void initHeaderBar()
     {
         foreach (Transform child_1 in Camera.main.transform)
@@ -589,14 +597,29 @@ public class PlayManager : Singleton<PlayManager>
 
     void initBluetooth()
     {
-        infoBluetooth = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Bluetooth/Info Bluetooth")) as GameObject;
-        infoBluetooth.GetComponent<UIAnchor>().container = headerBar;
-        infoBluetooth.GetComponent<UIStretch>().container = headerBar;
-        infoBluetooth.transform.parent = headerBar.transform.parent;
-        infoBluetooth.transform.localScale = Vector3.one;
-        infoBluetooth.transform.localPosition = Vector3.zero;
+		initInfoBlueTooth ();
+		initBluetoothEnemyShop ();
     }
     
+	void initInfoBlueTooth()
+	{
+		infoBluetooth = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Bluetooth/Info Bluetooth")) as GameObject;
+		infoBluetooth.GetComponent<UIAnchor>().container = headerBar;
+		infoBluetooth.GetComponent<UIStretch>().container = headerBar;
+		infoBluetooth.transform.parent = headerBar.transform.parent;
+		infoBluetooth.transform.localScale = Vector3.one;
+		infoBluetooth.transform.localPosition = Vector3.zero;
+	}
+
+	void initBluetoothEnemyShop()
+	{
+		enemyBluetoothShop = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Bluetooth/Enemy Shop Bluetooth")) as GameObject;
+		enemyBluetoothShop.GetComponent<UIAnchor>().container = headerBar;
+		enemyBluetoothShop.GetComponent<UIStretch>().container = headerBar;
+		enemyBluetoothShop.transform.parent = headerBar.transform.parent;
+		enemyBluetoothShop.transform.localScale = Vector3.one;
+		enemyBluetoothShop.transform.localPosition = Vector3.zero;
+	}
     #endregion
 
     #region RESET - BUILDING, UPGRADE, RANGE TOWER

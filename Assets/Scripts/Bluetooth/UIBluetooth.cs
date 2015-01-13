@@ -31,7 +31,7 @@ public class UIBluetooth : Singleton<UIBluetooth>
     {
         if (SceneState.Instance.State == ESceneState.BLUETOOTH)
         {
-            if (PlayInfo.Instance.Wave != wave_before)
+            if ( PlayInfo.Instance.Wave != wave_before)
             {
                 wave_before = PlayInfo.Instance.Wave;
                 BluetoothManager.Instance.SendWave(wave_before);
