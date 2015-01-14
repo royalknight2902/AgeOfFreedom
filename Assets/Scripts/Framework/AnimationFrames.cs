@@ -209,7 +209,8 @@ public class AnimationFrames : MonoBehaviour
         while (true)
         {
             bool repeat = false;
-
+			if(listData.ContainsKey(currentState))
+			{
             foreach (KeyValuePair<string, AnimationEventFrame> iterator in listData[currentState].Events)
             {
                 if (iterator.Value.KeyFrame == currentKeyFrame)
@@ -224,7 +225,7 @@ public class AnimationFrames : MonoBehaviour
                     }
                 }
             }
-
+			}
             if (!repeat)
                 return;
         }

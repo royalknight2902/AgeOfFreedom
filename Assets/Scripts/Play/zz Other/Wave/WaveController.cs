@@ -115,7 +115,11 @@ public class WaveController : Singleton<WaveController>
             foreach (SEnemyWave infoEnemy in wave.Enemies)
             {
                 //Set attribute
-                GameSupportor.transferEnemyData(enemyController, ReadDatabase.Instance.EnemyInfo[infoEnemy.ID]);
+				EnemyData tempData = ReadDatabase.Instance.EnemyInfo.ContainsKey(infoEnemy.ID)? ReadDatabase.Instance.EnemyInfo[infoEnemy.ID] : null;
+
+				if(tempData == null)
+					break;
+				GameSupportor.transferEnemyData(enemyController, tempData);
 
                 int routine = Random.Range(0, enemyRoutine.Length);
                 if(SceneState.Instance.State != ESceneState.BLUETOOTH)
@@ -124,13 +128,14 @@ public class WaveController : Singleton<WaveController>
                 for (int i = 0; i < infoEnemy.Quantity; i++)
                 {
                     GameObject enemy = Instantiate(model, enemyStartPos[routine].transform.position, Quaternion.identity) as GameObject;
-					Debug.Log(enemyStartPos[routine].transform);
+
                     enemy.transform.parent = enemyStartPos[routine].transform;
                     enemy.transform.localScale = Vector3.one;
                     enemy.transform.localPosition = Vector3.zero;
                     enemy.GetComponentInChildren<SpriteRenderer>().material.renderQueue = GameConfig.RenderQueueEnemy - countEnemy;
 
                     EnemyController ec = enemy.GetComponent<EnemyController>();
+
                     ec.stateMove.PathGroup = enemyRoutine[routine].transform;
                     ec.waveID = wave.WaveID;
 
