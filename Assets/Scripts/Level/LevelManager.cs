@@ -125,7 +125,7 @@ public class LevelManager : Singleton<LevelManager>
         Dictionary<int, PlayerMap> playerMaps = PlayerInfo.Instance.listMap;
 
         UISprite uiStar = Model.StarSucceed.GetComponent<UISprite>();
-        float starWidth = uiStar.width * 0.6f;
+        float starWidth = uiStar.width * 0.8f;
         //float starHeight = uiStar.height;
         UISprite uiUnlock = Model.Unlock.GetComponent<UISprite>();
         //float unlockWidth = uiUnlock.width;

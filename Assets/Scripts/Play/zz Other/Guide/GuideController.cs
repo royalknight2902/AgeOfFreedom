@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class GuideController : Singleton<GuideController>
@@ -78,7 +78,9 @@ public class GuideController : Singleton<GuideController>
             towerGuide.name = towerController.ID.Type.ToString();
 
             //Set name
-            string name = towerController.ID.Type.ToString();
+
+			string name = towerController.ID.Type.ToString();
+		
             UILabel label = towerGuide.GetComponentInChildren<UILabel>();
             label.text = name[0] + name.Substring(1, name.Length - 1).ToLower();
 
@@ -352,9 +354,7 @@ public class GuideController : Singleton<GuideController>
                 info.boss.gameObject.SetActive(false);
 
             //set level sprite
-            if (enemyController.level <= 3)
-                info.spriteLevel.spriteName = "play-level-123";
-            else
+           
                 info.spriteLevel.spriteName = "play-level-" + enemyController.level;
 
             //set name

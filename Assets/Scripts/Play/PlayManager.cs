@@ -1399,10 +1399,8 @@ public class PlayManager : Singleton<PlayManager>
             controller.Banner.spriteName = "play-newenemy";
 
         //set level sprite
-        if (enemy.level <= 3)
-            controller.spriteLevel.spriteName = "play-level-123";
-        else
-            controller.spriteLevel.spriteName = "play-level-" + enemy.level;
+       
+        controller.spriteLevel.spriteName = "play-level-" + enemy.level;
 
         //set name
         controller.Name.text = enemy.attribute.Name;
