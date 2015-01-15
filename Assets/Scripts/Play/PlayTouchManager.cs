@@ -42,6 +42,8 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
             f.transform.localScale = Vector3.one;
             f.transform.position = touchPos;
 
+            //set render queue
+            f.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().material.renderQueue = GameConfig.RenderQueueFlag;
             //stretch
             f.transform.GetChild(0).GetComponent<UIStretch>().container = PlayManager.Instance.tempInit.uiRoot;
 
@@ -49,6 +51,7 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
             dragonController.stateMove.destPosition = touchPos;
             dragonController.stateMove.destFrag = f;
             dragonController.stateMove.Movement = EDragonMovement.MOVE_TOUCH;
+            dragonController.StateOffense = EDragonStateOffense.NONE;
             dragonController.isSelected = false;
             EffectSupportor.Instance.fadeOutWithEvent(dragonController.selected.transform.GetChild(0).gameObject, ESpriteType.UI_SPRITE, 0.1f, new EventDelegate(unenableSelectedSprite));
 
@@ -58,11 +61,11 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
             //add to list
             frags.Add(f);
 
-            if (touchPos.x < dragonController.transform.position.x && dragonController.StateDirection == EDragonStateDirection.RIGHT)
+            if (touchPos.x < dragonController.transform.position.x)
             {
                 dragonController.StateDirection = EDragonStateDirection.LEFT;
             }
-            else if (touchPos.x > dragonController.transform.position.x && dragonController.StateDirection == EDragonStateDirection.LEFT)
+            else if (touchPos.x > dragonController.transform.position.x)
             {
                 dragonController.StateDirection = EDragonStateDirection.RIGHT;
             }

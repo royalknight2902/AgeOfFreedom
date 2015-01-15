@@ -33,6 +33,7 @@ public class GameConfig
 	public const int RenderQueueRange = 3800;
     public const int RenderQueueFlag = 3810;
     public const int RenderQueueDragon = 3850;
+    public const int RenderQueueUlti = 4090;
 	//Path
 	public const string DatabasePathPlay = "Database/XmlPlay";
 	public const string DatabasePathTowerCost = "Database/XmlTowerCost";

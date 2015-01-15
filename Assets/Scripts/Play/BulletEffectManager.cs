@@ -20,7 +20,6 @@ public class BulletEffectManager : Singleton<BulletEffectManager>
         poisoningObject = Resources.Load<GameObject>("Prefab/Effect/Effect Poisoning");
     }
 
-
     public void initEffect(EBulletEffect type, GameObject enemy, params object[] obj)
     {
         switch (type)

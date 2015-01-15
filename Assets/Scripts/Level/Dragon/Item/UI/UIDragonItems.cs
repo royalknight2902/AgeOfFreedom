@@ -13,12 +13,10 @@ public class UIDragonItems : MonoBehaviour {
     public DragonItemState dragonItemState;
 
     bool isClicked;
-    DragonItemAction dragonItemAction;
     DragonItemsController dragonItemController;
 
     void Awake()
     {
-        dragonItemAction = GetComponent<DragonItemAction>();
         dragonItemController = GetComponent<DragonItemsController>();
     }
 
@@ -40,6 +38,7 @@ public class UIDragonItems : MonoBehaviour {
 
             }
             isClicked = false;
+            DragonItemsManager.Instance.updateAttribute(PlayerInfo.Instance.dragonInfo.id);
         }
     }
 
@@ -71,12 +70,13 @@ public class UIDragonItems : MonoBehaviour {
  
         //stretch
         go.GetComponent<UIStretch>().enabled = true;
-        go.GetComponent<FixUIStretch>().enabled = true;
+       
+        //add fix ui stretch
+        go.AddComponent<FixUIStretch>();
 
         dragonItemState = DragonItemState.Equipping;
    
         dragonItemController.EquipItem();
-        //dragonItemAction.bonusAttribute(itemName);
     }
 
     void saveData(bool newData)

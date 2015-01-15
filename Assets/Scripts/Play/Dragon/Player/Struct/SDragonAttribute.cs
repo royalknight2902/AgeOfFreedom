@@ -12,3 +12,13 @@ public class SDragonAttribute
 	public float Speed;
 }
 
+public struct SDragonAttributeBonus
+{
+    public int HP;
+    public int MP;
+    public int ATK;
+    public int DEF;
+    public float ATKSpeed;
+    public float MoveSpeed;
+}
+

@@ -38,11 +38,12 @@ public class EnemyController : MonoBehaviour
     public int waveID { get; set; }
     public bool isDie { get; set; }
     public bool isVisible { get; set; } //set visible trong database để hiển thị những con đã xuất hiện
-    public bool isTargeted { get; set; }
     public System.Collections.Generic.List<object> listEffected = new System.Collections.Generic.List<object>();
 
     [HideInInspector]
     public UISlider sliderHP;
+    [HideInInspector]
+    public EnemyAttack enemyAttack;
 
     EnemyAnimation enemyAnimation;
 
@@ -127,11 +128,10 @@ public class EnemyController : MonoBehaviour
         stateMove = new EnemyStateMove();
 
         enemyAnimation = this.GetComponentInChildren<EnemyAnimation>();
+        enemyAttack = this.GetComponentInChildren<EnemyAttack>();
 
         StateAction = EEnemyStateAction.MOVE;
         StateDirection = EDirection.NONE;
-
-        isTargeted = false;
     }
 
     void Start()

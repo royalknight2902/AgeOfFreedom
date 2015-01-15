@@ -23,6 +23,18 @@ public class DragonStateMove : FSMState<DragonController>
 
     public override void Enter(DragonController obj)
     {
+        //Debug.Log(obj.StateDirection);
+        if (obj.StateDirection == EDragonStateDirection.LEFT)
+        {
+            Vector3 scale = obj.transform.GetChild(0).localScale;
+            obj.transform.GetChild(0).localScale = new Vector3(-1 * Mathf.Abs(scale.x), scale.y, scale.z);
+        }
+        else
+        {
+            Vector3 scale = obj.transform.GetChild(0).localScale;
+            obj.transform.GetChild(0).localScale = new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);
+        }
+
         preStateDirection = obj.StateDirection;
         Movement = EDragonMovement.MOVE_TOUCH;
     }
@@ -97,7 +109,7 @@ public class DragonStateMove : FSMState<DragonController>
             if (obj.StateDirection == EDragonStateDirection.LEFT)
             {
                 Vector3 scale = obj.transform.GetChild(0).localScale;
-                obj.transform.GetChild(0).localScale = new Vector3(-1 * scale.x, scale.y, scale.z);
+                obj.transform.GetChild(0).localScale = new Vector3(-1 * Mathf.Abs(scale.x), scale.y, scale.z);
             }
             else
             {

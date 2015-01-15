@@ -3,7 +3,6 @@ using System.Collections;
 
 public class FixUIStretch : MonoBehaviour
 {
-
     int count = 0;
     bool check;
 
@@ -33,10 +32,12 @@ public class FixUIStretch : MonoBehaviour
             {
                 gameObject.GetComponent<UIWidget>().alpha = 1;
                 check = false;
+                Destroy(this);
             }
             else
             {
                 check = false;
+                Destroy(this);
                 return;
             }
         }

@@ -204,9 +204,10 @@ public class ShopController : Singleton<ShopController>
 			towerShopController.icon.mainTexture = Resources.Load<Texture>(s);
 			towerShopController.setColor(false);
 
-			Vector2 dimension = PlayConfig.getTowerIconSize(towerShopController.ID);
-			towerShopController.icon.SetDimensions((int)dimension.x, (int)dimension.y);
-			towerShopController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
+            towerShopController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+            Vector2 localSize = new Vector2(towerShopController.icon.mainTexture.width, towerShopController.icon.mainTexture.height);
+            towerShopController.icon.SetDimensions((int)localSize.x, (int)localSize.y);
+            towerShopController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
 			UIStretch uiStretch = towerShopController.icon.GetComponent<UIStretch>();
 			uiStretch.enabled = true;
@@ -284,8 +285,9 @@ public class ShopController : Singleton<ShopController>
             towerShopController.icon.mainTexture = Resources.Load<Texture>(s);
             towerShopController.setColor(false);
 
-            Vector2 dimension = PlayConfig.getTowerIconSize(towerShopController.ID);
-            towerShopController.icon.SetDimensions((int)dimension.x, (int)dimension.y);
+            towerShopController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+            Vector2 localSize = new Vector2(towerShopController.icon.mainTexture.width, towerShopController.icon.mainTexture.height);
+            towerShopController.icon.SetDimensions((int)localSize.x, (int)localSize.y);
             towerShopController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
             UIStretch uiStretch = towerShopController.icon.GetComponent<UIStretch>();
@@ -366,9 +368,10 @@ public class ShopController : Singleton<ShopController>
 						infoController.bulletRegion.text = str[1];
 
 						//set icon fix size
-						Vector2 dimension = PlayConfig.getTowerIconSize(towerController.ID);
-						infoController.icon.SetDimensions((int)dimension.x, (int)dimension.y);
-						infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
+                        infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+                        Vector2 localSize = new Vector2(infoController.icon.mainTexture.width, infoController.icon.mainTexture.height);
+                        infoController.icon.SetDimensions((int)localSize.x, (int)localSize.y);
+                        infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
 						UIStretch uiStretch = infoController.icon.GetComponent<UIStretch>();
 						uiStretch.enabled = true;
@@ -376,15 +379,14 @@ public class ShopController : Singleton<ShopController>
 
 						#region BULLET
 						object[] bulletData = PlayConfig.getBulletShop(towerID);
-						SBulletTowerShop bulletTowerShop = (SBulletTowerShop)bulletData[1];
 						infoController.bulletIcon.mainTexture = Resources.Load<Texture>("Image/Bullet/Bullet Icon/" + bulletData[0].ToString());
 
-
-						infoController.bulletIcon.SetDimensions((int)bulletTowerShop.Dimension.x, (int)bulletTowerShop.Dimension.y);
-						infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
+                        infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+                        infoController.bulletIcon.SetDimensions(infoController.bulletIcon.mainTexture.width, infoController.bulletIcon.mainTexture.height);
+                        infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
 						UIStretch stretch = infoController.bulletIcon.GetComponent<UIStretch>();
-						stretch.relativeSize.y = bulletTowerShop.Stretch;
+                        stretch.relativeSize.y = (float)bulletData[1];
 						stretch.enabled = true;
 
 						//Add effect
@@ -462,8 +464,9 @@ public class ShopController : Singleton<ShopController>
                         infoController.bulletRegion.text = str[1];
 
                         //set icon fix size
-                        Vector2 dimension = PlayConfig.getTowerIconSize(towerController.ID);
-                        infoController.icon.SetDimensions((int)dimension.x, (int)dimension.y);
+                        infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+                        Vector2 localSize = new Vector2(infoController.icon.mainTexture.width, infoController.icon.mainTexture.height);
+                        infoController.icon.SetDimensions((int)localSize.x, (int)localSize.y);
                         infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
                         UIStretch uiStretch = infoController.icon.GetComponent<UIStretch>();
@@ -472,11 +475,11 @@ public class ShopController : Singleton<ShopController>
 
                         #region BULLET
                         object[] bulletData = PlayConfig.getBulletShop(towerID);
-                        SBulletTowerShop bulletTowerShop = (SBulletTowerShop)bulletData[1];
+                        SAnchor bulletTowerShop = (SAnchor)bulletData[1];
                         infoController.bulletIcon.mainTexture = Resources.Load<Texture>("Image/Bullet/Bullet Icon/" + bulletData[0].ToString());
 
-
-                        infoController.bulletIcon.SetDimensions((int)bulletTowerShop.Dimension.x, (int)bulletTowerShop.Dimension.y);
+                        infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+                        infoController.bulletIcon.SetDimensions(infoController.bulletIcon.mainTexture.width, infoController.bulletIcon.mainTexture.height);
                         infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
                         UIStretch stretch = infoController.bulletIcon.GetComponent<UIStretch>();
@@ -596,9 +599,8 @@ public class ShopController : Singleton<ShopController>
 			itemShopController.icon.spriteName = "item-" + item.Key.ToLower();
 			itemShopController.setColor(false);
 			
-			Vector2 dimension = PlayConfig.getSizeItem(item.Key);
 			itemShopController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
-			itemShopController.icon.SetDimensions((int)dimension.x, (int)dimension.y);
+            itemShopController.icon.SetDimensions(itemShopController.icon.mainTexture.width, itemShopController.icon.mainTexture.height);
 			itemShopController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 			
 			UIStretch uiStretch = itemShopController.icon.GetComponent<UIStretch>();
@@ -645,9 +647,8 @@ public class ShopController : Singleton<ShopController>
 			infoController.value.text = targetController.Value.text;
 					
 			//set icon fix size
-			Vector2 dimension = PlayConfig.getSizeItem(targetController.ID);
 			infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
-			infoController.icon.SetDimensions((int)dimension.x, (int)dimension.y);
+            infoController.icon.SetDimensions(infoController.icon.mainTexture.width, infoController.icon.mainTexture.height);
 			infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
 			//set package

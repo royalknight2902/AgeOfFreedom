@@ -15,6 +15,7 @@ public class UIDragonSelect : MonoBehaviour {
 
             LevelDragonManager.Instance.updateSelectedDragon(branch.ToString());
             SelectDragonController.Instance.updateAttribute(branch.ToString());
+            SelectDragonController.Instance.updateSkill(branch.ToString());
             SelectDragonController.Instance.runResources();
         }
     }

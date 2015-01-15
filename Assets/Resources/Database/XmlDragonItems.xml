@@ -4,8 +4,8 @@
     <Icon>head-nike</Icon>
     <Name>Nike Head</Name>
     <Option>
-      <AtkDamage>0</AtkDamage>
-      <Defense>15</Defense>
+      <ATK>0</ATK>
+      <DEF>15</DEF>
       <HP>30</HP>
       <MP>30</MP>
       <MoveSpeed>0</MoveSpeed>
@@ -16,8 +16,8 @@
     <Icon>body-dragon</Icon>
     <Name>Dragon Body</Name>
     <Option>
-      <AtkDamage>0</AtkDamage>
-      <Defense>30</Defense>
+      <ATK>0</ATK>
+      <DEF>30</DEF>
       <HP>100</HP>
       <MP>0</MP>
       <MoveSpeed>0</MoveSpeed>
@@ -28,8 +28,8 @@
     <Icon>ring-ruby</Icon>
     <Name>Ruby Ring</Name>
     <Option>
-      <AtkDamage>0</AtkDamage>
-      <Defense>0</Defense>
+      <ATK>0</ATK>
+      <DEF>0</DEF>
       <HP>20</HP>
       <MP>35</MP>
       <MoveSpeed>0</MoveSpeed>
@@ -40,8 +40,8 @@
     <Icon>amulet-jewel</Icon>
     <Name>Jewel Amulet</Name>
     <Option>
-      <AtkDamage>0</AtkDamage>
-      <Defense>0</Defense>
+      <ATK>0</ATK>
+      <DEF>0</DEF>
       <HP>40</HP>
       <MP>45</MP>
       <MoveSpeed>0</MoveSpeed>
@@ -52,8 +52,8 @@
     <Icon>wing-elf</Icon>
     <Name>Elf Wing</Name>
     <Option>
-      <AtkDamage>20</AtkDamage>
-      <Defense>10</Defense>
+      <ATK>20</ATK>
+      <DEF>10</DEF>
       <HP>50</HP>
       <MP>25</MP>
       <MoveSpeed>10</MoveSpeed>
@@ -64,11 +64,11 @@
     <Icon>rune-purple</Icon>
     <Name>Purple Rune</Name>
     <Option>
-      <AtkDamage>0</AtkDamage>
-      <Defense>10</Defense>
+      <ATK>0</ATK>
+      <DEF>10</DEF>
       <HP>35</HP>
       <MP>35</MP>
-      <MoveSpeed>0</MoveSpeed>
+      <MoveSpeed>-100</MoveSpeed>
       <AtkSpeed>0.1</AtkSpeed>
     </Option>
   </Item>

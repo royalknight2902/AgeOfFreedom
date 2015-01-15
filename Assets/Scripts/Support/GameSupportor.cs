@@ -63,4 +63,9 @@ public class GameSupportor
         controller.attribute.TimeGenerateChild = data.TimeGenerateChild;
         controller.attribute.LimitChild = data.LimitChild;
     }
+
+    public static float getRatioAspect(GameObject nguiSprite, SpriteRenderer render)
+    {
+        return nguiSprite.GetComponent<UIWidget>().height / render.sprite.textureRect.height;
+    }
 }

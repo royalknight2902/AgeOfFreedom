@@ -7,16 +7,16 @@
 		<TowerUsed>Architect-Ice-Gold</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
-				<TimeWave>10</TimeWave>
+				<TimeWave>1</TimeWave>
 				<TimeEnemy>4</TimeEnemy>
-				<Enemy>Amy-6-2.5</Enemy>
-				<!--Level 1-->
+        
+        <!--Level 1-->
+        <Enemy>Amy-100-1</Enemy>
 				<!--Level 1-->
 				<Enemy>Wolf-8-2.5</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				
 				<Enemy>Red Bull-6-2.5</Enemy>
 				<!--Level 1-->
 				<Enemy>Orc Black-8-2.0</Enemy>

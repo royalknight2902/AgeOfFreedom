@@ -35,7 +35,7 @@ public class EnemyAnimation : MonoBehaviour
                 {
                     callback = new EventDelegate(controller.stateAttack.attackDragon);
                 }
-                else if (controller.stateAttack.target.GetComponent<BabyDragonController>() != null)
+                else
                 {
                     callback = new EventDelegate(controller.stateAttack.attackDragonBaby);
                 }

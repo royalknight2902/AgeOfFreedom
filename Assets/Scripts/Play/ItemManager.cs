@@ -85,9 +85,8 @@ public class ItemManager : Singleton<ItemManager>
 		
 		//set dimension
 		UISprite sprite = itemBuff.GetComponent<UISprite> ();
-		Vector2 dimension = PlayConfig.getSizeItemBuff(id);
 		sprite.keepAspectRatio = UIWidget.AspectRatioSource.Free;
-		sprite.SetDimensions((int)dimension.x, (int)dimension.y);
+        sprite.SetDimensions(sprite.mainTexture.width, sprite.mainTexture.height);
 		sprite.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 		
 		itemBuff.GetComponent<UIStretch> ().container = waveTemp;

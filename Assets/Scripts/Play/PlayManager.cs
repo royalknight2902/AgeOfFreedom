@@ -265,8 +265,10 @@ public class PlayManager : Singleton<PlayManager>
                 if (child.name == PlayNameHashIDs.Icon)
                 {
                     UITexture texture = child.GetComponent<UITexture>();
-                    Vector2 dimension = PlayConfig.getTowerIconSize(controller.ID);
-                    texture.SetDimensions((int)dimension.x, (int)dimension.y);
+                    texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+
+                    Vector2 localSize = new Vector2(texture.mainTexture.width, texture.mainTexture.height);
+                    texture.SetDimensions((int)localSize.x, (int)localSize.y);
                     texture.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
                     UIStretch uiStretch = child.GetComponent<UIStretch>();
@@ -329,8 +331,10 @@ public class PlayManager : Singleton<PlayManager>
                 if (child.name == PlayNameHashIDs.Icon)
                 {
                     UITexture texture = child.GetComponent<UITexture>();
-                    Vector2 dimension = PlayConfig.getTowerIconSize(controller.ID);
-                    texture.SetDimensions((int)dimension.x, (int)dimension.y);
+                    texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+
+                    Vector2 localSize = new Vector2(texture.mainTexture.width, texture.mainTexture.height);
+                    texture.SetDimensions((int)localSize.x, (int)localSize.y);
                     texture.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
                     UIStretch uiStretch = child.GetComponent<UIStretch>();
@@ -389,8 +393,10 @@ public class PlayManager : Singleton<PlayManager>
             if (child.name == PlayNameHashIDs.Icon)
             {
                 UITexture texture = child.GetComponent<UITexture>();
-                Vector2 dimension = PlayConfig.getTowerIconSize(houseID);
-                texture.SetDimensions((int)dimension.x, (int)dimension.y);
+                texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+
+                Vector2 localSize = new Vector2(texture.mainTexture.width, texture.mainTexture.height);
+                texture.SetDimensions((int)localSize.x, (int)localSize.y);
                 texture.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
                 UIStretch uiStretch = child.GetComponent<UIStretch>();
@@ -493,7 +499,6 @@ public class PlayManager : Singleton<PlayManager>
     // add tutorial detail into level
     public void initTutorial()
     {
-        tutorial = new GameObject();
         tutorial = Instantiate(Resources.Load<GameObject>("Prefab/Tutorial/Tutorial Play")) as GameObject;
         tutorial.transform.parent = footerBar.transform.root;
         tutorial.transform.localPosition = Vector3.zero;
@@ -589,6 +594,7 @@ public class PlayManager : Singleton<PlayManager>
 
         //add uipanel
         UIPanel panel = tempDragon.AddComponent<UIPanel>();
+        panel.depth = 1;
         panel.renderQueue = UIPanel.RenderQueue.StartAt;
         panel.startingRenderQueue = GameConfig.RenderQueueDragon;
 
@@ -898,6 +904,9 @@ public class PlayManager : Singleton<PlayManager>
                 building.transform.localScale = Vector3.one;
                 building.transform.localPosition = Vector3.zero;
 
+                //set panel
+                building.GetComponent<UIPanel>().startingRenderQueue = objectBuild.Target.GetComponentInChildren<SpriteRenderer>().material.renderQueue + 50;
+
                 HouseController buildingController = building.GetComponent<HouseController>();
                 buildingController.updateTotalMoney(buildingController.attribute.Cost);
                 building.GetComponent<HouseAction>().countdown.GetComponent<UIStretch>().container = tempInit.cameraRender;
@@ -949,6 +958,8 @@ public class PlayManager : Singleton<PlayManager>
                 objectBuild.Target = null;
                 objectBuild.Tower = null;
 
+                //set Max baby
+                PlayDragonManager.Instance.maxBaby = buildingController.attribute.LimitChild;
             }
             #endregion
         }
@@ -1028,7 +1039,14 @@ public class PlayManager : Singleton<PlayManager>
                 HouseController newHouseController = newTower.GetComponent<HouseController>();
                 GameSupportor.transferHouseDragonData(newHouseController, preHouse.ID.Level + 1);
 
+                //set panel
+                newHouseController.GetComponent<UIPanel>().startingRenderQueue = preHouse.GetComponent<UIPanel>().startingRenderQueue;
+
+                //count total money
                 newHouseController.updateTotalMoney(newHouseController.attribute.Cost + preHouse.totalMoney);
+
+                //set Max baby
+                PlayDragonManager.Instance.maxBaby = newHouseController.attribute.LimitChild;
             }
 
             newTower.transform.parent = objectUpgrade.Tower.transform.parent;

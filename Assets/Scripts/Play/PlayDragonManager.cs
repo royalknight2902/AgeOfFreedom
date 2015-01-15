@@ -5,19 +5,27 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
 {
     public GameObject PlayerDragon { get; set; }
     public HouseController currentHouse { get; set; }
+    public int maxBaby { get; set; }
     public int countBaby { get; set; }
+    [HideInInspector]
+    public System.Collections.Generic.List<GameObject> listBabyDragon = new System.Collections.Generic.List<GameObject>();
 
     DragonController dragonController;
-    System.Collections.Generic.List<GameObject> listBabyDragon = new System.Collections.Generic.List<GameObject>();
 
     void Awake()
     {
+        maxBaby = 0;
         countBaby = 0;
     }
 
     void OnEnable()
     {
         initDragon();
+    }
+
+    void Start()
+    {
+        initSkill();
     }
 
     #region DRAGON PLAYER
@@ -37,8 +45,65 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
         dragonController.selected.transform.GetChild(0).GetComponent<UIStretch>().container = PlayManager.Instance.tempInit.cameraRender;
     }
 
+    void initSkill()
+    {
+        //Stretch skill selected
+        float ratio = GameSupportor.getRatioAspect(PlayDragonInfoController.Instance.tempSkill, PlayDragonInfoController.Instance.renderUlti) * 100;
+        PlayDragonInfoController.Instance.renderUlti.transform.localScale = new Vector3(ratio, ratio, ratio);
+
+        bool hasUlti = false;
+        string branch = PlayerInfo.Instance.dragonInfo.id;
+        int length = PlayDragonInfoController.Instance.Skills.Length;
+        int count = ReadDatabase.Instance.DragonInfo.Player[branch].Skills.Count - 1;
+
+        if (ReadDatabase.Instance.DragonInfo.Player[branch].Skills.Count > 0)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                PlayDragonInfoController.Instance.Skills[i].gameObject.SetActive(true);
+            }
+
+            foreach (DragonPlayerSkillData skillData in ReadDatabase.Instance.DragonInfo.Player[branch].Skills)
+            {
+                UITexture texture = PlayDragonInfoController.Instance.Skills[count].transform.GetChild(0).GetComponent<UITexture>();
+                string path = "Image/Dragon/Player/" + ConvertSupportor.convertUpperFirstChar(branch) + "/Skill/" + skillData.ID;
+                texture.mainTexture = Resources.Load<Texture>(path);
+                count--;
+
+                if (skillData.Ulti)
+                {
+                    PlayDragonInfoController.Instance.renderUlti.gameObject.SetActive(true);
+                    UIAnchor anchor = PlayDragonInfoController.Instance.renderUlti.GetComponent<UIAnchor>();
+                    anchor.container = texture.gameObject;
+                    anchor.enabled = true;
+                    hasUlti = true;
+                }
+            }
+        }
+
+
+        if (hasUlti == false && PlayDragonInfoController.Instance.renderUlti.gameObject.activeSelf)
+            PlayDragonInfoController.Instance.renderUlti.gameObject.SetActive(false);
+
+        count = ReadDatabase.Instance.DragonInfo.Player[branch].Skills.Count;
+        if (count < length)
+        {
+            for (int i = count; i < length; i++)
+            {
+                PlayDragonInfoController.Instance.Skills[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
     public void moveToHouse()
     {
+        if (countBaby >= maxBaby && maxBaby != 0)
+        {
+            DeviceService.Instance.openToast("You have reached maximum of baby dragon!");
+            PlayManager.Instance.resetUpgrade();
+            return;
+        }
+
         //Dragon state move to house
         dragonController.StateAction = EDragonStateAction.MOVE;
         dragonController.stateMove.destPosition = PlayManager.Instance.objectUpgrade.Tower.transform.position;
@@ -73,7 +138,7 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
         action.countdownForeground.fillAmount = 1;
         EffectSupportor.Instance.fadeInAndDestroy(action.countdown, ESpriteType.UI_SPRITE, 0.8f);
 
-        StartCoroutine(copulateChild(action, 5));
+        StartCoroutine(copulateChild(action, 1));
     }
 
     public void copulateOut()
@@ -129,9 +194,30 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
     {
         GameObject babyDragon = Instantiate(Resources.Load<GameObject>("Prefab/Dragon/Baby/Baby Dragon")) as GameObject;
         babyDragon.transform.parent = PlayManager.Instance.Temp.Dragon.transform;
-        babyDragon.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
         BabyDragonController babyController = babyDragon.GetComponent<BabyDragonController>();
         babyController.index = countBaby;
+
+        #region Scale base on parent scale
+        babyDragon.transform.localScale = new Vector3(0.5f, 0.5f, 1);
+
+        BoxCollider boxCollider = babyDragon.GetComponent<BoxCollider>();
+        boxCollider.size = new Vector2(boxCollider.size.x / 2, boxCollider.size.y / 2);
+
+        //foreach (Transform child in babyDragon.transform)
+        //{
+        //    if(child.name.Equals("Collider For Enemy ATK"))
+        //    {
+        //        SphereCollider collider = child.GetComponent<SphereCollider>();
+        //        collider.radius = collider.radius * 0.5f;
+        //    }
+        //    if(child.name.Equals("ATK Range"))
+        //    {
+        //        SphereCollider collider = child.GetComponent<SphereCollider>();
+        //        collider.radius = collider.radius * 0.5f;
+        //    }
+        //}
+
+        #endregion
 
         if (dragonController.StateDirection == EDragonStateDirection.LEFT)
         {
@@ -146,11 +232,21 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
             babyController.StateDirection = EDragonStateDirection.RIGHT;
         }
 
-        babyController.dragonParent = dragonController;
+        if (babyController.StateDirection == EDragonStateDirection.LEFT)
+        {
+            Vector3 scale = babyDragon.transform.GetChild(0).localScale;
+            babyDragon.transform.GetChild(0).localScale = new Vector3(-1 * scale.x, scale.y, scale.z);
+        }
+        else
+        {
+            Vector3 scale = babyDragon.transform.GetChild(0).localScale;
+            babyDragon.transform.GetChild(0).localScale = new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);
+        }
 
         //Stretch HP
         babyDragon.transform.GetChild(1).GetComponent<UIStretch>().container = GameObject.FindWithTag("Root");
 
+        babyController.dragonParent = dragonController;
         listBabyDragon.Add(babyDragon);
         countBaby = listBabyDragon.Count;
 
@@ -159,20 +255,29 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
 
     void Update()
     {
-        if (dragonController.StateAction == EDragonStateAction.MOVE)
+        if (dragonController != null)
         {
-            foreach (GameObject baby in listBabyDragon)
+            if (dragonController.gameObject.activeSelf)
             {
-                try
+                if (dragonController.StateAction == EDragonStateAction.MOVE)
                 {
-                    BabyDragonController babyDragonController = baby.GetComponent<BabyDragonController>();
-                    Vector3 handleException = dragonController.stateMove.listPosition[PlayConfig.BabyDragonIndexForListStart 
-                        + PlayConfig.BabyDragonIndexForListDistance * babyDragonController.index]; // for test exception
-                    babyDragonController.StateAction = EDragonStateAction.MOVE;
-                }
-                catch
-                {
-                    //baby.GetComponent<BabyDragonController>().StateAction = EDragonStateAction.IDLE;
+                    for (int i = 0; i < listBabyDragon.Count; i++)
+                    {
+                        BabyDragonController babyDragonController = listBabyDragon[i].GetComponent<BabyDragonController>();
+                        if (babyDragonController.StateAction != EDragonStateAction.MOVE)
+                        {
+                            try
+                            {
+                                Vector3 handleException = dragonController.stateMove.listPosition[PlayConfig.BabyDragonIndexForListStart
+                                    - PlayConfig.BabyDragonIndexForListDistance * babyDragonController.index]; // for test exception
+                                babyDragonController.stateAttack.target = null;
+                                babyDragonController.StateAction = EDragonStateAction.MOVE;
+                            }
+                            catch
+                            {
+                            }
+                        }
+                    }
                 }
             }
         }

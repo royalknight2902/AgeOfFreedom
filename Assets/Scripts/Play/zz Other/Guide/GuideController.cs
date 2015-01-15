@@ -157,8 +157,8 @@ public class GuideController : Singleton<GuideController>
                         infoController.bulletRegion.text = str[1];
 
                         //set icon fix size
-                        Vector2 dimension = PlayConfig.getTowerIconSize(towerController.ID);
-                        infoController.icon.SetDimensions((int)dimension.x, (int)dimension.y);
+                        infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+                        infoController.icon.SetDimensions(infoController.icon.mainTexture.width, infoController.icon.mainTexture.height);
                         infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
                         UIStretch uiStretch = infoController.icon.GetComponent<UIStretch>();
@@ -167,13 +167,13 @@ public class GuideController : Singleton<GuideController>
 
                         #region BULLET
                         object[] bulletData = PlayConfig.getBulletShop(towerID);
-                        SBulletTowerShop bulletTowerShop = (SBulletTowerShop)bulletData[1];
                         infoController.bulletIcon.mainTexture = Resources.Load<Texture>("Image/Bullet/Bullet Icon/" + bulletData[0].ToString());
-                        infoController.bulletIcon.SetDimensions((int)bulletTowerShop.Dimension.x, (int)bulletTowerShop.Dimension.y);
+                        infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+                        infoController.bulletIcon.SetDimensions(infoController.bulletIcon.mainTexture.width, infoController.bulletIcon.mainTexture.height);
                         infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
                         UIStretch stretch = infoController.bulletIcon.GetComponent<UIStretch>();
-                        stretch.relativeSize.y = bulletTowerShop.Stretch;
+                        stretch.relativeSize.y = (float)bulletData[1];
                         stretch.enabled = true;
 
                         //Add effect

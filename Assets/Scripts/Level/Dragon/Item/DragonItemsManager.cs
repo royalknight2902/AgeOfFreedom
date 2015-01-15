@@ -274,12 +274,59 @@ public class DragonItemsManager : Singleton<DragonItemsManager>
     {
         DragonPlayerData data = ReadDatabase.Instance.DragonInfo.Player[branch];
         attribute.Name.text = branch;
-        attribute.HP.text = data.HP.ToString();
-        attribute.MP.text = data.MP.ToString();
-        attribute.ATK.text = data.ATK.Min + " - " + data.ATK.Max;
-        attribute.DEF.text = data.DEF.ToString();
-        attribute.ATKSpeed.text = data.ATKSpeed.ToString();
-        attribute.MoveSpeed.text = data.MoveSpeed.ToString();
+        attribute.HP.text = "[000000]" + data.HP.ToString() + "[-]";
+        attribute.MP.text = "[000000]" + data.MP.ToString() + "[-]";
+        attribute.ATK.text = "[000000]" + data.ATK.Min + " - " + data.ATK.Max + "[-]";
+        attribute.DEF.text = "[000000]" + data.DEF.ToString() + "[-]";
+        attribute.ATKSpeed.text = "[000000]" + data.ATKSpeed.ToString() + "[-]";
+        attribute.MoveSpeed.text = "[000000]" + data.MoveSpeed.ToString() + "[-]";
+
+        SDragonAttributeBonus bonus = new SDragonAttributeBonus();
+        bonus.ATK = bonus.DEF = 0;
+        bonus.HP = bonus.MP = 0;
+        bonus.ATKSpeed = bonus.MoveSpeed = 0.0f;
+
+        if (!PlayerInfo.Instance.dragonInfo.itemHead.Equals(""))
+            updateAttributeBonus(ReadDatabase.Instance.DragonInfo.Item[PlayerInfo.Instance.dragonInfo.itemHead],ref bonus);
+        if (!PlayerInfo.Instance.dragonInfo.itemWing.Equals(""))
+            updateAttributeBonus(ReadDatabase.Instance.DragonInfo.Item[PlayerInfo.Instance.dragonInfo.itemWing],ref bonus);
+        if (!PlayerInfo.Instance.dragonInfo.itemRing.Equals(""))
+            updateAttributeBonus(ReadDatabase.Instance.DragonInfo.Item[PlayerInfo.Instance.dragonInfo.itemRing],ref bonus);
+        if (!PlayerInfo.Instance.dragonInfo.itemAmulet.Equals(""))
+            updateAttributeBonus(ReadDatabase.Instance.DragonInfo.Item[PlayerInfo.Instance.dragonInfo.itemAmulet],ref bonus);
+        if (!PlayerInfo.Instance.dragonInfo.itemBody.Equals(""))
+            updateAttributeBonus(ReadDatabase.Instance.DragonInfo.Item[PlayerInfo.Instance.dragonInfo.itemBody],ref bonus);
+        if (!PlayerInfo.Instance.dragonInfo.itemRune.Equals(""))
+            updateAttributeBonus(ReadDatabase.Instance.DragonInfo.Item[PlayerInfo.Instance.dragonInfo.itemRune],ref bonus);
+
+        if (bonus.ATK != 0) //ATK
+            attribute.ATK.text += ((bonus.ATK > 0) ? "[34a00a] + " : "[be0d0d] - ") + Mathf.Abs(bonus.ATK) + "[-]";
+        if (bonus.DEF != 0) //DEF
+            attribute.DEF.text += ((bonus.DEF > 0) ? "[34a00a] + " : "[be0d0d] - ") + Mathf.Abs(bonus.DEF) + "[-]";
+        if (bonus.HP != 0) //HP
+            attribute.HP.text += ((bonus.HP > 0) ? "[34a00a] + " : "[be0d0d] - ") + Mathf.Abs(bonus.HP) + "[-]";
+        if (bonus.MP != 0) //MP
+            attribute.MP.text += ((bonus.MP > 0) ? "[34a00a] + " : "[be0d0d] - ") + Mathf.Abs(bonus.MP) + "[-]";
+        if (bonus.ATKSpeed != 0) //ATKSpeed
+            attribute.ATKSpeed.text += ((bonus.ATKSpeed > 0) ? "[34a00a] + " : "[be0d0d] - ") + Mathf.Abs(bonus.ATKSpeed) + "[-]";
+        if (bonus.MoveSpeed != 0) //MoveSpeed
+            attribute.MoveSpeed.text += ((bonus.MoveSpeed > 0) ? "[34a00a] + " : "[be0d0d] - ") + Mathf.Abs(bonus.MoveSpeed)+ "[-]";
+    }
+
+    public void updateAttributeBonus(DragonItemData item,ref SDragonAttributeBonus bonus)
+    {
+        if (item.Options[0] != 0) //ATK
+            bonus.ATK += (int)item.Options[0];
+        if (item.Options[1] != 0) // DEF
+            bonus.DEF += (int)item.Options[1];
+        if (item.Options[2] != 0) // HP
+            bonus.HP += (int)item.Options[2];
+        if (item.Options[3] != 0) // MP
+            bonus.MP += (int)item.Options[3];
+        if (item.Options[4] != 0) // ATK Speed
+            bonus.ATKSpeed += item.Options[4];
+        if (item.Options[5] != 0) // Move Speed
+            bonus.MoveSpeed += item.Options[5];
     }
 
     public void updateListItem(GameObject destroyObject)
@@ -308,20 +355,5 @@ public class DragonItemsManager : Singleton<DragonItemsManager>
         {
 
         }
-    }
-
-    public void equipItemForDragon(string itemName)
-    {
-        DragonItemData itemData = loadInfoItem(itemName);
-    }
-
-    DragonItemData loadInfoItem(string itemName)
-    {
-        foreach (System.Collections.Generic.KeyValuePair<string, DragonItemData> iterator in ReadDatabase.Instance.DragonInfo.Item)
-        {
-            if (iterator.Value.Name == itemName)
-                return iterator.Value;
-        }
-        return null;
     }
 }

@@ -18,12 +18,32 @@ public class DragonStateAttack : FSMState<DragonController>
         else
             controller.stateAttack.direction = EDragonStateDirection.RIGHT;
 
+        direction = controller.stateAttack.direction;
         preDirection = direction;
         setDirection();
 	}
 	
 	public override void Execute (DragonController obj)
 	{
+        if (target == null)
+        {
+            controller.dragonAttack.chooseEnemyToAttack();
+            return;
+        }
+        else
+        {
+            EnemyController enemy = target.GetComponent<EnemyController>();
+            if (enemy.attribute.HP.Current <= 0)
+            {
+                controller.dragonAttack.listEnemy.Remove(target);
+                target = null;
+                controller.dragonAttack.chooseEnemyToAttack();
+
+                enemy.StateAction = EEnemyStateAction.DIE;
+                return;
+            }
+        }
+
         if (target.transform.position.x >= controller.transform.position.x && direction == EDragonStateDirection.LEFT)
         {
             direction = EDragonStateDirection.RIGHT;
@@ -63,20 +83,13 @@ public class DragonStateAttack : FSMState<DragonController>
 
         float valueTo = enemyController.attribute.HP.Current / (float)enemyController.attribute.HP.Max;
         EffectSupportor.Instance.runSliderValue(enemyController.sliderHP, valueTo);
-
-        if (enemyController.attribute.HP.Current <= 0)
-        {
-            enemyController.StateAction = EEnemyStateAction.DIE;
-            controller.StateAction = EDragonStateAction.IDLE;
-            target = null;
-        }
     }
 
     void setDirection()
     {
         Vector3 scale = controller.transform.GetChild(0).localScale;
 
-        if (direction == EDragonStateDirection.RIGHT)
+        if (direction == EDragonStateDirection.LEFT)
             controller.transform.GetChild(0).localScale = new Vector3(-1 * scale.x, scale.y, scale.z);
         else
             controller.transform.GetChild(0).localScale = new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);

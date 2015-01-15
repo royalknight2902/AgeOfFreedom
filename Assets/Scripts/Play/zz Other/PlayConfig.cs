@@ -9,8 +9,8 @@ public class PlayConfig
 	public const float TimeWaitInstructionAfterMission = 0.2f; //Thoi gian wait sau khi mission hien thi xong
 	public const float AnchorShopPanelStart = -4.499985f;
 	public const int PagesInstruction = 3;
-    public const int BabyDragonIndexForListStart = 5;
-    public const int BabyDragonIndexForListDistance = 10;
+    public const int BabyDragonIndexForListStart = 75;
+    public const int BabyDragonIndexForListDistance = 20;
 
     public static Vector3 PositionTowerBuild = new Vector3(5, -25, 0);
     public static Vector3 PositionTowerSell = new Vector3(5, -10, 0);
@@ -44,23 +44,23 @@ public class PlayConfig
     public static Color ColorTowerBuildDragonLabelCostOutline = Color.black;
 	#endregion
 
-	#region FOOTBAR TOWER UPGRADE PANEL - COLOR SQUARE, TOWER ICON SIZE
+	#region FOOTBAR TOWER UPGRADE PANEL - COLOR SQUARE, TOWER ICON STRETCH
 	public static Color ColorTowerUpgradeDefault = new Color((float)191 / 255, (float)191 / 255, (float)149 / 255);
 	public static Color ColorTowerUpgradeSelected = new Color((float)251 / 255, (float)255 / 255, (float)0 / 255);
 
-	public static SBulletTowerShop StretchTowerUpgradeArchitect1 = new SBulletTowerShop(new Vector2(0, -0.01f), 0.95f);
-	public static SBulletTowerShop StretchTowerUpgradeArchitect2 = new SBulletTowerShop(new Vector2(0, -0.01f), 0.74f);
-	public static SBulletTowerShop StretchTowerUpgradeArchitect3 = new SBulletTowerShop(new Vector2(0, -0.03f), 0.74f);
-	public static SBulletTowerShop StretchTowerUpgradeIce1 = new SBulletTowerShop(new Vector2(0, -0.05f), 0.77f);
-	public static SBulletTowerShop StretchTowerUpgradeIce2 = new SBulletTowerShop(new Vector2(0, -0.05f), 0.67f);
-	public static SBulletTowerShop StretchTowerUpgradeIce3 = new SBulletTowerShop(new Vector2(0, 0), 0.86f);
-	public static SBulletTowerShop StretchTowerUpgradeRock1 = new SBulletTowerShop(new Vector2(-0.03f, -0.05f), 0.68f);
-	public static SBulletTowerShop StretchTowerUpgradeRock2 = new SBulletTowerShop(new Vector2(0.03f, -0.02f), 0.77f);
-	public static SBulletTowerShop StretchTowerUpgradeRock3 = new SBulletTowerShop(new Vector2(0.03f, -0.02f), 0.78f);
-	public static SBulletTowerShop StretchTowerUpgradeFire1 = new SBulletTowerShop(new Vector2(0.03f, -0.02f), 0.78f);
-	public static SBulletTowerShop StretchTowerUpgradeFire2 = new SBulletTowerShop(new Vector2(0, -0.02f), 0.84f);
-	public static SBulletTowerShop StretchTowerUpgradeFire3 = new SBulletTowerShop(new Vector2(0, -0.02f), 0.89f);
-    public static SBulletTowerShop StretchTowerUpgradeGold = new SBulletTowerShop(new Vector2(0, -0.02f), 0.89f);
+    public static SAnchor StretchTowerUpgradeArchitect1 = new SAnchor(new Vector2(0, -0.01f), 0.95f);
+    public static SAnchor StretchTowerUpgradeArchitect2 = new SAnchor(new Vector2(0, -0.01f), 0.74f);
+    public static SAnchor StretchTowerUpgradeArchitect3 = new SAnchor(new Vector2(0, -0.03f), 0.74f);
+    public static SAnchor StretchTowerUpgradeIce1 = new SAnchor(new Vector2(0, -0.05f), 0.77f);
+    public static SAnchor StretchTowerUpgradeIce2 = new SAnchor(new Vector2(0, -0.05f), 0.67f);
+    public static SAnchor StretchTowerUpgradeIce3 = new SAnchor(new Vector2(0, 0), 0.86f);
+    public static SAnchor StretchTowerUpgradeRock1 = new SAnchor(new Vector2(-0.03f, -0.05f), 0.68f);
+    public static SAnchor StretchTowerUpgradeRock2 = new SAnchor(new Vector2(0.03f, -0.02f), 0.77f);
+    public static SAnchor StretchTowerUpgradeRock3 = new SAnchor(new Vector2(0.03f, -0.02f), 0.78f);
+    public static SAnchor StretchTowerUpgradeFire1 = new SAnchor(new Vector2(0.03f, -0.02f), 0.78f);
+    public static SAnchor StretchTowerUpgradeFire2 = new SAnchor(new Vector2(0, -0.02f), 0.84f);
+    public static SAnchor StretchTowerUpgradeFire3 = new SAnchor(new Vector2(0, -0.02f), 0.89f);
+    public static SAnchor StretchTowerUpgradeGold = new SAnchor(new Vector2(0, -0.02f), 0.89f);
 	#endregion
 
 	#region SHOP - TOWER SHOP PANEL, INFO PANEL
@@ -88,19 +88,14 @@ public class PlayConfig
 	public static Color ColorBossWaveLabelOutline = new Color((float)131 / 255, (float)52 / 255, (float)52 / 255);
 	#endregion
 
-    #region HOUSE - SIZE, BOX COLLIDER
+    #region HOUSE - BOX COLLIDER POSITION
     public static Vector2 PositionColliderDragonHouse1 = new Vector2(4, -7);
     public static Vector2 PositionColliderDragonHouse2 = new Vector2(4, -9);
     public static Vector2 PositionColliderDragonHouse3 = new Vector2(4, -9);
     public static Vector2 PositionColliderDragonHouse4 = new Vector2(4, -9);
-
-    public static Vector2 SizeDragonHouse1 = new Vector2(67, 65);
-    public static Vector2 SizeDragonHouse2 = new Vector2(59, 61);
-    public static Vector2 SizeDragonHouse3 = new Vector2(88, 74);
-    public static Vector2 SizeDragonHouse4 = new Vector2(88, 58);
     #endregion
 
-    #region TOWER - NAME COLOR FOREGROUND, NAME COLOR OUTLINE, SIZE
+    #region TOWER - NAME COLOR FOREGROUND, NAME COLOR OUTLINE
     //Name color foreground
 	public static Color ColorTowerArchitect = Color.white;
 	public static Color ColorTowerFire = new Color((float)255 / 255, (float)107 / 255, (float)107 / 255);
@@ -116,76 +111,45 @@ public class PlayConfig
 	public static Color ColorTowerRockOutline = new Color((float)96 / 255, (float)85 / 255, (float)41 / 255);
     public static Color ColorTowerGoldOutline = new Color((float)96 / 255, (float)85 / 255, (float)41 / 255);
     public static Color ColorTowerPoisonOutline = new Color((float)96 / 255, (float)85 / 255, (float)41 / 255);
-
-	//Size
-	public static Vector2 SizeTowerArchitect1 = new Vector2(50, 44);
-	public static Vector2 SizeTowerArchitect2 = new Vector2(51, 47);
-	public static Vector2 SizeTowerArchitect3 = new Vector2(70, 60);
-	public static Vector2 SizeTowerFire1 = new Vector2(70, 70);
-	public static Vector2 SizeTowerFire2 = new Vector2(61, 68);
-	public static Vector2 SizeTowerFire3 = new Vector2(101, 113);
-	public static Vector2 SizeTowerIce1 = new Vector2(57, 47);
-	public static Vector2 SizeTowerIce2 = new Vector2(57, 53);
-	public static Vector2 SizeTowerIce3 = new Vector2(59, 63);
-	public static Vector2 SizeTowerRock1 = new Vector2(74, 46);
-	public static Vector2 SizeTowerRock2 = new Vector2(83, 52);
-	public static Vector2 SizeTowerRock3 = new Vector2(66, 63);
-    public static Vector2 SizeTowerGold1 = new Vector2(52, 55);
-    public static Vector2 SizeTowerGold2 = new Vector2(52, 55);
-    public static Vector2 SizeTowerGold3 = new Vector2(52, 55);
-    public static Vector2 SizeTowerPoison1 = new Vector2(70, 60);
-    public static Vector2 SizeTowerPoison2 = new Vector2(80, 78);   
-    public static Vector2 SizeTowerPoison3 = new Vector2(80, 78);
 	#endregion
 
 	#region BULLET - SIZE FOR SHOP, SIZE FOR TOWER BUILD PANEL
 	//Size for shop
-	public static SBulletTowerShop ShopBulletArchitect1 = new SBulletTowerShop(new Vector2(78, 39), 1.41f);
-	public static SBulletTowerShop ShopBulletArchitect2 = new SBulletTowerShop(new Vector2(128, 64), 0.94f);
-	public static SBulletTowerShop ShopBulletArchitect3 = new SBulletTowerShop(new Vector2(128, 64), 0.89f);
-	public static SBulletTowerShop ShopBulletRock1 = new SBulletTowerShop(new Vector2(38, 38), 1.34f);
-	public static SBulletTowerShop ShopBulletRock2 = new SBulletTowerShop(new Vector2(32, 32), 1.15f);
-	public static SBulletTowerShop ShopBulletRock3 = new SBulletTowerShop(new Vector2(32, 32), 1.34f);
-	public static SBulletTowerShop ShopBulletFire1 = new SBulletTowerShop(new Vector2(36, 18), 0.63f);
-	public static SBulletTowerShop ShopBulletFire2 = new SBulletTowerShop(new Vector2(66, 33), 1.19f);
-	public static SBulletTowerShop ShopBulletFire3 = new SBulletTowerShop(new Vector2(54, 54), 1.92f);
-	public static SBulletTowerShop ShopBulletIce1 = new SBulletTowerShop(new Vector2(16, 16), 1.51f);
-	public static SBulletTowerShop ShopBulletIce2 = new SBulletTowerShop(new Vector2(76, 38), 1.35f);
-	public static SBulletTowerShop ShopBulletIce3 = new SBulletTowerShop(new Vector2(50, 50), 2.01f);
-    public static SBulletTowerShop ShopBulletPoison1 = new SBulletTowerShop(new Vector2(76, 38), 1.35f);
-    public static SBulletTowerShop ShopBulletPoison2 = new SBulletTowerShop(new Vector2(76, 38), 1.35f);
-    public static SBulletTowerShop ShopBulletPoison3 = new SBulletTowerShop(new Vector2(76, 38), 1.35f);
+    public const float StretchShopBulletArchitect1 = 1.41f;
+    public const float StretchShopBulletArchitect2 = 0.94f;
+    public const float StretchShopBulletArchitect3 = 0.89f;
+    public const float StretchShopBulletRock1 = 1.34f;
+    public const float StretchShopBulletRock2 = 1.15f;
+    public const float StretchShopBulletRock3 = 0.63f;
+    public const float StretchShopBulletFire1 = 1.19f;
+    public const float StretchShopBulletFire2 = 1.92f;
+    public const float StretchShopBulletFire3 = 1.92f;
+    public const float StretchShopBulletIce1 = 1.51f;
+    public const float StretchShopBulletIce2 = 1.35f;
+    public const float StretchShopBulletIce3 = 2.01f;
+    public const float StretchShopBulletPoison1 = 1.35f;
+    public const float StretchShopBulletPoison2 = 1.35f;
+    public const float StretchShopBulletPoison3 = 1.35f;
 
 	//Size for tower build panel
-	public static SBulletAnchor BuildBulletArchitect1 = new SBulletAnchor(new Vector2(-0.26f, 0), new Vector2(128, 64), 1.22f);
-	public static SBulletAnchor BuildBulletArchitect2 = new SBulletAnchor(new Vector2(-0.29f, 0), new Vector2(128, 64), 1.09f);
-	public static SBulletAnchor BuildBulletArchitect3 = new SBulletAnchor(new Vector2(-0.29f, 0), new Vector2(128, 64), 1.09f);
-	public static SBulletAnchor BuildBulletRock1 = new SBulletAnchor(new Vector2(-0.29f, 0.02f), new Vector2(32, 32), 1.46f);
-	public static SBulletAnchor BuildBulletRock2 = new SBulletAnchor(new Vector2(-0.29f, 0.02f), new Vector2(32, 40), 1.3f);
-	public static SBulletAnchor BuildBulletRock3 = new SBulletAnchor(new Vector2(-0.29f, 0.06f), new Vector2(32, 32), 1.27f);
-	public static SBulletAnchor BuildBulletFire1 = new SBulletAnchor(new Vector2(-0.3f, -0.07f), new Vector2(32, 16), 0.75f);
-	public static SBulletAnchor BuildBulletFire2 = new SBulletAnchor(new Vector2(-0.28f, 0.07f), new Vector2(128, 64), 1.37f);
-	public static SBulletAnchor BuildBulletFire3 = new SBulletAnchor(new Vector2(-0.29f, 0.07f), new Vector2(64, 64), 2.05f);
-	public static SBulletAnchor BuildBulletIce1 = new SBulletAnchor(new Vector2(-0.29f, 0.07f), new Vector2(16, 16), 2.02f);
-	public static SBulletAnchor BuildBulletIce2 = new SBulletAnchor(new Vector2(-0.25f, 0.01f), new Vector2(64, 32), 1.45f);
-	public static SBulletAnchor BuildBulletIce3 = new SBulletAnchor(new Vector2(-0.29f, 0.09f), new Vector2(64, 64), 1.74f);
-    public static SBulletAnchor BuildBulletPoison1 = new SBulletAnchor(new Vector2(-0.29f, 0.07f), new Vector2(64, 32), 1.45f);
-    public static SBulletAnchor BuildBulletPoison2 = new SBulletAnchor(new Vector2(-0.29f, 0.07f), new Vector2(64, 32), 1.45f);
-    public static SBulletAnchor BuildBulletPoison3 = new SBulletAnchor(new Vector2(-0.29f, 0.07f), new Vector2(64, 32), 1.45f);
+    public static SAnchor BuildBulletArchitect1 = new SAnchor(new Vector2(-0.26f, 0), 1.22f);
+    public static SAnchor BuildBulletArchitect2 = new SAnchor(new Vector2(-0.29f, 0), 1.09f);
+    public static SAnchor BuildBulletArchitect3 = new SAnchor(new Vector2(-0.29f, 0), 1.09f);
+    public static SAnchor BuildBulletRock1 = new SAnchor(new Vector2(-0.29f, 0.02f), 1.46f);
+    public static SAnchor BuildBulletRock2 = new SAnchor(new Vector2(-0.29f, 0.02f), 1.3f);
+    public static SAnchor BuildBulletRock3 = new SAnchor(new Vector2(-0.29f, 0.06f), 1.27f);
+    public static SAnchor BuildBulletFire1 = new SAnchor(new Vector2(-0.3f, -0.07f), 0.75f);
+    public static SAnchor BuildBulletFire2 = new SAnchor(new Vector2(-0.28f, 0.07f), 1.37f);
+    public static SAnchor BuildBulletFire3 = new SAnchor(new Vector2(-0.29f, 0.07f), 2.05f);
+    public static SAnchor BuildBulletIce1 = new SAnchor(new Vector2(-0.29f, 0.07f), 2.02f);
+    public static SAnchor BuildBulletIce2 = new SAnchor(new Vector2(-0.25f, 0.01f), 1.45f);
+    public static SAnchor BuildBulletIce3 = new SAnchor(new Vector2(-0.29f, 0.09f), 1.74f);
+    public static SAnchor BuildBulletPoison1 = new SAnchor(new Vector2(-0.29f, 0.07f), 1.45f);
+    public static SAnchor BuildBulletPoison2 = new SAnchor(new Vector2(-0.29f, 0.07f), 1.45f);
+    public static SAnchor BuildBulletPoison3 = new SAnchor(new Vector2(-0.29f, 0.07f), 1.45f);
 	#endregion
 
-	#region ITEM - SIZE FOR SHOP, ITEM BUFF
-	public static Vector2 SizeShopItemHOM =  new Vector2(86,64);
-	public static Vector2 SizeShopItemATK =  new Vector2(68,64);
-	public static Vector2 SizeShopItemSpawnShoot =  new Vector2(36,64);
-	public static Vector2 SizeShopItemRange =  new Vector2(57,64);
-	public static Vector2 SizeShopItemTower =  new Vector2(55,64);
-
-	public static Vector2 SizeItemBuffHOM = new Vector2 (51, 52);
-	public static Vector2 SizeItemBuffATK = new Vector2 (52, 52);
-	public static Vector2 SizeItemBuffSpawnShoot = new Vector2 (52, 52);
-	public static Vector2 SizeItemBuffTRange = new Vector2 (48, 52);
-
+	#region ITEM - ITEM BUFF
 	public static Color ColorShopItemName = new Color((float)224 / 255, (float)255 / 255, (float)82 / 255);
 	public static Color ColorShopItemNameOutline = new Color((float)58 / 255, (float)58 / 255, (float)58 / 255);
 	public static Color ColorShopItemValue = Color.white;
@@ -262,51 +226,6 @@ public class PlayConfig
 	//Color of slow effect
 	public static Color ColorSlowEffect = new Color((float)230 / 255, (float)255 / 255, (float)0 / 255);
 
-	public static Vector2 getSizeItem(string ID)
-	{
-		Vector2 size = Vector2.zero;
-		switch(ID)
-		{
-		case "HandOfMidas":
-			size = SizeShopItemHOM;
-			break;
-		case "ATK+":
-			size = SizeShopItemATK;
-			break;
-		case "SpawnShoot+":
-			size = SizeShopItemSpawnShoot;
-			break;
-		case "Range+":
-			size = SizeShopItemRange;
-			break;
-		case "Tower+":
-			size = SizeShopItemTower;
-			break;
-		}
-		return size;
-	}
-
-	public static Vector2 getSizeItemBuff(string ID)
-	{
-		Vector2 size = Vector2.zero;
-		switch(ID)
-		{
-		case "HandOfMidas":
-			size = SizeItemBuffHOM;
-			break;
-		case "ATK+":
-			size = SizeItemBuffATK;
-			break;
-		case "SpawnShoot+":
-			size = SizeItemBuffSpawnShoot;
-			break;
-		case "Range+":
-			size = SizeItemBuffTRange;
-			break;
-		}
-		return size;
-	}
-
 	public static object[] getTowerBuildReso(ETower type)
 	{
 		float stretch = 0.0f;
@@ -351,130 +270,6 @@ public class PlayConfig
             #endregion
 		}
 		return new object[] {stretch, vector};
-	}
-
-	public static Vector2 getTowerIconSize(STowerID ID)
-	{
-		Vector2 vector = Vector2.zero;
-		switch (ID.Type)
-		{
-			#region ARCHITECT
-			case ETower.ARCHITECT:
-				switch (ID.Level)
-				{
-					case 1:
-						vector = PlayConfig.SizeTowerArchitect1;
-						break;
-					case 2:
-						vector = PlayConfig.SizeTowerArchitect2;
-						break;
-					case 3:
-						vector = PlayConfig.SizeTowerArchitect3;
-						break;
-				}
-				break;
-			#endregion
-			#region ROCK
-			case ETower.ROCK:
-				switch (ID.Level)
-				{
-					case 1:
-						vector = PlayConfig.SizeTowerRock1;
-						break;
-					case 2:
-						vector = PlayConfig.SizeTowerRock2;
-						break;
-					case 3:
-						vector = PlayConfig.SizeTowerRock3;
-						break;
-				}
-				break;
-			#endregion
-			#region ICE
-			case ETower.ICE:
-				switch (ID.Level)
-				{
-					case 1:
-						vector = PlayConfig.SizeTowerIce1;
-						break;
-					case 2:
-						vector = PlayConfig.SizeTowerIce2;
-						break;
-					case 3:
-						vector = PlayConfig.SizeTowerIce3;
-						break;
-				}
-				break;
-			#endregion
-			#region FIRE
-			case ETower.FIRE:
-				switch (ID.Level)
-				{
-					case 1:
-						vector = PlayConfig.SizeTowerFire1;
-						break;
-					case 2:
-						vector = PlayConfig.SizeTowerFire2;
-						break;
-					case 3:
-						vector = PlayConfig.SizeTowerFire3;
-						break;
-				}
-				break;
-			#endregion
-            #region GOLD
-            case ETower.GOLD:
-                switch (ID.Level)
-                {
-                    case 1:
-                        vector = PlayConfig.SizeTowerGold1;
-                        break;
-                    case 2:
-                        vector = PlayConfig.SizeTowerGold2;
-                        break;
-                    case 3:
-                        vector = PlayConfig.SizeTowerGold3;
-                        break;
-                }
-                break;
-            #endregion
-            #region POISON
-            case ETower.POISON:
-                switch (ID.Level)
-                {
-                    case 1:
-                        vector = PlayConfig.SizeTowerPoison1;
-                        break;
-                    case 2:
-                        vector = PlayConfig.SizeTowerPoison2;
-                        break;
-                    case 3:
-                        vector = PlayConfig.SizeTowerPoison3;
-                        break;
-                }
-                break;
-            #endregion  
-            #region DRAGON HOUSE
-            case ETower.DRAGON:
-                switch (ID.Level)
-                {
-                    case 1:
-                        vector = PlayConfig.SizeDragonHouse1;
-                        break;
-                    case 2:
-                        vector = PlayConfig.SizeDragonHouse2;
-                        break;
-                    case 3:
-                        vector = PlayConfig.SizeDragonHouse3;
-                        break;
-                    case 4:
-                        vector = PlayConfig.SizeDragonHouse4;
-                        break;
-                }
-                break;
-            #endregion
-        }
-		return vector;
 	}
 
 	public static Color[] getColorTowerName(STowerID ID)
@@ -530,8 +325,7 @@ public class PlayConfig
 
 	public static object[] getBulletShop(STowerID id)
 	{
-		SBulletTowerShop config = new SBulletTowerShop(Vector2.zero, 1);
-
+        float stretch = -1;
 		string s = "bullet-";
 		switch (id.Type)
 		{
@@ -541,13 +335,13 @@ public class PlayConfig
 				switch (id.Level)
 				{
 					case 1:
-						config = PlayConfig.ShopBulletArchitect1;
+                        stretch = PlayConfig.StretchShopBulletArchitect1;
 						break;
 					case 2:
-						config = PlayConfig.ShopBulletArchitect2;
+                        stretch = PlayConfig.StretchShopBulletArchitect2;
 						break;
 					case 3:
-						config = PlayConfig.ShopBulletArchitect3;
+                        stretch = PlayConfig.StretchShopBulletArchitect3;
 						break;
 				}
 				break;
@@ -557,15 +351,15 @@ public class PlayConfig
 				s += "rock";
 				switch (id.Level)
 				{
-					case 1:
-						config = PlayConfig.ShopBulletRock1;
-						break;
-					case 2:
-						config = PlayConfig.ShopBulletRock2;
-						break;
-					case 3:
-						config = PlayConfig.ShopBulletRock3;
-						break;
+                    case 1:
+                        stretch = PlayConfig.StretchShopBulletRock1;
+                        break;
+                    case 2:
+                        stretch = PlayConfig.StretchShopBulletRock2;
+                        break;
+                    case 3:
+                        stretch = PlayConfig.StretchShopBulletRock3;
+                        break;
 				}
 				break;
 			#endregion
@@ -574,15 +368,15 @@ public class PlayConfig
 				s += "ice";
 				switch (id.Level)
 				{
-					case 1:
-						config = PlayConfig.ShopBulletIce1;
-						break;
-					case 2:
-						config = PlayConfig.ShopBulletIce2;
-						break;
-					case 3:
-						config = PlayConfig.ShopBulletIce3;
-						break;
+                    case 1:
+                        stretch = PlayConfig.StretchShopBulletIce1;
+                        break;
+                    case 2:
+                        stretch = PlayConfig.StretchShopBulletIce2;
+                        break;
+                    case 3:
+                        stretch = PlayConfig.StretchShopBulletIce3;
+                        break;
 				}
 				break;
 			#endregion
@@ -591,15 +385,15 @@ public class PlayConfig
 				s += "fire";
 				switch (id.Level)
 				{
-					case 1:
-						config = PlayConfig.ShopBulletFire1;
-						break;
-					case 2:
-						config = PlayConfig.ShopBulletFire2;
-						break;
-					case 3:
-						config = PlayConfig.ShopBulletFire3;
-						break;
+                    case 1:
+                        stretch = PlayConfig.StretchShopBulletFire1;
+                        break;
+                    case 2:
+                        stretch = PlayConfig.StretchShopBulletFire2;
+                        break;
+                    case 3:
+                        stretch = PlayConfig.StretchShopBulletFire3;
+                        break;
 				}
 				break;
 #endregion
@@ -609,25 +403,25 @@ public class PlayConfig
                 switch (id.Level)
                 {
                     case 1:
-                        config = PlayConfig.ShopBulletPoison1;
+                        stretch = PlayConfig.StretchShopBulletPoison1;
                         break;
                     case 2:
-                        config = PlayConfig.ShopBulletPoison2;
+                        stretch = PlayConfig.StretchShopBulletPoison2;
                         break;
                     case 3:
-                        config = PlayConfig.ShopBulletPoison3;
+                        stretch = PlayConfig.StretchShopBulletPoison3;
                         break;
                 }
                 break;
 			#endregion
 		}
 		s += "-" + id.Level.ToString();
-		return new object[] { s, config };
+        return new object[] { s, stretch };
 	}
 
 	public static object[] getBulletBuild(STowerID id)
 	{
-		SBulletAnchor config = new SBulletAnchor(Vector2.zero, Vector2.zero, 1);
+        SAnchor config = new SAnchor(Vector2.zero, 1);
 
 		string s = "bullet-";
 		switch (id.Type)

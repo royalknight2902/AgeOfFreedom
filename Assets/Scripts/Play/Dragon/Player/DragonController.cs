@@ -20,8 +20,16 @@ public enum EDragonStateAction
 
 public enum EDragonStateDirection
 {
+    NONE,
     LEFT,
     RIGHT,
+}
+
+public enum EDragonStateOffense
+{
+    NONE,
+    ATTACK,
+    SKILL,
 }
 
 public class DragonController : MonoBehaviour
@@ -38,7 +46,6 @@ public class DragonController : MonoBehaviour
 
     public bool isSelected { get; set; }
     public bool isCopulate { get; set; }
-    public bool isTargeted { get; set; }
 
     public int HP
     {
@@ -118,6 +125,7 @@ public class DragonController : MonoBehaviour
     }
 
     public EDragonStateDirection StateDirection { get; set; }
+    public EDragonStateOffense StateOffense { get; set; }
 
     void changeState(FSMState<DragonController> e)
     {
@@ -149,16 +157,16 @@ public class DragonController : MonoBehaviour
         dragonAttack = this.GetComponentInChildren<DragonAttack>();
 
         StateAction = EDragonStateAction.IDLE;
-        StateDirection = EDragonStateDirection.LEFT;
+        StateDirection = EDragonStateDirection.NONE;
+        StateOffense = EDragonStateOffense.NONE;
 
-        isSelected = false;
-        isTargeted = false;
         initalize();
     }
 
     void Start()
     {
         sliderHP = transform.GetChild(1).GetComponent<UISlider>();
+        isSelected = false;
         isCopulate = false;
 
         HP = attribute.HP.Max;

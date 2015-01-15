@@ -190,11 +190,11 @@ public class TowerInfoController : MonoBehaviour
 	{
 		//Icon
 		object[] value = PlayConfig.getBulletBuild(ID);
-		SBulletAnchor b = (SBulletAnchor)value[1];
+        SAnchor b = (SAnchor)value[1];
 
 		bulletIcon.mainTexture = Resources.Load<Texture>(GameConfig.PathBulletIcon + value[0].ToString());
 		bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
-		bulletIcon.SetDimensions((int)b.Dimension.x, (int)b.Dimension.y);
+        bulletIcon.SetDimensions(bulletIcon.mainTexture.width, bulletIcon.mainTexture.height);
 		bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
 		UIAnchor anchor = bulletIcon.GetComponent<UIAnchor>();
@@ -238,14 +238,11 @@ public class TowerInfoController : MonoBehaviour
       
 		upgradeIcon.mainTexture = Resources.Load<Texture>(s);
 
-		Vector2 dimension = PlayConfig.getTowerIconSize(id);
 		UITexture texture = upgradeIcon.GetComponent<UITexture>();
-		if (texture.keepAspectRatio == UIWidget.AspectRatioSource.BasedOnHeight)
-		{
-			texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
-		}
-		texture.SetDimensions((int)dimension.x, (int)dimension.y);
-		texture.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
+        texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+        Vector2 localSize = new Vector2(texture.mainTexture.width, texture.mainTexture.height);
+        texture.SetDimensions((int)localSize.x, (int)localSize.y);
+        texture.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
 		UIStretch uiStretch = upgradeIcon.GetComponent<UIStretch>();
 		//uiStretch.container = panelTowerBuild.gameObject;
@@ -293,13 +290,10 @@ public class TowerInfoController : MonoBehaviour
 
         upgradeIcon.mainTexture = Resources.Load<Texture>(s);
 
-        Vector2 dimension = PlayConfig.getTowerIconSize(id);
         UITexture texture = upgradeIcon.GetComponent<UITexture>();
-        if (texture.keepAspectRatio == UIWidget.AspectRatioSource.BasedOnHeight)
-        {
-            texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
-        }
-        texture.SetDimensions((int)dimension.x, (int)dimension.y);
+        texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+        Vector2 localSize = new Vector2(texture.mainTexture.width, texture.mainTexture.height);
+        texture.SetDimensions((int)localSize.x, (int)localSize.y);
         texture.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
 
         UIStretch uiStretch = upgradeIcon.GetComponent<UIStretch>();

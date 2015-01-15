@@ -7,8 +7,8 @@ public class BabyDragonController : MonoBehaviour
 
     public DragonController dragonParent { get; set; }
     public BabyDragonAnimation babyAnimation { get; set; }
+    public BabyDragonAttack babyAttack { get; set; }
     public int index { get; set; }
-    public bool isTargeted { get; set; }
 
     [HideInInspector]
     public UISlider sliderHP;
@@ -65,11 +65,10 @@ public class BabyDragonController : MonoBehaviour
         FSM = new FiniteStateMachine<BabyDragonController>();
 
         babyAnimation = this.transform.GetChild(0).GetComponent<BabyDragonAnimation>();
+        babyAttack = this.GetComponentInChildren<BabyDragonAttack>();
 
         StateAction = EDragonStateAction.IDLE;
         StateDirection = EDragonStateDirection.LEFT;
-
-        isTargeted = false;
 
         attribute.HP.Current = attribute.HP.Max;
     }

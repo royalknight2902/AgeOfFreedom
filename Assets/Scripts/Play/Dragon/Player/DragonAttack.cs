@@ -1,52 +1,93 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DragonAttack : MonoBehaviour 
+public class DragonAttack : MonoBehaviour
 {
-	private DragonController controller;
+    DragonController controller;
 
-	void Start()
-	{
-		controller = transform.parent.GetComponent<DragonController> ();
-	}
+    [HideInInspector]
+    public System.Collections.Generic.List<GameObject> listEnemy;
 
-	void OnTriggerEnter(Collider other)
-	{
-		if(other.tag == TagHashIDs.EnemyColliderATK)
-		{
+    void Start()
+    {
+        controller = transform.parent.GetComponent<DragonController>();
+        listEnemy = new System.Collections.Generic.List<GameObject>();
+    }
+
+    public void attack(GameObject enemy)
+    {
+        if (enemy == null)
+        {
+            return;
+        }
+
+        if (!listEnemy.Contains(enemy))
+            listEnemy.Add(enemy);
+
+        controller.stateAttack.target = enemy;
+        controller.StateOffense = EDragonStateOffense.ATTACK;
+
+        if(enemy.GetComponent<EnemyController>().StateAction != EEnemyStateAction.ATTACK)
+            enemy.GetComponentInChildren<EnemyAttack>().attack(controller.gameObject);
+
+        //if (other.transform.position.x < controller.transform.position.x)
+        //    controller.stateMove.attackDirection = EDragonStateDirection.LEFT;
+        //else
+        //    controller.stateMove.attackDirection = EDragonStateDirection.RIGHT;
+
+        controller.StateAction = EDragonStateAction.ATTACK;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == TagHashIDs.ColliderForDragonATK)
+        {
             if (controller.attribute.HP.Current <= 0)
                 return;
 
-            if (controller.stateAttack.target == null)
+            if (!listEnemy.Contains(other.transform.parent.gameObject))
             {
-                controller.stateAttack.target = other.transform.parent.gameObject;
-
-                controller.isTargeted = true;
-                other.transform.parent.GetComponent<EnemyController>().isTargeted = true;
-
-                if (other.transform.position.x < controller.transform.position.x)
-                    controller.stateMove.attackDirection = EDragonStateDirection.LEFT;
-                else
-                    controller.stateMove.attackDirection = EDragonStateDirection.RIGHT;
-
-                controller.StateAction = EDragonStateAction.ATTACK;
+                listEnemy.Add(other.transform.parent.gameObject);
             }
-		}
-	}
 
-	void OnTriggerExit(Collider other)
-	{
-        if (other.tag == TagHashIDs.EnemyColliderATK)
-        {
-            if (controller.stateAttack.target == other.transform.parent.gameObject && controller.attribute.HP.Current > 0)
+            if (controller.StateAction == EDragonStateAction.IDLE && controller.StateOffense == EDragonStateOffense.NONE)
             {
-                controller.StateAction = EDragonStateAction.IDLE;
-                controller.stateMove.Movement = EDragonMovement.MOVE_TOUCH;
-                controller.stateAttack.target = null;
-
-                controller.isTargeted = false;
-                other.transform.parent.GetComponent<EnemyController>().isTargeted = false;
+                chooseEnemyToAttack();
             }
         }
-	}
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == TagHashIDs.ColliderForDragonATK)
+        {
+            if (listEnemy.Contains(other.transform.parent.gameObject) && controller.attribute.HP.Current > 0
+                && other.transform.parent.GetComponent<EnemyController>().attribute.HP.Current > 0)
+            {
+                listEnemy.Remove(other.transform.parent.gameObject);
+
+                EnemyController enemy = other.transform.parent.GetComponent<EnemyController>();
+                enemy.enemyAttack.listDragon.Remove(controller.gameObject);
+                enemy.enemyAttack.chooseDragonToAttack();
+
+                if (controller.StateAction == EDragonStateAction.IDLE)
+                    chooseEnemyToAttack();
+            }
+        }
+    }
+
+    public void chooseEnemyToAttack()
+    {
+        if (controller.stateAttack.target == null && listEnemy.Count > 0)
+            attack(listEnemy[0]);
+        else
+        {
+            controller.stateAttack.target = null;
+            controller.stateMove.Movement = EDragonMovement.MOVE_TOUCH;
+            controller.StateOffense = EDragonStateOffense.NONE;
+
+            if (controller.StateAction != EDragonStateAction.MOVE)
+                controller.StateAction = EDragonStateAction.IDLE;
+        }
+    }
 }

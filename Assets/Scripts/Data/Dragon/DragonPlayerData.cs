@@ -10,4 +10,7 @@ public class DragonPlayerData
     public int DEF { get; set; }
     public float ATKSpeed { get; set; }
     public float MoveSpeed { get; set; }
+
+    public System.Collections.Generic.List<DragonPlayerSkillData> Skills = new System.Collections.Generic.List<DragonPlayerSkillData>();
+    public System.Collections.Generic.Dictionary<string, AnimationEventState> States = new System.Collections.Generic.Dictionary<string, AnimationEventState>();
 }
