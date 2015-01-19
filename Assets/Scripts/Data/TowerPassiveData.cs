@@ -6,7 +6,7 @@ public class TowerPassiveData
     public string Type { get; set; }
     public string Branch { get; set; }
     public int Level { get; set; }
-    public string Region { get; set; }
+	public string Describe { get; set; }
     public int Cost { get; set; }
     public int Value { get; set; }
     public float UpdateTime { get; set; }

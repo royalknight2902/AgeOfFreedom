@@ -117,23 +117,23 @@ public class ObjectManager : Singleton<ObjectManager>
 
                     tower.passiveAttribute.Value = data.Value;
                     tower.passiveAttribute.TimeBuild = data.TimeBuild;
-
+					tower.passiveAttribute.Describe = data.Describe;
                     switch (data.Type)
                     {
                         case "IRON":
                             tower.Branch = EBranchGame.IRON;
                             break;
                         case "PLANT":
-                            tower.Branch = EBranchGame.PLANT;
+							tower.Branch = EBranchGame.PLANT;
                             break;
                         case "ICE":
-                            tower.Branch = EBranchGame.ICE;
+							tower.Branch = EBranchGame.ICE;
                             break;
                         case "FIRE":
-                            tower.Branch = EBranchGame.FIRE;
+							tower.Branch = EBranchGame.FIRE;
                             break;
                         case "EARTH":
-                            tower.Branch = EBranchGame.EARTH;
+							tower.Branch = EBranchGame.EARTH;
                             break;
                     }
                 }

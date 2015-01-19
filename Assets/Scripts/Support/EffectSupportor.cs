@@ -39,6 +39,8 @@ public class EffectSupportor : Singleton<EffectSupportor>
 
         while (true)
         {
+			if(slider == null)
+				yield return 0;
             if (fps == 60 * TimeValueRun)
 			{
 				list.Remove(slider.gameObject);

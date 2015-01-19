@@ -101,7 +101,7 @@ public class PlayConfig
 	public static Color ColorTowerFire = new Color((float)255 / 255, (float)107 / 255, (float)107 / 255);
 	public static Color ColorTowerIce = new Color((float)159 / 255, (float)192 / 255, (float)255 / 255);
 	public static Color ColorTowerRock = new Color((float)178 / 255, (float)157 / 255, (float)76 / 255);
-    public static Color ColorTowerGold = new Color((float)255 / 255, (float)107 / 255, (float)107 / 255);
+    public static Color ColorTowerGold = new Color((float)255 / 255, (float)246 / 255, (float)0 / 255);
     public static Color ColorTowerPoison = new Color((float)255 / 255, (float)107 / 255, (float)107 / 255);
 
 	//Name color outline
@@ -130,7 +130,7 @@ public class PlayConfig
     public const float StretchShopBulletPoison1 = 1.35f;
     public const float StretchShopBulletPoison2 = 1.35f;
     public const float StretchShopBulletPoison3 = 1.35f;
-
+	public const float StretchShopBulletGold = 1.35f;
 	//Size for tower build panel
     public static SAnchor BuildBulletArchitect1 = new SAnchor(new Vector2(-0.26f, 0), 1.22f);
     public static SAnchor BuildBulletArchitect2 = new SAnchor(new Vector2(-0.29f, 0), 1.09f);
@@ -147,6 +147,7 @@ public class PlayConfig
     public static SAnchor BuildBulletPoison1 = new SAnchor(new Vector2(-0.29f, 0.07f), 1.45f);
     public static SAnchor BuildBulletPoison2 = new SAnchor(new Vector2(-0.29f, 0.07f), 1.45f);
     public static SAnchor BuildBulletPoison3 = new SAnchor(new Vector2(-0.29f, 0.07f), 1.45f);
+	public static SAnchor BuildBulletGold = new SAnchor(new Vector2(-0.29f, 0.07f), 1.52f);
 	#endregion
 
 	#region ITEM - ITEM BUFF
@@ -414,6 +415,23 @@ public class PlayConfig
                 }
                 break;
 			#endregion
+			#region POISON
+		case ETower.GOLD:
+			s += "gold";
+			switch (id.Level)
+			{
+			case 1:
+				stretch = PlayConfig.StretchShopBulletGold;
+				break;
+			case 2:
+				stretch = PlayConfig.StretchShopBulletGold;
+				break;
+			case 3:
+				stretch = PlayConfig.StretchShopBulletGold;
+				break;
+			}
+			break;
+			#endregion
 		}
 		s += "-" + id.Level.ToString();
         return new object[] { s, stretch };
@@ -511,6 +529,23 @@ public class PlayConfig
                 }
                 break;
             #endregion
+			#region POISON
+		case ETower.GOLD:
+			s += "GOLD";
+			switch (id.Level)
+			{
+			case 1:
+				config = PlayConfig.BuildBulletGold;
+				break;
+			case 2:
+				config = PlayConfig.BuildBulletGold;
+				break;
+			case 3:
+				config = PlayConfig.BuildBulletGold;
+				break;
+			}
+			break;
+			#endregion
 		}
 		s += "-" + id.Level.ToString();
 		return new object[] { s, config };

@@ -122,6 +122,7 @@ public class WaveController : Singleton<WaveController>
 				GameSupportor.transferEnemyData(enemyController, tempData);
 
                 int routine = Random.Range(0, enemyRoutine.Length);
+
                 if(SceneState.Instance.State != ESceneState.BLUETOOTH)
                     checkVisibleEnemy(enemyController);
 

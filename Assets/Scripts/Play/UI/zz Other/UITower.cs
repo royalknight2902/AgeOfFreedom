@@ -32,6 +32,7 @@ public class UITower : MonoBehaviour
         }
 
         GameObject parent = this.gameObject.transform.parent.gameObject;
+	
         towerController = parent.GetComponent<TowerController>();
         towerAction = parent.GetComponent<TowerAction>();
     }
@@ -67,25 +68,51 @@ public class UITower : MonoBehaviour
             // get range of tower current
             playManager.towerInfoController.rangeCurrent = towerController.attribute.Range;
 
-            TowerController nextLV = towerController.nextLevel;
+			if(towerController is TowerPassiveController)
+			{
+				TowerPassiveController towerPassiveController = (TowerPassiveController)towerController;
+				TowerPassiveController nextLV = (TowerPassiveController)towerPassiveController.nextLevel;
+			 	
+				if(nextLV != null)
+				{
 
-            if (nextLV != null)
-            {
-                playManager.towerInfoController.setTowerInfo(towerController);
+					playManager.towerPassiveInfoController.setTowerInfo(towerPassiveController);
 
-                playManager.towerInfoController.setNextTowerIcon(nextLV.ID);
-                playManager.towerInfoController.setBulletInfo(towerController.ID, towerController.attackType.ToString(), towerController.bullet);
-                // get range of tower next level
-                playManager.towerInfoController.rangeUpgrade = nextLV.attribute.Range;
-            }
-            else
-            {
-                playManager.towerInfoController.setTowerInfo(towerController);
-                playManager.towerInfoController.setBulletInfo(towerController.ID, towerController.attackType.ToString(), towerController.bullet);
-            }
+					playManager.towerPassiveInfoController.setNextTowerIcon(nextLV.ID);
+					playManager.towerPassiveInfoController.setValueInfo(towerPassiveController.ID,towerPassiveController.passiveAttribute.Describe
+					                                                    );
+				}
+				else
+				{
 
-            // show tutorial upgrade neu lan dau tien su dung
-            if (PlayerInfo.Instance.tutorialInfo.tutorial_upgrade == 0 && WaveController.Instance.currentMap == 1
+					playManager.towerPassiveInfoController.setTowerInfo(towerPassiveController);
+					playManager.towerPassiveInfoController.setValueInfo(towerPassiveController.ID,towerPassiveController.passiveAttribute.Describe);
+				}
+			}
+			else
+			{
+				TowerController nextLV = towerController.nextLevel;
+				
+				if (nextLV != null)
+				{
+					
+					playManager.towerInfoController.setTowerInfo(towerController);
+					
+					playManager.towerInfoController.setNextTowerIcon(nextLV.ID);
+					playManager.towerInfoController.setBulletInfo(towerController.ID, towerController.attackType.ToString(), towerController.bullet);
+					// get range of tower next level
+					playManager.towerInfoController.rangeUpgrade = nextLV.attribute.Range;
+				}
+				else
+				{
+					
+					playManager.towerInfoController.setTowerInfo(towerController);
+					playManager.towerInfoController.setBulletInfo(towerController.ID, towerController.attackType.ToString(), towerController.bullet);
+				}
+				
+			}
+			// show tutorial upgrade neu lan dau tien su dung
+			if (PlayerInfo.Instance.tutorialInfo.tutorial_upgrade == 0 && WaveController.Instance.currentMap == 1
                 && SceneState.Instance.State == ESceneState.ADVENTURE)
             {
                 PlayerInfo.Instance.tutorialInfo.tutorial_upgrade = 1;

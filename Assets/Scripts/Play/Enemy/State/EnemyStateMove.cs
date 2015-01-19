@@ -89,10 +89,11 @@ public class EnemyStateMove : FSMState<EnemyController>
 
 	void getSteer(EnemyController controller)
 	{
+	
 		Vector3 steerVector = controller.transform.InverseTransformPoint(new Vector3(Paths[iCurrentPath].position.x,
 		                                                                             controller.transform.position.y, 
 		                                                                             Paths[iCurrentPath].position.z));
-		//float newSteer = fMaxSteer / 60f * (steerVector.x / steerVector.magnitude);
+		//float newSteer = fMaxSteer / 60f * (steerVector.x / steerVector.magnitude)
 		if (steerVector.magnitude <= fDistFromPath)
 			iCurrentPath++;
 		// delete enemy when go to end path

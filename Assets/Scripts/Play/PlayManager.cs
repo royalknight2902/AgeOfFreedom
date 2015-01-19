@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayManager : Singleton<PlayManager>
 {
@@ -7,7 +8,7 @@ public class PlayManager : Singleton<PlayManager>
     public GameObject selectedTowerBuild;
     public GameObject rangeTowerBonus;
     public GameObject heartEffectPosition;
-
+	public List<GameObject> listTowerPlayerBuilt;
     // option music and sound game
     public UISlider SliderSound;
     public UISlider SliderMusic;
@@ -26,6 +27,8 @@ public class PlayManager : Singleton<PlayManager>
     public SObjectUpgrade objectUpgrade;
     [HideInInspector]
     public TowerInfoController towerInfoController;
+	[HideInInspector]
+	public TowerPassiveInfoController towerPassiveInfoController;
     [HideInInspector]
     public GameObject itemBuffTemp;
     [HideInInspector]
@@ -80,6 +83,7 @@ public class PlayManager : Singleton<PlayManager>
         isOnGuide = false;
 
         towerInfoController = footerBar.GetComponentInChildren<TowerInfoController>();
+		towerPassiveInfoController = footerBar.GetComponentInChildren<TowerPassiveInfoController> ();
         rangeTowerBonus.transform.GetChild(0).renderer.material.renderQueue = GameConfig.RenderQueueRange;
 
         if (SceneState.Instance.State == ESceneState.ADVENTURE || SceneState.Instance.State == ESceneState.BLUETOOTH)
@@ -96,6 +100,7 @@ public class PlayManager : Singleton<PlayManager>
         initTowerShop();
         Camera.main.GetComponent<AudioSource>().volume = (float)PlayerInfo.Instance.userInfo.volumeMusic / 100;
         selectedTowerBuild.SetActive(false);
+		listTowerPlayerBuilt = new List<string> ();	
     }
 
     void Start()
@@ -703,8 +708,12 @@ public class PlayManager : Singleton<PlayManager>
     public void buildTower()
     {
         // if target not null and tower not null
+
         if (objectBuild.Target != null && objectBuild.Tower != null)
         {
+
+
+
             PlayManager.Instance.number_tower_build++;
 
             STowerID towerID = objectBuild.Tower.GetComponent<TowerBuildController>().ID;
@@ -791,7 +800,7 @@ public class PlayManager : Singleton<PlayManager>
                         }
 
                         NGUITools.SetActive(selectedTowerBuild, false);
-
+						listTowerPlayerBuilt.Add(objectBuild.Target.tag);
                         objectBuild.Target = null;
                         objectBuild.Tower = null;
 
@@ -873,8 +882,9 @@ public class PlayManager : Singleton<PlayManager>
                         }
 
                         NGUITools.SetActive(selectedTowerBuild, false);
-
-                        objectBuild.Target = null;
+//						listTowerPlayerBuilt.Add(objectBuild.Target.tag);
+//						Debug.Log(listTowerPlayerBuilt.Count);
+						objectBuild.Target = null;
                         objectBuild.Tower = null;
 
                         return;
@@ -954,7 +964,7 @@ public class PlayManager : Singleton<PlayManager>
                 }
 
                 NGUITools.SetActive(selectedTowerBuild, false);
-
+				listTowerPlayerBuilt.Add(objectBuild.Target.tag);
                 objectBuild.Target = null;
                 objectBuild.Tower = null;
 
@@ -987,6 +997,8 @@ public class PlayManager : Singleton<PlayManager>
             {
                 tween.PlayReverse();
             }
+
+			listTowerPlayerBuilt.Remove(objectUpgrade.Tower.transform.parent.transform.tag);
 
             ShowTowers.Remove(objectUpgrade.Tower);
         }

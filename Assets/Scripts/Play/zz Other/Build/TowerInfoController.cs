@@ -67,7 +67,7 @@ public class TowerInfoController : MonoBehaviour
 		ATK.text = towerController.attribute.MinATK + "-" + towerController.attribute.MaxATK;
 		spawnShoot.text = towerController.attribute.SpawnShoot.ToString();
 		timeBuild.text = towerController.attribute.TimeBuild.ToString();
-		
+		ATK.parent.transform.GetComponentInChildren<UISprite> ().spriteName = "icon-atk";
 		//Set color tower name
 		Color[] colors = PlayConfig.getColorTowerName(towerController.ID);
 		Name.color = colors[0];
@@ -235,7 +235,7 @@ public class TowerInfoController : MonoBehaviour
 		}
 
 		string s = GameConfig.PathTowerIcon + id.Type.ToString().ToLower() + "-" + id.Level;
-      
+
 		upgradeIcon.mainTexture = Resources.Load<Texture>(s);
 
 		UITexture texture = upgradeIcon.GetComponent<UITexture>();

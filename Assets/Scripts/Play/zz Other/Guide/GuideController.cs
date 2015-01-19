@@ -72,7 +72,7 @@ public class GuideController : Singleton<GuideController>
 
             towerGuide.GetComponent<UIStretch>().container = selectedRegionPanel;
             towerGuide.GetComponentInChildren<TowerGuideController>().ID = towerController.ID;
-
+		
             //Set icon
             towerGuide.GetComponent<UISprite>().spriteName = "tower-info-" + towerController.ID.Type.ToString().ToLower();
             towerGuide.name = towerController.ID.Type.ToString();
@@ -98,16 +98,160 @@ public class GuideController : Singleton<GuideController>
         }
 
         loadTowerInfo();
-    }
 
+
+
+	 	length = ObjectManager.Instance.TowersPassive.Length;
+		for (int i = 0; i < length; i++)
+		{
+			TowerPassiveController towerController = ObjectManager.Instance.TowersPassive[i].GetComponent<TowerPassiveController>();
+			
+			GameObject towerGuide = Instantiate(PlayManager.Instance.modelPlay.TowerGuide) as GameObject;
+			towerGuide.transform.parent = selectedRegionPanel.transform;
+			
+			towerGuide.GetComponent<UIStretch>().container = selectedRegionPanel;
+			towerGuide.GetComponentInChildren<TowerGuideController>().ID = towerController.ID;
+
+		
+			//Set icon
+			towerGuide.GetComponent<UISprite>().spriteName = "tower-info-" + towerController.ID.Type.ToString().ToLower();
+			towerGuide.name = towerController.ID.Type.ToString();
+			
+			//Set name
+			
+			string name = towerController.ID.Type.ToString();
+			
+			UILabel label = towerGuide.GetComponentInChildren<UILabel>();
+			label.text = name[0] + name.Substring(1, name.Length - 1).ToLower();
+			
+			//Set color
+			Color[] colors = PlayConfig.getColorTowerName(towerController.ID);
+			label.color = colors[0];
+			label.effectColor = colors[1];
+			
+			if (target == null)
+				target = towerGuide;
+		}
+		if (target != null)
+		{
+			target.GetComponentInChildren<TowerGuideController>().setColor(true);
+		}
+		
+		loadTowerPassiveInfo();
+    }
+	public void loadTowerPassiveInfo()
+	{
+
+		if (target != null)
+		{
+			//active tower name
+			if (!infoName.gameObject.activeSelf)
+				infoName.gameObject.SetActive(true);
+			
+			TowerGuideController targetController = target.GetComponentInChildren<TowerGuideController>();
+			string name = targetController.ID.Type.ToString();
+			infoName.text = name[0] + name.Substring(1, name.Length - 1).ToLower() + " LV " + targetController.ID.Level;
+			
+			//Set towe name color
+			Color[] nameColor = PlayConfig.getColorTowerName(targetController.ID);
+			infoName.color = nameColor[0];
+			infoName.effectColor = nameColor[1];
+			
+			STowerID towerID = targetController.ID;
+			
+			GameObject[] towers = ObjectManager.Instance.TowersPassive;
+			int length = towers.Length;
+
+			int count = 0;
+			for (int i = 0; i < length; i++)
+			{
+			
+				TowerPassiveController towerController = towers[i].GetComponent<TowerPassiveController>();
+
+				if (towerController.ID.Type == towerID.Type && towerController.ID.Level == towerID.Level)
+				{
+				
+					while (true)
+					{
+						GameObject info = Instantiate(PlayManager.Instance.modelPlay.TowerGuideInfo) as GameObject;
+						info.transform.parent = infoTower.transform;
+						info.transform.localScale = Vector3.one;
+						info.name = towerController.name;
+						
+						UIAnchor anchor = info.GetComponent<UIAnchor>();
+						anchor.container = InfoPanel.gameObject;
+						anchor.relativeOffset = new Vector2(PlayConfig.AnchorTowerGuideInfoStartX + count * PlayConfig.AnchorTowerGuideInfoDistance, PlayConfig.AnchorTowerGuideInfoStartY);
+						
+						#region TOWER
+						TowerShopInfoController infoController = info.GetComponent<TowerShopInfoController>();
+						infoController.icon.mainTexture = Resources.Load<Texture>(PlayConfig.getTowerIcon(towerID));
+						infoController.level.text = "Level " + ((int)towerID.Level).ToString();
+
+						infoController.atk.parent.transform.GetComponentInChildren<UISprite> ().spriteName = "icon-gold";
+						infoController.atk.text = towerController.passiveAttribute.Value.ToString();
+						infoController.spawnShoot.text = towerController.passiveAttribute.UpdateTime.ToString();
+						infoController.timeBuild.text = towerController.passiveAttribute.TimeBuild.ToString();
+						
+						//Bullet label
+						string[] str = PlayConfig.getBulletType(towerController.attackType.ToString());
+						infoController.bulletAbility.text = str[0] + " TARGET";
+						infoController.bulletRegion.text = str[1];
+						
+						//set icon fix size
+						infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+						infoController.icon.SetDimensions(infoController.icon.mainTexture.width, infoController.icon.mainTexture.height);
+						infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
+						
+						UIStretch uiStretch = infoController.icon.GetComponent<UIStretch>();
+						uiStretch.enabled = true;
+						#endregion
+						
+						#region BULLET
+						object[] bulletData = PlayConfig.getBulletShop(towerID);
+						infoController.bulletIcon.mainTexture = Resources.Load<Texture>(GameConfig.PathBulletIcon + bulletData[0].ToString());
+						infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+						infoController.bulletIcon.SetDimensions(infoController.bulletIcon.mainTexture.width, infoController.bulletIcon.mainTexture.height);
+						infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
+						
+						UIStretch stretch = infoController.bulletIcon.GetComponent<UIStretch>();
+						stretch.relativeSize.y = (float)bulletData[1];
+						stretch.enabled = true;
+						
+						//Add effect
+						infoController.bullet = towerController.bullet;
+						#endregion
+						
+						count++;
+						listTower.Add(info);
+						
+						//get Next Tower
+						if (towerController.nextLevel != null)
+						{
+							towerID = towerController.nextLevel.GetComponent<TowerPassiveController>().ID;
+							towerController = (TowerPassiveController)towerController.nextLevel;
+						}
+						else
+						{
+							maxLevel = count;
+							currentLevel = 1;
+							towerLevelSelected.transform.position = levels[currentLevel - 1].transform.position;
+							break;
+						}
+					}
+					break;
+				}
+			}
+		}
+	}
     public void loadTowerInfo()
     {
+		;
         if (target != null)
         {
             AutoDestroy.destroyChildren(infoTower, "Level");
 
             //clear array
-            listTower.Clear();
+            listTower.Clear(); 
 
             //active tower name
             if (!infoName.gameObject.activeSelf)
@@ -147,7 +291,9 @@ public class GuideController : Singleton<GuideController>
                         TowerShopInfoController infoController = info.GetComponent<TowerShopInfoController>();
                         infoController.icon.mainTexture = Resources.Load<Texture>(PlayConfig.getTowerIcon(towerID));
                         infoController.level.text = "Level " + ((int)towerID.Level).ToString();
-                        infoController.atk.text = towerController.attribute.MinATK.ToString() + " - " + towerController.attribute.MaxATK.ToString();
+                        
+						infoController.atk.parent.transform.GetComponentInChildren<UISprite> ().spriteName = "icon-atk";
+						infoController.atk.text = towerController.attribute.MinATK.ToString() + " - " + towerController.attribute.MaxATK.ToString();
                         infoController.spawnShoot.text = towerController.attribute.SpawnShoot.ToString();
                         infoController.timeBuild.text = towerController.attribute.TimeBuild.ToString();
 
@@ -200,6 +346,86 @@ public class GuideController : Singleton<GuideController>
                     break;
                 }
             }
+
+			towers = ObjectManager.Instance.TowersPassive;
+			length = towers.Length;
+			for (int i = 0; i < length; i++)
+			{
+				TowerPassiveController towerController = towers[i].GetComponent<TowerPassiveController>();
+				if (towerController.ID.Type == towerID.Type && towerController.ID.Level == towerID.Level)
+				{
+					while (true)
+					{
+						GameObject info = Instantiate(PlayManager.Instance.modelPlay.TowerGuideInfo) as GameObject;
+						info.transform.parent = infoTower.transform;
+						info.transform.localScale = Vector3.one;
+						info.name = towerController.name;
+						
+						UIAnchor anchor = info.GetComponent<UIAnchor>();
+						anchor.container = InfoPanel.gameObject;
+						anchor.relativeOffset = new Vector2(PlayConfig.AnchorTowerGuideInfoStartX + count * PlayConfig.AnchorTowerGuideInfoDistance, PlayConfig.AnchorTowerGuideInfoStartY);
+						
+						#region TOWER
+						TowerShopInfoController infoController = info.GetComponent<TowerShopInfoController>();
+						infoController.icon.mainTexture = Resources.Load<Texture>(PlayConfig.getTowerIcon(towerID));
+						infoController.level.text = "Level " + ((int)towerID.Level).ToString();
+						
+						infoController.atk.parent.transform.GetComponentInChildren<UISprite> ().spriteName = "icon-gold";
+						infoController.atk.text = towerController.passiveAttribute.Value.ToString();
+						infoController.spawnShoot.text = towerController.passiveAttribute.UpdateTime.ToString();
+						infoController.timeBuild.text = towerController.passiveAttribute.TimeBuild.ToString();
+						
+						//Bullet label
+						//string[] str = PlayConfig.getBulletType(towerController.attackType.ToString());
+						infoController.bulletAbility.text = towerController.passiveAttribute.Describe.ToString();
+						infoController.bulletRegion.text = towerController.passiveAttribute.Type.ToString();;
+						
+						//set icon fix size
+						infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+						infoController.icon.SetDimensions(infoController.icon.mainTexture.width, infoController.icon.mainTexture.height);
+						infoController.icon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
+						
+						UIStretch uiStretch = infoController.icon.GetComponent<UIStretch>();
+						uiStretch.enabled = true;
+						#endregion
+						
+						#region BULLET
+						object[] bulletData = PlayConfig.getBulletShop(towerID);
+						infoController.bulletIcon.mainTexture = Resources.Load<Texture>("Image/Bullet/Bullet Icon/" + bulletData[0].ToString());
+						infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.Free;
+						infoController.bulletIcon.SetDimensions(infoController.bulletIcon.mainTexture.width, infoController.bulletIcon.mainTexture.height);
+						infoController.bulletIcon.keepAspectRatio = UIWidget.AspectRatioSource.BasedOnHeight;
+						
+						UIStretch stretch = infoController.bulletIcon.GetComponent<UIStretch>();
+						stretch.relativeSize.y = (float)bulletData[1];
+						stretch.enabled = true;
+						
+						//Add effect
+
+						infoController.bullet = towerController.bullet;
+						#endregion
+						
+						count++;
+						listTower.Add(info);
+						
+						//get Next Tower
+						if (towerController.nextLevel != null)
+						{
+							towerID = towerController.nextLevel.GetComponent<TowerPassiveController>().ID;
+							towerController = (TowerPassiveController)towerController.nextLevel;
+						}
+						else
+						{
+							maxLevel = count;
+							currentLevel = 1;
+							towerLevelSelected.transform.position = levels[currentLevel - 1].transform.position;
+							break;
+						}
+					}
+					break;
+				}
+			}
+
         }
     }
 

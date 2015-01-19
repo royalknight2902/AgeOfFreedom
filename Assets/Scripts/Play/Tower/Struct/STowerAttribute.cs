@@ -22,5 +22,7 @@ public class STowerPassiveAttribute
     public int Value;
     public float UpdateTime;
     public float TimeBuild;
+	public string Describe;
     public string Type;
+
 }

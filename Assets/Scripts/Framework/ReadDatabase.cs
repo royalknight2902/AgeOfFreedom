@@ -152,7 +152,7 @@ public class ReadDatabase
 
             data.Type = s[1].Replace('\"', ' ').ToString().Trim();
             data.Level = int.Parse(s[2].ToString());
-            data.Region = s[4].Replace('\"', ' ').ToString().Trim();
+            data.Describe = s[4].Replace('\"', ' ').ToString().Trim();
 
             data.Cost = int.Parse(s[5].ToString());
             data.Value = int.Parse(s[6].ToString());

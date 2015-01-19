@@ -56,12 +56,6 @@ public class UIEnemyBluetoothShop : MonoBehaviour {
 		EnemyController enemyController = model.GetComponent<EnemyController>(); 
 
 		//except money
-
-
-
-	
-
-		//Set attribute
 		GameSupportor.transferEnemyData(enemyController, ReadDatabase.Instance.EnemyInfo[this.enemyBluetoothController.ID]);
 		if (PlayInfo.Instance.Money < enemyController.money)
 						return;
@@ -69,9 +63,9 @@ public class UIEnemyBluetoothShop : MonoBehaviour {
 
 		PlayInfo.Instance.Money -= enemyController.money;
 		int routine = Random.Range(0, WaveController.Instance.enemyRoutine.Length);
-
+	
 		GameObject enemy = Instantiate (model, WaveController.Instance.enemyStartPos [routine].transform.position, Quaternion.identity) as GameObject;
-		
+		checkVisibleEnemy(enemyController);
 		enemy.transform.parent = WaveController.Instance.enemyStartPos [routine].transform;
 		enemy.transform.localScale = Vector3.one;
 		enemy.transform.localPosition = Vector3.zero;
@@ -80,7 +74,7 @@ public class UIEnemyBluetoothShop : MonoBehaviour {
 		EnemyController ec = enemy.GetComponent<EnemyController> ();
 		ec.stateMove.PathGroup = WaveController.Instance.enemyRoutine [routine].transform;
 	
-		
+		//Debug.Log (WaveController.Instance.enemyRoutine [routine]);
 		//Set depth cho thanh hp, xu ly thanh mau xuat hien sau phai? ve~ sau
 		foreach (Transform health in enemy.transform) 
 		{
@@ -98,5 +92,14 @@ public class UIEnemyBluetoothShop : MonoBehaviour {
 		}
 
 	
+	}
+	public void checkVisibleEnemy(EnemyController enemyController)
+	{
+		if (!PlayerInfo.Instance.listEnemy[enemyController.ID])
+		{
+			PlayerInfo.Instance.addEnemy(enemyController.ID);
+			GuideController.hasUpdateEnemy = true;
+			PlayManager.Instance.showTutorialNewEnemy(enemyController);
+		}
 	}
 }
