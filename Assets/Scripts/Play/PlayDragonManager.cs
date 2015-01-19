@@ -65,16 +65,24 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
 
             foreach (DragonPlayerSkillData skillData in ReadDatabase.Instance.DragonInfo.Player[branch].Skills)
             {
-                UITexture texture = PlayDragonInfoController.Instance.Skills[count].transform.GetChild(0).GetComponent<UITexture>();
+                PlayDragonInfoSkillController skill = PlayDragonInfoController.Instance.Skills[count].GetComponent<PlayDragonInfoSkillController>();
+                SkillData data = ReadDatabase.Instance.SkillInfo[skillData.ID.ToUpper()];
+                skill.ID = skillData.ID;
+                skill.CooldownTime = data.Cooldown;
+                skill.Type = data.Type;
+                skill.ManaValue = data.Mana;
+
+                skill.initalize();
+
                 string path = "Image/Dragon/Player/" + ConvertSupportor.convertUpperFirstChar(branch) + "/Skill/" + skillData.ID;
-                texture.mainTexture = Resources.Load<Texture>(path);
+                skill.sprite.mainTexture = Resources.Load<Texture>(path);
                 count--;
 
                 if (skillData.Ulti)
                 {
                     PlayDragonInfoController.Instance.renderUlti.gameObject.SetActive(true);
                     UIAnchor anchor = PlayDragonInfoController.Instance.renderUlti.GetComponent<UIAnchor>();
-                    anchor.container = texture.gameObject;
+                    anchor.container = skill.gameObject;
                     anchor.enabled = true;
                     hasUlti = true;
                 }
@@ -253,6 +261,37 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
     }
     #endregion
 
+    #region SKILL
+    public void initSkill(string id, int mana, params object[] data)
+    {
+        if (dragonController.attribute.MP.Current < mana)
+        {
+            DeviceService.Instance.openToast("Not enough mana!");
+            return;
+        }
+        else
+        {
+            dragonController.attribute.MP.Current -= mana;
+
+            if (dragonController.attribute.MP.Current < 0)
+                dragonController.attribute.MP.Current = 0;
+
+            float valueTo = dragonController.attribute.MP.Current / (float)dragonController.attribute.MP.Max;
+            dragonController.updateTextMP();
+            EffectSupportor.Instance.runSliderValue(PlayDragonInfoController.Instance.sliderMP, valueTo, EffectSupportor.TimeValueRunMP);
+        }
+
+        GameObject skill = Instantiate(Resources.Load<GameObject>("Prefab/Skill/Skill")) as GameObject;
+        skill.transform.parent = PlayManager.Instance.Temp.Skill.transform;
+        skill.transform.localScale = Vector3.one;
+        skill.transform.position = Vector3.zero;
+
+        SkillController skillController = skill.GetComponent<SkillController>();
+        skillController.Owner = PlayerDragon;
+        skillController.initalize(id, data);
+    }
+    #endregion
+
     void Update()
     {
         if (dragonController != null)
@@ -282,5 +321,25 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
             }
         }
     }
+
+    public void showDragonAttackCollision(Vector3 enemyPosition)
+    {
+        GameObject collision = Instantiate(Resources.Load<GameObject>("Prefab/Collision/Collision 6")) as GameObject;
+        collision.transform.parent = PlayManager.Instance.Temp.Collision.transform;
+        collision.transform.localScale = Vector3.one;
+        collision.transform.position = enemyPosition;
+        collision.GetComponentInChildren<SpriteRenderer>().material.renderQueue = GameConfig.RenderQueueCollision;
+    }
+
+    public void showEnemyAttackCollision(GameObject dragon)
+    {
+        GameObject collision = Instantiate(Resources.Load<GameObject>("Prefab/Collision/Collision 6")) as GameObject;
+        collision.transform.parent = PlayManager.Instance.Temp.Collision.transform;
+        collision.transform.localScale = Vector3.one;
+        collision.transform.position = dragon.transform.position;
+        collision.GetComponentInChildren<SpriteRenderer>().material.renderQueue = dragon.GetComponentInChildren<SpriteRenderer>().material.renderQueue + 1;
+    }
+
+
 }
 

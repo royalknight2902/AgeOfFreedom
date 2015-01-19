@@ -12,6 +12,12 @@ public class ConvertSupportor
 		int posSpace = str.IndexOf (" ");
 		return (char.ToUpper(str[0]) + str.Substring(1,posSpace) +  char.ToUpper (str [posSpace + 1]) + (posSpace+ 2 > str.Length - 1?"": str.Substring (posSpace + 2, str.Length - posSpace - 2).ToLower ()));
 	}
+    public static string convertUpperEachFirstChar(string str)
+    {
+        int posSpace = str.IndexOf(" ");
+        return (char.ToUpper(str[0]) + str.Substring(1, posSpace) + char.ToUpper(str[posSpace + 1]) + (posSpace + 2 > str.Length - 1 ? "" : str.Substring(posSpace + 2, str.Length - posSpace - 2).ToLower()));
+    }
+
     //public static STowerID getID(int ID)
     //{
     //    STowerID sTowerID;

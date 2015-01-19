@@ -8,7 +8,7 @@ public class PlayManager : Singleton<PlayManager>
     public GameObject selectedTowerBuild;
     public GameObject rangeTowerBonus;
     public GameObject heartEffectPosition;
-	public List<GameObject> listTowerPlayerBuilt;
+    public List<string> listTowerPlayerBuilt;
     // option music and sound game
     public UISlider SliderSound;
     public UISlider SliderMusic;
@@ -27,8 +27,8 @@ public class PlayManager : Singleton<PlayManager>
     public SObjectUpgrade objectUpgrade;
     [HideInInspector]
     public TowerInfoController towerInfoController;
-	[HideInInspector]
-	public TowerPassiveInfoController towerPassiveInfoController;
+    [HideInInspector]
+    public TowerPassiveInfoController towerPassiveInfoController;
     [HideInInspector]
     public GameObject itemBuffTemp;
     [HideInInspector]
@@ -59,8 +59,8 @@ public class PlayManager : Singleton<PlayManager>
     public GameObject tutorial;
     [HideInInspector]
     public GameObject infoBluetooth;
-	[HideInInspector]
-	public GameObject enemyBluetoothShop;
+    [HideInInspector]
+    public GameObject enemyBluetoothShop;
 
     [HideInInspector]
     public GameObject bluetoothManager;
@@ -83,7 +83,7 @@ public class PlayManager : Singleton<PlayManager>
         isOnGuide = false;
 
         towerInfoController = footerBar.GetComponentInChildren<TowerInfoController>();
-		towerPassiveInfoController = footerBar.GetComponentInChildren<TowerPassiveInfoController> ();
+        towerPassiveInfoController = footerBar.GetComponentInChildren<TowerPassiveInfoController>();
         rangeTowerBonus.transform.GetChild(0).renderer.material.renderQueue = GameConfig.RenderQueueRange;
 
         if (SceneState.Instance.State == ESceneState.ADVENTURE || SceneState.Instance.State == ESceneState.BLUETOOTH)
@@ -100,7 +100,7 @@ public class PlayManager : Singleton<PlayManager>
         initTowerShop();
         Camera.main.GetComponent<AudioSource>().volume = (float)PlayerInfo.Instance.userInfo.volumeMusic / 100;
         selectedTowerBuild.SetActive(false);
-		listTowerPlayerBuilt = new List<string> ();	
+        listTowerPlayerBuilt = new List<string>();
     }
 
     void Start()
@@ -161,7 +161,7 @@ public class PlayManager : Singleton<PlayManager>
         initChooseTarget();
         initCheckOK();
         initAchievement();
-		initPrefab ();
+        initPrefab();
         if (SceneState.Instance.State == ESceneState.ADVENTURE)
         {
             tempInit.initalizeAdventureMode();
@@ -170,7 +170,8 @@ public class PlayManager : Singleton<PlayManager>
             editDragCameraTween();
             initFlagTemp();
             initDragonTemp();
-			initBluetooth();
+            initSkillTemp();
+            initBluetooth();
 
             AutoDestroy.destroyChildren(itemBuffTemp);
         }
@@ -181,10 +182,10 @@ public class PlayManager : Singleton<PlayManager>
             initBluetooth();
         }
     }
-	void initPrefab()
-	{
-		modelPlay.GoldBonus = Resources.Load ("Prefab/Effect/Gold Bonus") as GameObject;	
-	}
+    void initPrefab()
+    {
+        modelPlay.GoldBonus = Resources.Load("Prefab/Effect/Gold Bonus") as GameObject;
+    }
     void initHeaderBar()
     {
         foreach (Transform child_1 in Camera.main.transform)
@@ -606,31 +607,56 @@ public class PlayManager : Singleton<PlayManager>
         Temp.Dragon = tempDragon;
     }
 
+    void initSkillTemp()
+    {
+        GameObject tempSkill = new GameObject();
+        foreach (Transform child in GameObject.FindWithTag("Root").transform)
+        {
+            if (child.name == "UI Render")
+            {
+                tempSkill.transform.parent = child;
+                break;
+            }
+        }
+        tempSkill.transform.localPosition = Vector3.zero;
+        tempSkill.transform.localScale = Vector3.one;
+        tempSkill.name = "Temp Skill";
+        tempSkill.layer = GameObject.FindWithTag("CameraRender").layer;
+
+        //add uipanel
+        UIPanel panel = tempSkill.AddComponent<UIPanel>();
+        panel.depth = 1;
+        panel.renderQueue = UIPanel.RenderQueue.StartAt;
+        panel.startingRenderQueue = GameConfig.RenderQueueSkill;
+
+        Temp.Skill = tempSkill;
+    }
+
     void initBluetooth()
     {
-		initInfoBlueTooth ();
-		initBluetoothEnemyShop ();
+        initInfoBlueTooth();
+        initBluetoothEnemyShop();
     }
-    
-	void initInfoBlueTooth()
-	{
-		infoBluetooth = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Bluetooth/Info Bluetooth")) as GameObject;
-		infoBluetooth.GetComponent<UIAnchor>().container = headerBar;
-		infoBluetooth.GetComponent<UIStretch>().container = headerBar;
-		infoBluetooth.transform.parent = headerBar.transform.parent;
-		infoBluetooth.transform.localScale = Vector3.one;
-		infoBluetooth.transform.localPosition = Vector3.zero;
-	}
 
-	void initBluetoothEnemyShop()
-	{
-		enemyBluetoothShop = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Bluetooth/Enemy Shop Bluetooth")) as GameObject;
-		enemyBluetoothShop.GetComponent<UIAnchor>().container = headerBar;
-		enemyBluetoothShop.GetComponent<UIStretch>().container = headerBar;
-		enemyBluetoothShop.transform.parent = headerBar.transform.parent;
-		enemyBluetoothShop.transform.localScale = Vector3.one;
-		enemyBluetoothShop.transform.localPosition = Vector3.zero;
-	}
+    void initInfoBlueTooth()
+    {
+        infoBluetooth = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Bluetooth/Info Bluetooth")) as GameObject;
+        infoBluetooth.GetComponent<UIAnchor>().container = headerBar;
+        infoBluetooth.GetComponent<UIStretch>().container = headerBar;
+        infoBluetooth.transform.parent = headerBar.transform.parent;
+        infoBluetooth.transform.localScale = Vector3.one;
+        infoBluetooth.transform.localPosition = Vector3.zero;
+    }
+
+    void initBluetoothEnemyShop()
+    {
+        enemyBluetoothShop = GameObject.Instantiate(Resources.Load<GameObject>("Prefab/Bluetooth/Enemy Shop Bluetooth")) as GameObject;
+        enemyBluetoothShop.GetComponent<UIAnchor>().container = headerBar;
+        enemyBluetoothShop.GetComponent<UIStretch>().container = headerBar;
+        enemyBluetoothShop.transform.parent = headerBar.transform.parent;
+        enemyBluetoothShop.transform.localScale = Vector3.one;
+        enemyBluetoothShop.transform.localPosition = Vector3.zero;
+    }
     #endregion
 
     #region RESET - BUILDING, UPGRADE, RANGE TOWER
@@ -780,8 +806,8 @@ public class PlayManager : Singleton<PlayManager>
                         }
 
 
-                    if(SceneState.Instance.State == ESceneState.ADVENTURE)
-                        tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayForward();
+                        if (SceneState.Instance.State == ESceneState.ADVENTURE)
+                            tempInit.panelDragonInfo.GetComponent<TweenPosition>().PlayForward();
 
                         foreach (Transform child in building.transform)
                         {
@@ -800,7 +826,7 @@ public class PlayManager : Singleton<PlayManager>
                         }
 
                         NGUITools.SetActive(selectedTowerBuild, false);
-						listTowerPlayerBuilt.Add(objectBuild.Target.tag);
+                        listTowerPlayerBuilt.Add(objectBuild.Target.tag);
                         objectBuild.Target = null;
                         objectBuild.Tower = null;
 
@@ -882,9 +908,9 @@ public class PlayManager : Singleton<PlayManager>
                         }
 
                         NGUITools.SetActive(selectedTowerBuild, false);
-//						listTowerPlayerBuilt.Add(objectBuild.Target.tag);
-//						Debug.Log(listTowerPlayerBuilt.Count);
-						objectBuild.Target = null;
+                        //						listTowerPlayerBuilt.Add(objectBuild.Target.tag);
+                        //						Debug.Log(listTowerPlayerBuilt.Count);
+                        objectBuild.Target = null;
                         objectBuild.Tower = null;
 
                         return;
@@ -964,7 +990,7 @@ public class PlayManager : Singleton<PlayManager>
                 }
 
                 NGUITools.SetActive(selectedTowerBuild, false);
-				listTowerPlayerBuilt.Add(objectBuild.Target.tag);
+                listTowerPlayerBuilt.Add(objectBuild.Target.tag);
                 objectBuild.Target = null;
                 objectBuild.Tower = null;
 
@@ -998,7 +1024,7 @@ public class PlayManager : Singleton<PlayManager>
                 tween.PlayReverse();
             }
 
-			listTowerPlayerBuilt.Remove(objectUpgrade.Tower.transform.parent.transform.tag);
+            listTowerPlayerBuilt.Remove(objectUpgrade.Tower.transform.parent.transform.tag);
 
             ShowTowers.Remove(objectUpgrade.Tower);
         }
@@ -1429,7 +1455,7 @@ public class PlayManager : Singleton<PlayManager>
             controller.Banner.spriteName = "play-newenemy";
 
         //set level sprite
-       
+
         controller.spriteLevel.spriteName = "play-level-" + enemy.level;
 
         //set name

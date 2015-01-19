@@ -78,12 +78,15 @@ public class BabyDragonStateAttack : FSMState<BabyDragonController>
                                                          controller.attribute.ATK.Max,
                                                          enemyController.attribute.DEF);
 
+        //show collision
+        PlayDragonManager.Instance.showDragonAttackCollision(target.transform.position);
+
         enemyController.attribute.HP.Current -= dmg;
         if (enemyController.attribute.HP.Current < 0)
             enemyController.attribute.HP.Current = 0;
 
         float valueTo = enemyController.attribute.HP.Current / (float)enemyController.attribute.HP.Max;
-        EffectSupportor.Instance.runSliderValue(enemyController.sliderHP, valueTo);
+        EffectSupportor.Instance.runSliderValue(enemyController.sliderHP, valueTo, EffectSupportor.TimeValueRunHP);
     }
 
     void setDirection()

@@ -27,6 +27,7 @@ public class ReadDatabase
     public Dictionary<string, ItemData> ItemInfo;
     public Dictionary<int, QuestData> QuestInfo;
     public Dictionary<int, AchievementData> AchievementInfo;
+    public Dictionary<string, SkillData> SkillInfo;
     public DragonData DragonInfo;
 
     ReadDatabase()
@@ -40,6 +41,7 @@ public class ReadDatabase
         readDailyQuest();
         readAchievement();
         readDragon();
+        readSkill();
     }
 
     #region ENEMY
@@ -428,7 +430,6 @@ public class ReadDatabase
         }
     }
 
-
     void readDragonHouse()
     {
         TextAsset textAsset = (TextAsset)Resources.Load(GameConfig.DatabasePathDragonHouse);
@@ -484,6 +485,160 @@ public class ReadDatabase
             string id = infoDragonItem.Attributes["ID"].InnerText.Trim();
             dragonItemData.ID = id;
             DragonInfo.Item.Add(id, dragonItemData);
+        }
+    }
+    #endregion
+
+    #region SKILL
+    void readSkill()
+    {
+        SkillInfo = new Dictionary<string, SkillData>();
+        TextAsset textAsset = (TextAsset)Resources.Load(GameConfig.DatabasePathSkill);
+        string[] temp = textAsset.text.Split('\n');
+
+        int lenght = temp.Length;
+        for (int i = 1; i <= lenght - 1; i++)
+        {
+            if (temp[i].Equals(""))
+                break;
+
+            SkillData data = new SkillData();
+            string[] s = temp[i].Split(';');
+            data.Name = s[2];
+            data.Mana = int.Parse(s[3]);
+            data.Cooldown = float.Parse(s[4]);
+
+            #region SKILL TYPE
+            string skillLine = s[5].Substring(0, s[5].Length - 1);
+            string[] tempType = skillLine.Split('-');
+            ESkillType skillType = (ESkillType)Extensions.GetEnum(ESkillType.TARGET.GetType(), tempType[0].ToUpper());
+            data.Type = skillType;
+
+            if (skillType == ESkillType.TARGET || skillType == ESkillType.GLOBAL) //ATK skill
+            {
+                data.Ability = Extensions.GetEnum(ESkillOffense.AOE.GetType(), tempType[1].ToUpper());
+            }
+            else if (skillType == ESkillType.BUFF)
+            {
+                data.Ability = Extensions.GetEnum(ESkillBuff.PLAYER.GetType(), tempType[1].ToUpper());
+            }
+            #endregion
+
+            #region STATE
+            string[] tempState = s[6].Split('-');
+            string[] tempTimeFrame = s[7].Split('-');
+            string[] tempEvent = null;
+
+            bool hasEvent = false;
+            skillLine = s[8].Substring(0, s[8].Length - 1);
+            if (!skillLine.Equals("none"))
+            {
+                tempEvent = s[8].Split(',');
+                hasEvent = true;
+            }
+
+            for (int k1 = 0; k1 < tempState.Length; k1++)
+            {
+                AnimationEventState animationState = new AnimationEventState();
+                animationState.TimeFrame = float.Parse(tempTimeFrame[k1]);
+
+                if (hasEvent)
+                {
+                    for (int k2 = 0; k2 < tempEvent.Length; k2++)
+                    {
+                        if (tempEvent[k2] != "")
+                        {
+                            string[] ss = tempEvent[k2].Split('-');
+                            if (tempState[k1].Equals(ss[0]))
+                            {
+                                for (int k3 = 1; k3 < ss.Length; k3++)
+                                    animationState.listKeyEventFrame.Add(ss[k3]);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                data.States.Add(tempState[k1].ToUpper(), animationState);
+            }
+            #endregion
+
+            #region SPECIFIC LOOP
+            s[9] = s[9].Trim();
+            string[] tempPath = s[9].Split(',');
+
+            for (int t = 0; t < tempPath.Length; t++)
+            {
+                tempPath[t] = tempPath[t].Trim();
+                int index = tempPath[t].IndexOf('(');
+                if (index != -1)
+                {
+                    string state = tempPath[t].Substring(0, index);
+                    foreach (KeyValuePair<string, AnimationEventState> iterator in data.States)
+                    {
+                        if (state.ToUpper().Equals(iterator.Key))
+                        {
+                            tempPath[t] = tempPath[t].Substring(index, tempPath[t].Length - index);
+                            tempPath[t] = tempPath[t].Substring(1, tempPath[t].Length - 2).Trim(); // substring '(' & ')'
+
+                            int iSpecial = tempPath[t].IndexOf('(');
+                            if (iSpecial != -1)
+                            {
+                                iterator.Value.isSpecificLoop = true;
+
+                                string strSpecial = tempPath[t].Substring(iSpecial, tempPath[t].Length - iSpecial);
+                                strSpecial = strSpecial.Substring(1, strSpecial.Length - 2); // substring '(' & ')'
+
+                                string[] arr = strSpecial.Split('-');
+                                iterator.Value.SpecificLoopIndex = new int[arr.Length];
+                                for (int m = 0; m < arr.Length; m++)
+                                {
+                                    iterator.Value.SpecificLoopIndex[m] = int.Parse(arr[m]);
+                                }
+
+                                tempPath[t] = tempPath[t].Substring(0, iSpecial).Trim();
+                            }
+
+                            iterator.Value.ResourcePath = tempPath[t];
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region VALUE
+            s[10] = s[10].Trim();
+            if (!s[10].Equals("none"))
+            {
+                string[] tempValue = s[10].Split(',');
+
+                for (int t = 0; t < tempValue.Length; t++)
+                {
+                    tempValue[t] = tempValue[t].Trim();
+                    int index = tempValue[t].IndexOf('(');
+                    if (index != -1)
+                    {
+                        string state = tempValue[t].Substring(0, index);
+                        foreach (KeyValuePair<string, AnimationEventState> iterator in data.States)
+                        {
+                            if (state.ToUpper().Equals(iterator.Key))
+                            {
+                                string value = tempValue[t].Substring(index, tempValue[t].Length - index);
+                                value = value.Substring(1, value.Length - 2); // substring '(' & ')'
+                                string[] ss = value.Trim().Split('-');
+                                foreach(string eachValue in ss)
+                                {
+                                    string[] arrValue = eachValue.Trim().Split(':');
+                                    iterator.Value.Values.Add(arrValue[0], arrValue[1]);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            SkillInfo.Add(s[1].ToUpper(), data);
         }
     }
     #endregion

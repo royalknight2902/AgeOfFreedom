@@ -5,6 +5,8 @@ enum EAnimationDataType
 {
     TIME_FRAME,
     EVENT,
+    RESOURCE_PATH,
+    SPECIFIC_LOOP,
 }
 
 [RequireComponent(typeof(AnimationFrames))]

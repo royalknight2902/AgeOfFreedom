@@ -150,8 +150,14 @@ public class PlayConfig
 	public static SAnchor BuildBulletGold = new SAnchor(new Vector2(-0.29f, 0.07f), 1.52f);
 	#endregion
 
-	#region ITEM - ITEM BUFF
-	public static Color ColorShopItemName = new Color((float)224 / 255, (float)255 / 255, (float)82 / 255);
+    #region SKILL
+    public static Color ColorSkillTypeDragonTarget = new Color((float)229 / 255, (float)223 / 255, (float)30 / 255);
+    public static Color ColorSkillTypeDragonBuff = new Color((float)62 / 255, (float)195 / 255, (float)107 / 255);
+    public static Color ColorSkillTypeDragonGlobal = new Color((float)229 / 255, (float)30 / 255, (float)30 / 255);
+    #endregion
+
+    #region ITEM - ITEM BUFF
+    public static Color ColorShopItemName = new Color((float)224 / 255, (float)255 / 255, (float)82 / 255);
 	public static Color ColorShopItemNameOutline = new Color((float)58 / 255, (float)58 / 255, (float)58 / 255);
 	public static Color ColorShopItemValue = Color.white;
 	public static Color ColorShopItemValueOutline = new Color((float)38 / 255, (float)116/ 255, (float)132 / 255);
@@ -576,6 +582,28 @@ public class PlayConfig
 		}
 		return colors;
 	}
+
+    public static object[] getColorSkillType(ESkillType type)
+    {
+        string s = "";
+        Color result = Color.white;
+        switch(type)
+        {
+            case ESkillType.TARGET:
+                s = "Target";
+                result = ColorSkillTypeDragonTarget;
+                break;
+            case ESkillType.BUFF:
+                s = "Buff";
+                result = ColorSkillTypeDragonBuff;
+                break;
+            case ESkillType.GLOBAL:
+                s = "Global";
+                result = ColorSkillTypeDragonGlobal;
+                break;
+        }
+        return new object[] { s, result };
+    }
 
 	public static string getSpeedString(float speed)
 	{

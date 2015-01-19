@@ -13,7 +13,7 @@ public class AutoDestroy : MonoBehaviour
         Destroy(this.transform.parent.gameObject);
     }
 
-    public IEnumerator destroyParent(float timeWait)
+    public IEnumerator destroyParentIE(float timeWait)
     {
         yield return new WaitForSeconds(timeWait);
         Destroy(this.transform.parent.gameObject);

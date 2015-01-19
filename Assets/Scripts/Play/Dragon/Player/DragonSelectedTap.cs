@@ -12,13 +12,24 @@ public class DragonSelectedTap : MonoBehaviour
 
     void OnClick()
     {
-        if (!controller.selected.activeSelf && !controller.isSelected)
+        if (!controller.selected.activeSelf)
         {
-            controller.selected.SetActive(true);
-            controller.isSelected = true;
+            if (!controller.isSelected)
+            {
+                controller.selected.SetActive(true);
+                controller.isSelected = true;
 
-            if (!controller.selected.transform.GetChild(0).GetComponent<Animator>().enabled)
-                controller.selected.transform.GetChild(0).GetComponent<Animator>().enabled = true;
+                if (!controller.selected.transform.GetChild(0).GetComponent<Animator>().enabled)
+                    controller.selected.transform.GetChild(0).GetComponent<Animator>().enabled = true;
+            }
+        }
+        else
+        {
+            if(controller.isSelected)
+            {
+                controller.selected.SetActive(false);
+                controller.isSelected = false;
+            }
         }
     }
 }

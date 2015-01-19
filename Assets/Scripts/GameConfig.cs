@@ -28,6 +28,7 @@ public class GameConfig
 	public const int RenderQueueEnemy = 3200;
 	public const int RenderQueueBulletEffect = 3300;
 	public const int RenderQueueBulletUp = 3500;
+    public const int RenderQueueSkill = 3550;
 	public const int RenderQueueCollision = 3600;
 	public const int RenderQueueExplosion = 3700;
 	public const int RenderQueueRange = 3800;
@@ -42,6 +43,7 @@ public class GameConfig
     public const string DatabasePathAchievement = "Database/XmlAchievement";
     public const string DatabasePathDragonItem = "Database/XmlDragonItems";
 
+    public const string DatabasePathSkill = "Database/SkillInfo";
 	public const string DatabasePathEnemyInfo = "Database/EnemyInfo";
 	public const string DatabasePathTowerInfo = "Database/TowerInfo";
     public const string DatabasePathTowerPassiveInfo = "Database/TowerPassiveInfo";

@@ -36,6 +36,20 @@ public static class Extensions
         int j = System.Array.IndexOf<T>(Arr, src) - 1;
         return (j < 0) ? Arr[Arr.Length - 1] : Arr[j];
     }
+
+    public static T First<T>(this T src) where T : struct
+    {
+        //if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argumnent {0} is not an Enum", typeof(T).FullName));
+        T[] Arr = (T[])System.Enum.GetValues(src.GetType());
+        return Arr[0];
+    }
+
+    public static T Last<T>(this T src) where T : struct
+    {
+        //if (!typeof(T).IsEnum) throw new ArgumentException(String.Format("Argumnent {0} is not an Enum", typeof(T).FullName));
+        T[] Arr = (T[])System.Enum.GetValues(src.GetType());
+        return Arr[Arr.Length - 1];
+    }
 }
 
 public class GameSupportor

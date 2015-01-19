@@ -5,6 +5,8 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
 {
     [HideInInspector]
     public System.Collections.Generic.List<GameObject> frags = new System.Collections.Generic.List<GameObject>();
+    [HideInInspector]
+    public GameObject skillTarget;
 
     DragonController dragonController;
     Camera cameraRender;
@@ -26,48 +28,76 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
             if (dragonController.HP <= 0 || dragonController.isCopulate)
                 return;
 
-            if (!dragonController.isSelected)
-                return;
-
-            if (PlayDragonManager.Instance.currentHouse != null)
+            if (dragonController.isSelected)
             {
-                PlayDragonManager.Instance.currentHouse.GetComponent<HouseController>().StateAction = EHouseStateAction.CLOSE;
-                PlayDragonManager.Instance.currentHouse = null;
+                if (PlayDragonManager.Instance.currentHouse != null)
+                {
+                    PlayDragonManager.Instance.currentHouse.GetComponent<HouseController>().StateAction = EHouseStateAction.CLOSE;
+                    PlayDragonManager.Instance.currentHouse = null;
+                }
+
+                Vector3 touchPos = cameraRender.ScreenToWorldPoint(Input.mousePosition);
+
+                GameObject f = Instantiate(PlayManager.Instance.modelPlay.Flag) as GameObject;
+                f.transform.parent = PlayManager.Instance.Temp.Flag.transform;
+                f.transform.localScale = Vector3.one;
+                f.transform.position = touchPos;
+
+                //set render queue
+                f.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().material.renderQueue = GameConfig.RenderQueueFlag;
+                //stretch
+                f.transform.GetChild(0).GetComponent<UIStretch>().container = PlayManager.Instance.tempInit.uiRoot;
+
+                dragonController.StateAction = EDragonStateAction.MOVE;
+                dragonController.stateMove.destPosition = touchPos;
+                dragonController.stateMove.destFrag = f;
+                dragonController.stateMove.Movement = EDragonMovement.MOVE_TOUCH;
+                dragonController.StateOffense = EDragonStateOffense.NONE;
+                dragonController.isSelected = false;
+                EffectSupportor.Instance.fadeOutWithEvent(dragonController.selected.transform.GetChild(0).gameObject, ESpriteType.UI_SPRITE, 0.1f, new EventDelegate(unenableSelectedSprite));
+
+                if (dragonController.stateMove.preFrag == null)
+                    dragonController.stateMove.preFrag = f;
+
+                //add to list
+                frags.Add(f);
+
+                if (touchPos.x < dragonController.transform.position.x)
+                {
+                    dragonController.StateDirection = EDragonStateDirection.LEFT;
+                }
+                else if (touchPos.x > dragonController.transform.position.x)
+                {
+                    dragonController.StateDirection = EDragonStateDirection.RIGHT;
+                }
             }
-
-            Vector3 touchPos = cameraRender.ScreenToWorldPoint(Input.mousePosition);
-
-            GameObject f = Instantiate(PlayManager.Instance.modelPlay.Flag) as GameObject;
-            f.transform.parent = PlayManager.Instance.Temp.Flag.transform;
-            f.transform.localScale = Vector3.one;
-            f.transform.position = touchPos;
-
-            //set render queue
-            f.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().material.renderQueue = GameConfig.RenderQueueFlag;
-            //stretch
-            f.transform.GetChild(0).GetComponent<UIStretch>().container = PlayManager.Instance.tempInit.uiRoot;
-
-            dragonController.StateAction = EDragonStateAction.MOVE;
-            dragonController.stateMove.destPosition = touchPos;
-            dragonController.stateMove.destFrag = f;
-            dragonController.stateMove.Movement = EDragonMovement.MOVE_TOUCH;
-            dragonController.StateOffense = EDragonStateOffense.NONE;
-            dragonController.isSelected = false;
-            EffectSupportor.Instance.fadeOutWithEvent(dragonController.selected.transform.GetChild(0).gameObject, ESpriteType.UI_SPRITE, 0.1f, new EventDelegate(unenableSelectedSprite));
-
-            if (dragonController.stateMove.preFrag == null)
-                dragonController.stateMove.preFrag = f;
-
-            //add to list
-            frags.Add(f);
-
-            if (touchPos.x < dragonController.transform.position.x)
+            else
             {
-                dragonController.StateDirection = EDragonStateDirection.LEFT;
-            }
-            else if (touchPos.x > dragonController.transform.position.x)
-            {
-                dragonController.StateDirection = EDragonStateDirection.RIGHT;
+                if (skillTarget != null)
+                {
+                    PlayDragonInfoSkillController infoController = skillTarget.GetComponent<PlayDragonInfoSkillController>();
+                    if (infoController.Type == ESkillType.TARGET)
+                    {
+                        if (PlayDragonManager.Instance.PlayerDragon.GetComponent<DragonController>().attribute.MP.Current >= infoController.ManaValue)
+                        {
+                            infoController.cooldown.gameObject.SetActive(true);
+                            infoController.cooldown.fillAmount = 1.0f;
+                            infoController.isEnable = false;
+                            infoController.StartCoroutine(infoController.runCooldown());
+                        }
+
+                        //invi selected
+                        infoController.selected.GetComponent<TweenScale>().PlayReverse();
+                        infoController.selected.GetComponent<TweenAlpha>().PlayReverse();
+                        infoController.StartCoroutine(infoController.invisibleSelectedSkill());
+
+                        infoController.typeSprite.GetComponent<TweenPosition>().PlayReverse();
+                        infoController.typeSprite.GetComponent<TweenAlpha>().PlayReverse();
+
+                        Vector3 touchPos = cameraRender.ScreenToWorldPoint(Input.mousePosition);
+                        PlayDragonManager.Instance.initSkill(infoController.ID, infoController.ManaValue, infoController.Type, touchPos);
+                    }
+                }
             }
         }
     }

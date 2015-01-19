@@ -10,4 +10,5 @@ public class STempInstance
     public GameObject LabelInfo;
     public GameObject Dragon;
     public GameObject Flag;
+    public GameObject Skill;
 }

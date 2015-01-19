@@ -11,20 +11,21 @@ public enum ESpriteType
 public class EffectSupportor : Singleton<EffectSupportor>
 {
     #region RUN SLIDER VALUE
-    const float TimeValueRun = 0.25f;
+    public const float TimeValueRunHP = 0.35f;
+    public const float TimeValueRunMP = 0.5f;
 
     System.Collections.Generic.List<GameObject> list = new System.Collections.Generic.List<GameObject>();
 
-    public void runSliderValue(UISlider slider, float valueTo)
+    public void runSliderValue(UISlider slider, float valueTo, float valueRun)
     {
         if (!list.Contains(slider.gameObject))
         {
             list.Add(slider.gameObject);
-            StartCoroutine(moveSliderValue(slider, valueTo));
+            StartCoroutine(moveSliderValue(slider, valueTo, valueRun));
         }
     }
 
-    IEnumerator moveSliderValue(UISlider slider, float valueTo)
+    IEnumerator moveSliderValue(UISlider slider, float valueTo, float valueRun)
     {
         float value = slider.value - valueTo;
         bool isDown = false;
@@ -34,14 +35,12 @@ public class EffectSupportor : Singleton<EffectSupportor>
         else
             isDown = false;
 
-        float valueEachFrame = Time.deltaTime * value / TimeValueRun; // 0.5 seconds
+        float valueEachFrame = Time.deltaTime * value / valueRun; // 0.5 seconds
         int fps = 0;
 
         while (true)
         {
-			if(slider == null)
-				yield return 0;
-            if (fps == 60 * TimeValueRun)
+            if (fps == 60 * valueRun)
 			{
 				list.Remove(slider.gameObject);
                 yield break;

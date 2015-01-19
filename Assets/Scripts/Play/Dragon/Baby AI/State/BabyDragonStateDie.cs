@@ -11,7 +11,7 @@ public class BabyDragonStateDie : FSMState<BabyDragonController>
         controller = obj;
         PlayDragonManager.Instance.countBaby--;
         PlayDragonManager.Instance.listBabyDragon.Remove(obj.gameObject);
-        obj.StartCoroutine(obj.GetComponentInChildren<AutoDestroy>().destroyParent(DURATION));
+        obj.StartCoroutine(obj.GetComponentInChildren<AutoDestroy>().destroyParentIE(DURATION));
     }
 
     public override void Execute(BabyDragonController obj)

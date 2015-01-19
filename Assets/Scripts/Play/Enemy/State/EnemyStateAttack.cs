@@ -105,6 +105,10 @@ public class EnemyStateAttack : FSMState<EnemyController>
 		                                                 controller.attribute.ATK.Max,
 		                                                 dragonController.attribute.DEF);
 		dragonController.attribute.HP.Current -= dmg;
+
+        //show collision
+        PlayDragonManager.Instance.showEnemyAttackCollision(target);
+
 		if(dragonController.attribute.HP.Current < 0)
 			dragonController.attribute.HP.Current = 0;
 
@@ -112,8 +116,8 @@ public class EnemyStateAttack : FSMState<EnemyController>
 
 		dragonController.updateTextHP();
 
-		EffectSupportor.Instance.runSliderValue (dragonController.sliderHP, valueTo);
-		EffectSupportor.Instance.runSliderValue (PlayDragonInfoController.Instance.sliderHP, valueTo);
+        EffectSupportor.Instance.runSliderValue(dragonController.sliderHP, valueTo, EffectSupportor.TimeValueRunHP);
+        EffectSupportor.Instance.runSliderValue(PlayDragonInfoController.Instance.sliderHP, valueTo, EffectSupportor.TimeValueRunHP);
 	}
 
     public void attackDragonBaby()
@@ -137,7 +141,7 @@ public class EnemyStateAttack : FSMState<EnemyController>
 
             babyController.updateTextHP();
 
-            EffectSupportor.Instance.runSliderValue(babyController.sliderHP, valueTo);
+            EffectSupportor.Instance.runSliderValue(babyController.sliderHP, valueTo, EffectSupportor.TimeValueRunHP);
 
         }
     }
