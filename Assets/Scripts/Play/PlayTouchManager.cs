@@ -8,11 +8,14 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
     [HideInInspector]
     public GameObject skillTarget;
 
+    public ESkillOffense currentOffense { get; set; }
+
     DragonController dragonController;
     Camera cameraRender;
 
     void Start()
     {
+        currentOffense = ESkillOffense.AOE;
         dragonController = PlayDragonManager.Instance.PlayerDragon.GetComponent<DragonController>();
         cameraRender = PlayManager.Instance.tempInit.cameraRender.GetComponent<Camera>();
     }
@@ -22,14 +25,14 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 &&
                                            Input.touches[0].phase == TouchPhase.Began))
         {
-            if (!UICamera.hoveredObject.name.Equals("Drag Camera"))
-                return;
-
             if (dragonController.HP <= 0 || dragonController.isCopulate)
                 return;
 
             if (dragonController.isSelected)
             {
+                if (!UICamera.hoveredObject.name.Equals("Drag Camera"))
+                    return;
+
                 if (PlayDragonManager.Instance.currentHouse != null)
                 {
                     PlayDragonManager.Instance.currentHouse.GetComponent<HouseController>().StateAction = EHouseStateAction.CLOSE;
@@ -76,26 +79,58 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
                 if (skillTarget != null)
                 {
                     PlayDragonInfoSkillController infoController = skillTarget.GetComponent<PlayDragonInfoSkillController>();
+
                     if (infoController.Type == ESkillType.TARGET)
                     {
-                        if (PlayDragonManager.Instance.PlayerDragon.GetComponent<DragonController>().attribute.MP.Current >= infoController.ManaValue)
+                        if ((ESkillOffense)infoController.Ability == ESkillOffense.SINGLE)
                         {
-                            infoController.cooldown.gameObject.SetActive(true);
-                            infoController.cooldown.fillAmount = 1.0f;
-                            infoController.isEnable = false;
-                            infoController.StartCoroutine(infoController.runCooldown());
+                            if (UICamera.hoveredObject.tag.Equals(TagHashIDs.Enemy))
+                            {
+                                if (PlayDragonManager.Instance.PlayerDragon.GetComponent<DragonController>().attribute.MP.Current >= infoController.ManaValue)
+                                {
+                                    infoController.cooldown.gameObject.SetActive(true);
+                                    infoController.cooldown.fillAmount = 1.0f;
+                                    infoController.isEnable = false;
+                                    infoController.StartCoroutine(infoController.runCooldown());
+                                }
+
+                                //invi selected
+                                infoController.selected.GetComponent<TweenScale>().PlayReverse();
+                                infoController.selected.GetComponent<TweenAlpha>().PlayReverse();
+                                infoController.StartCoroutine(infoController.invisibleSelectedSkill());
+
+                                infoController.typeSprite.GetComponent<TweenPosition>().PlayReverse();
+                                infoController.typeSprite.GetComponent<TweenAlpha>().PlayReverse();
+
+                                Vector3 touchPos = cameraRender.ScreenToWorldPoint(Input.mousePosition);
+                                PlayDragonManager.Instance.initSkill(infoController.ID, infoController.ManaValue,
+                                    infoController.Type, ESkillOffense.SINGLE, new object[] { UICamera.hoveredObject.gameObject });
+                                setCurrentOffenseType(ESkillOffense.AOE);
+                            }
                         }
+                        else
+                        {
+                            if (PlayDragonManager.Instance.PlayerDragon.GetComponent<DragonController>().attribute.MP.Current >= infoController.ManaValue)
+                            {
+                                infoController.cooldown.gameObject.SetActive(true);
+                                infoController.cooldown.fillAmount = 1.0f;
+                                infoController.isEnable = false;
+                                infoController.StartCoroutine(infoController.runCooldown());
+                            }
 
-                        //invi selected
-                        infoController.selected.GetComponent<TweenScale>().PlayReverse();
-                        infoController.selected.GetComponent<TweenAlpha>().PlayReverse();
-                        infoController.StartCoroutine(infoController.invisibleSelectedSkill());
+                            //invi selected
+                            infoController.selected.GetComponent<TweenScale>().PlayReverse();
+                            infoController.selected.GetComponent<TweenAlpha>().PlayReverse();
+                            infoController.StartCoroutine(infoController.invisibleSelectedSkill());
 
-                        infoController.typeSprite.GetComponent<TweenPosition>().PlayReverse();
-                        infoController.typeSprite.GetComponent<TweenAlpha>().PlayReverse();
+                            infoController.typeSprite.GetComponent<TweenPosition>().PlayReverse();
+                            infoController.typeSprite.GetComponent<TweenAlpha>().PlayReverse();
 
-                        Vector3 touchPos = cameraRender.ScreenToWorldPoint(Input.mousePosition);
-                        PlayDragonManager.Instance.initSkill(infoController.ID, infoController.ManaValue, infoController.Type, touchPos);
+                            Vector3 touchPos = cameraRender.ScreenToWorldPoint(Input.mousePosition);
+                            PlayDragonManager.Instance.initSkill(infoController.ID, infoController.ManaValue,
+                                infoController.Type, ESkillOffense.AOE, new object[] { touchPos });
+                            setCurrentOffenseType(ESkillOffense.AOE);
+                        }
                     }
                 }
             }
@@ -174,6 +209,40 @@ public class PlayTouchManager : Singleton<PlayTouchManager>
         Color color = sprite.color;
         sprite.color = new Color(color.r, color.g, color.b, 1);
         dragonController.selected.SetActive(false);
+    }
+
+    public void setCurrentOffenseType(ESkillOffense offense)
+    {
+        if (offense == ESkillOffense.SINGLE)
+        {
+            if (currentOffense != ESkillOffense.SINGLE)
+            {
+                currentOffense = ESkillOffense.SINGLE;
+                setDepthEnemy();
+            }
+        }
+        else //AOE
+        {
+            if (currentOffense != ESkillOffense.AOE)
+            {
+                currentOffense = ESkillOffense.AOE;
+                setDepthEnemy();
+            }
+        }
+    }
+
+    void setDepthEnemy()
+    {
+        for (int i = 0; i < WaveController.Instance.enemyStartPos.Length; i++)
+        {
+            foreach (Transform child in WaveController.Instance.enemyStartPos[i].transform)
+            {
+                if (currentOffense == ESkillOffense.SINGLE)
+                    child.GetComponent<UIWidget>().depth = 1;
+                else
+                    child.GetComponent<UIWidget>().depth = -1;
+            }
+        }
     }
 }
 

@@ -3,12 +3,14 @@ using System.Collections;
 
 public enum ESkillAction
 {
+    ONCE,
     TRAP,
     FADE,
     DROP,
-    END,
+    EXPLOSION,
     BUFF,
     ARMAGGEDDON,
+    DESTROY,
 }
 
 public enum ESkillType
@@ -20,7 +22,7 @@ public enum ESkillType
 
 public enum ESkillOffense
 {
-    TARGET,
+    SINGLE,
     AOE,
 }
 
@@ -30,10 +32,19 @@ public enum ESkillBuff
     ENEMY,
 }
 
+public enum ESkillCollider
+{
+    SPHERE,
+    BOX,
+    CAPSULE,
+}
+
 public class SkillController : MonoBehaviour
 {
     public string ID { get; set; }
     public GameObject Owner { get; set; }
+    public ESkillType Type { get; set; }
+    public object Ability { get; set; }
 
     [HideInInspector]
     public SkillAnimation skillAnimation;
@@ -61,6 +72,11 @@ public class SkillController : MonoBehaviour
         }
     }
 
+    public SkillState getCurrentState()
+    {
+        return listState[stateAction];
+    }
+
     void changeState(FSMState<SkillController> e)
     {
         FSM.Change(e);
@@ -84,10 +100,12 @@ public class SkillController : MonoBehaviour
         skillAnimation = this.transform.GetChild(0).GetComponent<SkillAnimation>();
     }
 
-    public void initalize(string ID, params object[] data)
+    public void initalize(string ID, ESkillType skillType, object ability, object[] data = null)
     {
         this.ID = ID;
         this.name = ID;
+        this.Type = skillType;
+        this.Ability = ability;
 
         SkillData skillData = ReadDatabase.Instance.SkillInfo[ID.ToUpper()];
         foreach (string key in skillData.States.Keys)
@@ -101,7 +119,7 @@ public class SkillController : MonoBehaviour
         enumerator.MoveNext();
 
         //set Property for state
-        setPropertyState(data);
+        setPropertyState(skillType, data);
         //set Property from database
         setPropertyFromDatabase();
 
@@ -111,33 +129,41 @@ public class SkillController : MonoBehaviour
         runResources();
     }
 
-    void setPropertyState(params object[] data) // for destination position
+    void setPropertyState(ESkillType skillType, object[] data) // for destination position
     {
+        if (data == null)
+            return;
+
         if (data.Length <= 0)
             return;
 
-        if (data[0] is ESkillType)
+        if (skillType == ESkillType.TARGET)
         {
-            if ((ESkillType)data[0] == ESkillType.TARGET)
+            foreach (System.Collections.Generic.KeyValuePair<ESkillAction, SkillState> iterator in listState)
             {
-                foreach (System.Collections.Generic.KeyValuePair<ESkillAction, SkillState> iterator in listState)
+                switch (iterator.Key)
                 {
-                    switch (iterator.Key)
-                    {
-                        case ESkillAction.DROP:
-                            SkillStateDrop stateDrop = iterator.Value as SkillStateDrop;
-                            stateDrop.destPosition = (Vector3)data[1];
-                            break;
-                        case ESkillAction.TRAP:
-                            SkillStateTrap stateTrap = iterator.Value as SkillStateTrap;
-                            stateTrap.position = (Vector3)data[1];
-                            break;
-                    }
+                    case ESkillAction.ONCE:
+                        SkillStateOnce stateOnce = iterator.Value as SkillStateOnce;
+                        if ((ESkillOffense)Ability == ESkillOffense.SINGLE)
+                            stateOnce.enemy = (GameObject)data[0];
+                        else
+                            stateOnce.destPosition = (Vector3)data[0];
+                        break;
+                    case ESkillAction.DROP:
+                        SkillStateDrop stateDrop = iterator.Value as SkillStateDrop;
+                        stateDrop.destPosition = (Vector3)data[0];
+                        break;
+                    case ESkillAction.TRAP:
+                        SkillStateTrap stateTrap = iterator.Value as SkillStateTrap;
+                        stateTrap.position = (Vector3)data[0];
+                        break;
                 }
             }
         }
     }
 
+    static string[] ColliderName = { "SphereCollider", "BoxCollider", "CapsuleCollider" };
     void setPropertyFromDatabase()
     {
         foreach (System.Collections.Generic.KeyValuePair<ESkillAction, SkillState> state in listState)
@@ -145,44 +171,140 @@ public class SkillController : MonoBehaviour
             foreach (System.Collections.Generic.KeyValuePair<string, object> iterator in
                 ReadDatabase.Instance.SkillInfo[ID.ToUpper()].States[state.Key.ToString()].Values)
             {
-                switch (state.Key)
+                Debug.Log(iterator.Key.ToUpper());
+                #region COMMON VALUE
+                switch (iterator.Key.ToUpper())
                 {
-                    case ESkillAction.TRAP:
-                        SkillStateTrap trap = state.Value as SkillStateTrap;
+                    case "COLLISION":
+                        state.Value.collisionNum = int.Parse(iterator.Value.ToString());
+                        return;
+                    case "EFFECT":
+                        string[] s = iterator.Value.ToString().Trim().Split('/');
+                        state.Value.effectType = (EBulletEffect)Extensions.GetEnum(EBulletEffect.NONE.GetType(), s[0].ToUpper());
 
-                        switch (iterator.Key.ToUpper())
+                        System.Collections.Generic.List<string> listValue = new System.Collections.Generic.List<string>();
+                        for (int i = 1; i < s.Length; i++)
                         {
-                            case "DURATION":
-                                trap.duration = float.Parse(iterator.Value.ToString());
-                                break;
+                            listValue.Add(s[i]);
+                        }
+                        state.Value.effectValue = listValue.ToArray();
+                        break;
+                    case "EFFECTGO":
+                        state.Value.effectObjectID = iterator.Value.ToString();
+                        break;
+                    case "DAMAGE":
+                        if (iterator.Value.ToString().Trim().Equals("true"))
+                            state.Value.hasDamage = true;
+                        else
+                            state.Value.hasDamage = false;
+                        break;
+                    case "COLLIDERMOVETO":
+                        state.Value.colliderMoveTo = iterator.Value.ToString();
+                        break;
+                }
+                #endregion
+
+                #region COLLIDER
+                bool hasCollider = false;
+                ESkillCollider colliderType = ESkillCollider.BOX;
+                for (int i = 0; i < ColliderName.Length; i++)
+                {
+                    string s = ColliderName[i];
+                    if (string.Compare(iterator.Key.Trim(), s, true) == 0)
+                    {
+                        hasCollider = true;
+                        switch (s)
+                        {
+                            case "SphereCollider": colliderType = ESkillCollider.SPHERE; break;
+                            case "BoxCollider": colliderType = ESkillCollider.BOX; break;
+                            case "CapsuleCollider": colliderType = ESkillCollider.CAPSULE; break;
                         }
                         break;
-                    case ESkillAction.BUFF:
-                        SkillStateBuff buff = state.Value as SkillStateBuff;
+                    }
+                }
+                #endregion
 
-                        switch (iterator.Key.ToUpper())
-                        {
-                            case "DURATION":
-                                buff.duration = float.Parse(iterator.Value.ToString());
-                                break;
-                            case "TYPE":
-                                buff.type = (ESkillStateBuffType)Extensions.GetEnum(ESkillStateBuffType.ROTATION.GetType(), iterator.Value.ToString().ToUpper());
-                                break;
-                            case "VALUE":
-                                buff.value = iterator.Value;
-                                break;
-                        }
-                        break;
-                    case ESkillAction.ARMAGGEDDON:
-                        SkillStateArmaggeddon armaggeddon = state.Value as SkillStateArmaggeddon;
+                if (hasCollider)
+                {
+                    state.Value.hasCollider = true;
+                    state.Value.colliderValue = iterator.Value;
+                    state.Value.colliderType = colliderType;
+                }
+                else
+                {
+                    switch (state.Key)
+                    {
+                        #region DROP
+                        case ESkillAction.DROP:
+                            SkillStateDrop drop = state.Value as SkillStateDrop;
 
-                        switch(iterator.Key.ToUpper())
-                        {
-                            case "DURATION":
-                                armaggeddon.duration = float.Parse(iterator.Value.ToString());
-                                break;
-                        }
-                        break;
+                            switch (iterator.Key.ToUpper())
+                            {
+                                case "SPEED":
+                                    drop.Speed = float.Parse(iterator.Value.ToString());
+                                    break;
+                            }
+                            break;
+                        #endregion
+                        #region TRAP
+                        case ESkillAction.TRAP:
+                            SkillStateTrap trap = state.Value as SkillStateTrap;
+
+                            switch (iterator.Key.ToUpper())
+                            {
+                                case "DURATION":
+                                    trap.duration = float.Parse(iterator.Value.ToString());
+                                    break;
+                            }
+                            break;
+                        #endregion
+                        #region BUFF
+                        case ESkillAction.BUFF:
+                            SkillStateBuff buff = state.Value as SkillStateBuff;
+
+                            switch (iterator.Key.ToUpper())
+                            {
+                                case "DURATION":
+                                    buff.duration = float.Parse(iterator.Value.ToString());
+                                    break;
+                                case "TYPE":
+                                    buff.type = (ESkillStateBuffType)Extensions.GetEnum(ESkillStateBuffType.ROTATION.GetType(), iterator.Value.ToString().ToUpper());
+                                    break;
+                                case "VALUE":
+                                    buff.value = iterator.Value;
+                                    break;
+                            }
+                            break;
+                        #endregion
+                        #region ARMAGGEDDON
+                        case ESkillAction.ARMAGGEDDON:
+                            SkillStateArmaggeddon armaggeddon = state.Value as SkillStateArmaggeddon;
+
+                            switch (iterator.Key.ToUpper())
+                            {
+                                case "DURATION":
+                                    armaggeddon.duration = float.Parse(iterator.Value.ToString());
+                                    break;
+                                case "TYPE":
+                                    armaggeddon.type = (ESkillArmaggeddon)Extensions.GetEnum(ESkillArmaggeddon.METEOR.GetType(), 
+                                        iterator.Value.ToString().ToUpper());
+                                    break;
+                            }
+                            break;
+                        #endregion
+                        #region END
+                        case ESkillAction.EXPLOSION:
+                            SkillStateExplosion end = state.Value as SkillStateExplosion;
+
+                            switch (iterator.Key.ToUpper())
+                            {
+                                case "COLLISION":
+                                    end.collision = int.Parse(iterator.Value.ToString());
+                                    break;
+                            }
+                            break;
+                        #endregion
+                    }
                 }
             }
         }
@@ -194,11 +316,14 @@ public class SkillController : MonoBehaviour
 
         switch (type)
         {
+            case ESkillAction.ONCE:
+                s = new SkillStateOnce();
+                break;
             case ESkillAction.DROP:
                 s = new SkillStateDrop();
                 break;
-            case ESkillAction.END:
-                s = new SkillStateEnd();
+            case ESkillAction.EXPLOSION:
+                s = new SkillStateExplosion();
                 break;
             case ESkillAction.TRAP:
                 s = new SkillStateTrap();
@@ -211,6 +336,9 @@ public class SkillController : MonoBehaviour
                 break;
             case ESkillAction.ARMAGGEDDON:
                 s = new SkillStateArmaggeddon();
+                break;
+            case ESkillAction.DESTROY:
+                s = new SkillStateDestroy();
                 break;
         }
         return s;

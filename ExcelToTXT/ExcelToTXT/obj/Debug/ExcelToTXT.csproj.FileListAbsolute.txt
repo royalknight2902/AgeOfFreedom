@@ -1,0 +1,22 @@
+E:\WORK\UNITY\SOURCE\Company\ExcelToTXT\ExcelToTXT\bin\Debug\ExcelToTXT.exe.config
+E:\WORK\UNITY\SOURCE\Company\ExcelToTXT\ExcelToTXT\bin\Debug\ExcelToTXT.exe
+E:\WORK\UNITY\SOURCE\Company\ExcelToTXT\ExcelToTXT\bin\Debug\ExcelToTXT.pdb
+E:\WORK\UNITY\SOURCE\Company\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.csprojResolveAssemblyReference.cache
+E:\WORK\UNITY\SOURCE\Company\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.exe
+E:\WORK\UNITY\SOURCE\Company\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.pdb
+E:\WORK\UNITY\SOURCE\Company\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.csproj.ResolveComReference.cache
+E:\WORK\ExcelToTXT\ExcelToTXT\bin\Debug\ExcelToTXT.exe.config
+E:\WORK\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.csproj.ResolveComReference.cache
+E:\WORK\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.exe
+E:\WORK\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.pdb
+E:\WORK\ExcelToTXT\ExcelToTXT\bin\Debug\ExcelToTXT.exe
+E:\WORK\ExcelToTXT\ExcelToTXT\bin\Debug\ExcelToTXT.pdb
+E:\WORK\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.csprojResolveAssemblyReference.cache
+E:\WORK\UNITY\SOURCE\Company\com-project-ageoffreedom\ExcelToTXT\ExcelToTXT\bin\Debug\ExcelToTXT.exe.config
+E:\WORK\UNITY\SOURCE\Company\com-project-ageoffreedom\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.csproj.ResolveComReference.cache
+E:\WORK\UNITY\SOURCE\Company\com-project-ageoffreedom\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.exe
+E:\WORK\UNITY\SOURCE\Company\com-project-ageoffreedom\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.pdb
+E:\WORK\UNITY\SOURCE\Company\Half War\ExcelToTXT\ExcelToTXT\bin\Debug\ExcelToTXT.exe.config
+E:\WORK\UNITY\SOURCE\Company\Half War\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.csproj.ResolveComReference.cache
+E:\WORK\UNITY\SOURCE\Company\Half War\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.exe
+E:\WORK\UNITY\SOURCE\Company\Half War\ExcelToTXT\ExcelToTXT\obj\Debug\ExcelToTXT.pdb

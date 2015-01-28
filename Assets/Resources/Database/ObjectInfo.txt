@@ -1,0 +1,3 @@
+STT;ID;State;Time Frame;Frame Event;Resource
+1;Blizzard;Run-Explosion;Run(0.2),Explosion(0.1);End-end;Run(Blizzard),Explosion(Ice 3)
+2;Thunder;Run-Destroy;Run(0.2);Run-end;Run(Thunder)

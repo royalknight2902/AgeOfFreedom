@@ -10,6 +10,9 @@ public class SDragonAttribute
 	public SMinMax ATK;
 	public int DEF;
 	public float Speed;
+
+    public int Level;
+    public SUnitHP EXP;
 }
 
 public struct SDragonAttributeBonus

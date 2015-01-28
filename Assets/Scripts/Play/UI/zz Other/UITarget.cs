@@ -39,6 +39,26 @@ public class UITarget : MonoBehaviour
             PlayManager.Instance.chooseTarget.transform.GetChild(0).renderer.material.renderQueue = transform.GetChild(0).renderer.material.renderQueue - 1;
             PlayManager.Instance.chooseTarget.SetActive(true);
 
+            if (SceneState.Instance.State == ESceneState.ADVENTURE)
+            {
+                if (PlayTouchManager.Instance.skillTarget != null)
+                {
+                    if (PlayTouchManager.Instance.skillTarget != this.gameObject)
+                    {
+                        PlayDragonInfoSkillController temp = PlayTouchManager.Instance.skillTarget.GetComponent<PlayDragonInfoSkillController>();
+                        temp.selected.GetComponent<TweenScale>().PlayReverse();
+                        temp.selected.GetComponent<TweenAlpha>().PlayReverse();
+
+                        temp.typeSprite.GetComponent<TweenPosition>().PlayReverse();
+                        temp.typeSprite.GetComponent<TweenAlpha>().PlayReverse();
+                        temp.isTap = false;
+
+                        PlayTouchManager.Instance.skillTarget = null;
+                        PlayTouchManager.Instance.setCurrentOffenseType(ESkillOffense.AOE);
+                    }
+                }
+            }
+
             // set tutorial cho lan dau tien
             if (PlayerInfo.Instance.tutorialInfo.tutorial_build == 0 && WaveController.Instance.currentMap == 1 
                 && SceneState.Instance.State == ESceneState.ADVENTURE)

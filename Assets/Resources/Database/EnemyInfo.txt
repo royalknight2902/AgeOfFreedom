@@ -1,31 +1,31 @@
-STT;NAME;BOSS;REGION;BRANCH;HP;Index HP;Speed;Index Speed;Def;COIN;LEVEL;Direction;State;Time Frame;Frame Event;Scale
-1;Amy;NO;LAND;FIRE;49.6;0.2;17.84;0.4;0;2.1178;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Attack-4-9,Die-end,;100
-11;Furi;NO;LAND;FIRE;71.2;0.65;19.28;0.8;0;3.4426;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-12;Haki;NO;LAND;FIRE;78.4;0.8;18.56;0.6;0;3.8152;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-15;Kukan;NO;LAND;FIRE;54.4;0.3;17.48;0.3;0;2.3731;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-19;Orc Black;NO;LAND;FIRE;56.8;0.35;18.2;0.5;0;2.5525;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-20;Red Bull;NO;LAND;FIRE;56.8;0.35;17.12;0.2;0;2.4904;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-21;Scorpion;NO;LAND;FIRE;78.4;0.8;16.94;0.15;0;3.72205;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-28;Wolf;NO;LAND;FIRE;44.8;0.1;16.76;0.1;0;1.7797;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-4;Bee;NO;AIR;FIRE;180.16;0.8;14.36;0.15;0;9.4249;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-18;Orc;NO;LAND;FIRE;111.04;0.2;15.2;0.5;1;8.9488;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-23;Soki;NO;LAND;FIRE;122.56;0.3;15.44;0.6;0;6.175;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-25;Thor;NO;LAND;FIRE;157.12;0.6;14.36;0.15;1;11.5501;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-29;Thin Zombie;NO;LAND;FIRE;105.28;0.15;14.48;0.2;0;5.1262;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-30;Fat Zombie;NO;LAND;FIRE;116.8;0.25;14.6;0.25;0;5.7955;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-3;Bat;NO;AIR;FIRE;236.8;0.25;12.47;0.15;0;12.573025;3;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-7;Creep;NO;LAND;FIRE;270.4;0.5;12.92;0.4;1;17.9809;3;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-8;Crow;NO;AIR;FIRE;243.52;0.3;14;1;0;13.0474;3;B-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-17;Maku;NO;LAND;FIRE;223.36;0.15;13.82;0.9;0;11.87785;3;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-26;Tiny;NO;LAND;FIRE;277.12;0.55;13.82;0.9;1;18.41905;3;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-13;Iron;NO;LAND;FIRE;389.44;0.3;11.6;0.5;1;24.7498;4;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-16;Lava;NO;LAND;FIRE;441.28;0.6;11.24;0.2;2;31.1599;4;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-24;Spider;NO;LAND;FIRE;372.16;0.2;11.18;0.15;0;20.28205;4;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-27;Wild Boar;NO;LAND;FIRE;475.84;0.8;11.6;0.5;1;29.7178;4;B-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-2;Axe;YES;LAND;FIRE;594.88;0.4;10.28;0.4;1;36.4867;5;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-6;Buffalo;YES;LAND;FIRE;573.76;0.3;10.16;0.3;2;38.7154;5;B-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-9;Blur Dragon;YES;AIR;FIRE;679.36;0.8;10.4;0.5;2;44.8012;5;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-14;King Kong;YES;LAND;FIRE;679.36;0.8;10.16;0.3;1;41.3374;5;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-5;Blood;YES;LAND;FIRE;874.72;0.55;8.36;0.2;1;52.4671;6;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-10;Evil Demon;YES;LAND;FIRE;763.36;0.15;8.27;0.15;2;49.508725;6;B-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
-22;Snow;YES;LAND;FIRE;763.36;0.15;9.44;0.8;2;49.576;6;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100
+STT;NAME;BOSS;REGION;BRANCH;HP;Index HP;Speed;Index Speed;Def;COIN;LEVEL;Direction;State;Time Frame;Frame Event;Scale;EXP
+1;Amy;NO;LAND;FIRE;49.6;0.2;17.84;0.4;0;2.1178;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Attack-4-9,Die-end,;100;70
+11;Furi;NO;LAND;FIRE;71.2;0.65;19.28;0.8;0;3.4426;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;10
+12;Haki;NO;LAND;FIRE;78.4;0.8;18.56;0.6;0;3.8152;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;10
+15;Kukan;NO;LAND;FIRE;54.4;0.3;17.48;0.3;0;2.3731;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;7
+19;Orc Black;NO;LAND;FIRE;56.8;0.35;18.2;0.5;0;2.5525;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;7
+20;Red Bull;NO;LAND;FIRE;56.8;0.35;17.12;0.2;0;2.4904;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;7
+21;Scorpion;NO;LAND;FIRE;78.4;0.8;16.94;0.15;0;3.72205;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;10
+28;Wolf;NO;LAND;FIRE;44.8;0.1;16.76;0.1;0;1.7797;1;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;7
+4;Bee;NO;AIR;FIRE;180.16;0.8;14.36;0.15;0;9.4249;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;15
+18;Orc;NO;LAND;FIRE;111.04;0.2;15.2;0.5;1;8.9488;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;12
+23;Soki;NO;LAND;FIRE;122.56;0.3;15.44;0.6;0;6.175;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;14
+25;Thor;NO;LAND;FIRE;157.12;0.6;14.36;0.15;1;11.5501;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;20
+29;Thin Zombie;NO;LAND;FIRE;105.28;0.15;14.48;0.2;0;5.1262;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;20
+30;Fat Zombie;NO;LAND;FIRE;116.8;0.25;14.6;0.25;0;5.7955;2;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;20
+3;Bat;NO;AIR;FIRE;236.8;0.25;12.47;0.15;0;12.573025;3;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;25
+7;Creep;NO;LAND;FIRE;270.4;0.5;12.92;0.4;1;17.9809;3;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;25
+8;Crow;NO;AIR;FIRE;243.52;0.3;14;1;0;13.0474;3;B-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;25
+17;Maku;NO;LAND;FIRE;223.36;0.15;13.82;0.9;0;11.87785;3;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;25
+26;Tiny;NO;LAND;FIRE;277.12;0.55;13.82;0.9;1;18.41905;3;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;25
+13;Iron;NO;LAND;FIRE;389.44;0.3;11.6;0.5;1;24.7498;4;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;30
+16;Lava;NO;LAND;FIRE;441.28;0.6;11.24;0.2;2;31.1599;4;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;30
+24;Spider;NO;LAND;FIRE;372.16;0.2;11.18;0.15;0;20.28205;4;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;30
+27;Wild Boar;NO;LAND;FIRE;475.84;0.8;11.6;0.5;1;29.7178;4;B-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;30
+2;Axe;YES;LAND;FIRE;594.88;0.4;10.28;0.4;1;36.4867;5;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;35
+6;Buffalo;YES;LAND;FIRE;573.76;0.3;10.16;0.3;2;38.7154;5;B-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;35
+9;Blur Dragon;YES;AIR;FIRE;679.36;0.8;10.4;0.5;2;44.8012;5;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;35
+14;King Kong;YES;LAND;FIRE;679.36;0.8;10.16;0.3;1;41.3374;5;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;35
+5;Blood;YES;LAND;FIRE;874.72;0.55;8.36;0.2;1;52.4671;6;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;40
+10;Evil Demon;YES;LAND;FIRE;763.36;0.15;8.27;0.15;2;49.508725;6;B-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;40
+22;Snow;YES;LAND;FIRE;763.36;0.15;9.44;0.8;2;49.576;6;B-U-L-R;Idle-Left-Right-Up-Bottom-Attack-Die;0.1-0.1-0.1-0.1-0.1-0.1-0.1;Die-end,;100;40

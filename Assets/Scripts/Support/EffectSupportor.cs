@@ -14,13 +14,22 @@ public class EffectSupportor : Singleton<EffectSupportor>
     public const float TimeValueRunHP = 0.35f;
     public const float TimeValueRunMP = 0.5f;
 
-    System.Collections.Generic.List<GameObject> list = new System.Collections.Generic.List<GameObject>();
+    System.Collections.Generic.Dictionary<GameObject, string> list = new System.Collections.Generic.Dictionary<GameObject, string>();
 
     public void runSliderValue(UISlider slider, float valueTo, float valueRun)
     {
-        if (!list.Contains(slider.gameObject))
+        if (!list.ContainsKey(slider.gameObject))
         {
-            list.Add(slider.gameObject);
+            string strValue = valueTo + "_" + valueRun;
+
+            list.Add(slider.gameObject, strValue);
+            StartCoroutine(moveSliderValue(slider, valueTo, valueRun));
+        }
+        else
+        {
+            string[] ss = list[slider.gameObject].Split('_');
+
+            StopCoroutine(moveSliderValue(slider, float.Parse(ss[0]), float.Parse(ss[0])));
             StartCoroutine(moveSliderValue(slider, valueTo, valueRun));
         }
     }
@@ -40,11 +49,11 @@ public class EffectSupportor : Singleton<EffectSupportor>
 
         while (true)
         {
-            if (fps == 60 * valueRun)
-			{
-				list.Remove(slider.gameObject);
+            if (fps == (int)(60 * valueRun))
+            {
+                list.Remove(slider.gameObject);
                 yield break;
-	 		}
+            }
 
             if (isDown)
                 slider.value -= valueEachFrame;
@@ -57,6 +66,8 @@ public class EffectSupportor : Singleton<EffectSupportor>
         }
     }
     #endregion
+
+    
 
     #region FADE OUT WITH CALLBACK EVENT
     public void fadeOutWithEvent(GameObject target, ESpriteType type, float time, EventDelegate callback)

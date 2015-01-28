@@ -12,5 +12,7 @@ public class EnemyData
     public int Coin { get; set; }
     public int Level { get; set; }
     public int Scale { get; set; }
+    public int EXP { get; set; }
+
     public System.Collections.Generic.Dictionary<string, AnimationEventState> States = new System.Collections.Generic.Dictionary<string, AnimationEventState>();
 }

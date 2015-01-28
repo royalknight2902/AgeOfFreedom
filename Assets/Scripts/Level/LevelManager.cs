@@ -17,6 +17,8 @@ public class LevelManager : Singleton<LevelManager>
 
     void Awake()
     {
+        Debug.Log(SceneState.Instance.State);
+
         if (SceneState.Instance.State == ESceneState.BLUETOOTH)
         {
             for (int i = 0; i < buttonHiden.Length; i++)

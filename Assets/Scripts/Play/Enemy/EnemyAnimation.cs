@@ -92,6 +92,11 @@ public class EnemyAnimation : MonoBehaviour
         animationFrames.timeFrame = animationFrames.listData[currentKey].TimeFrame * aspect;
     }
 
+    public void enableAnimation(bool isEnable)
+    {
+        animationFrames.isEnable = isEnable;
+    }
+
     object getValueFromDatabase(EAnimationDataType type)
     {
         object result = null;

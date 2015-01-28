@@ -70,6 +70,7 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
                 skill.ID = skillData.ID;
                 skill.CooldownTime = data.Cooldown;
                 skill.Type = data.Type;
+                skill.Ability = data.Ability;
                 skill.ManaValue = data.Mana;
 
                 skill.initalize();
@@ -88,7 +89,6 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
                 }
             }
         }
-
 
         if (hasUlti == false && PlayDragonInfoController.Instance.renderUlti.gameObject.activeSelf)
             PlayDragonInfoController.Instance.renderUlti.gameObject.SetActive(false);
@@ -262,7 +262,7 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
     #endregion
 
     #region SKILL
-    public void initSkill(string id, int mana, params object[] data)
+    public void initSkill(string id, int mana, ESkillType type, object ability, object[] data)
     {
         if (dragonController.attribute.MP.Current < mana)
         {
@@ -282,13 +282,23 @@ public class PlayDragonManager : Singleton<PlayDragonManager>
         }
 
         GameObject skill = Instantiate(Resources.Load<GameObject>("Prefab/Skill/Skill")) as GameObject;
-        skill.transform.parent = PlayManager.Instance.Temp.Skill.transform;
+
+        if (type == ESkillType.GLOBAL)
+        {
+            skill.transform.parent = Camera.main.transform;
+            skill.transform.GetChild(0).gameObject.layer = 5;
+            skill.transform.position = Vector3.zero;
+        }
+        else //target
+        {
+            skill.transform.parent = PlayManager.Instance.Temp.Skill.transform;
+        }
+
         skill.transform.localScale = Vector3.one;
-        skill.transform.position = Vector3.zero;
 
         SkillController skillController = skill.GetComponent<SkillController>();
         skillController.Owner = PlayerDragon;
-        skillController.initalize(id, data);
+        skillController.initalize(id, type, ability, data);
     }
     #endregion
 

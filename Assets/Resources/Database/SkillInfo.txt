@@ -1,5 +1,7 @@
 STT;ID;Name;Mana;Cooldown;Type;State;Time Frame;Frame Event;Resource;Values
-1;METEOR;Meteor;30;1.0;Target-AOE;Drop-End;0.2-0.2;End-end;Drop(Fire Light),End(Fire 6);none
-2;EXPLOSION;Explosion;40;1.0;Target-AOE;Trap-Fade;0.2-0.2;none;Trap(Fire Trap(3-4-5));Trap(Duration:5.0)
-3;DOOM;Doom;50;1.0;Buff-Player;Buff-Fade;0.2-0.2;none;Buff(Fire Shell);Buff(Duration:5.0-Type:Rotation-Value:3.0)
-4;INVOKER;Invoker;60;1.0;GLOBAL-AOE;Armaggeddon;0.2;none;Armaggeddon(Armaggeddon Meteor);Armaggeddon(Duration:5.0)
+1;METEOR;Meteor;1;1.0;Target-AOE;Drop-Explosion;Drop(0.2),Explosion(0.2);Explosion-end;Drop(Fire Light),Explosion(Fire 6);Drop(Speed:10),Explosion(SphereCollider:0.42/1.0_Collision:4_Damage:true)
+2;EXPLOSION;Explosion;1;1.0;Target-AOE;Trap-Fade;Trap(0.2);none;Trap(Fire Trap(3-4-5));Trap(Duration:5.0_BoxCollider:-0.19/-0.18/2.25/0.64_Effect:Burn/0.5/15/2.0)
+3;INVOKER;Invoker;1;1.0;GLOBAL-AOE;Armaggeddon-Destroy;Armaggeddon(0.2);none;Armaggeddon(Armaggeddon Meteor);Armaggeddon(Duration:5.0_BoxCollider:full_Type:Meteor)
+4;SHARK;Shark;1;1.0;Target-Single;Once-Destroy;Once(0.1);Once-end;Once(Ice Shark);Once(Effect:Stun/5.0_EffectGO:blizzard)
+5;WAVE;Wave;1;1.0;Target-AOE;Once-Destroy;Once(0.15);Once-end;Once(Ice Wave);Once(Effect:Slow/0.25/3.0_BoxCollider:1.71/0.06/2.41/1.62_ColliderMoveTo:-2.5/0.06/2.41/1.62)
+6;TORNADO;Tornado;1;1.0;GLOBAL-AOE;Armaggeddon-Fade;Armaggeddon(0.25);none;Armaggeddon(Ice Tornado(9-10));Armaggeddon(Duration:20.0_BoxCollider:full_Type:Tornado)

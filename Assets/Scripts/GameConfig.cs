@@ -44,11 +44,13 @@ public class GameConfig
     public const string DatabasePathDragonItem = "Database/XmlDragonItems";
 
     public const string DatabasePathSkill = "Database/SkillInfo";
+    public const string DatabasePathObject = "Database/ObjectInfo";
 	public const string DatabasePathEnemyInfo = "Database/EnemyInfo";
 	public const string DatabasePathTowerInfo = "Database/TowerInfo";
     public const string DatabasePathTowerPassiveInfo = "Database/TowerPassiveInfo";
     public const string DatabasePathDragonHouse = "Database/DragonHouseInfo";
     public const string DatabasePathDragonPlayer = "Database/DragonPlayerInfo";
+    public const string DatabasePathDragonConfig = "Database/DragonConfig";
 
 	public const string PathMap = "Image/Map/map-";
 	public const string PathTowerIcon = "Image/Tower/TowerBuildIcon/tower-";

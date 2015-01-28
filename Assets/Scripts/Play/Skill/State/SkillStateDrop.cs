@@ -4,23 +4,19 @@ using System.Collections;
 public class SkillStateDrop : SkillState
 {
     public float Speed;
-    public float Duration;
     public Vector3 destPosition;
 
     public override void Enter(SkillController obj)
     {
         base.Enter(obj);
 
-        Speed = 1.0f;
-        Duration = 2.0f;
-
-        float positionY = destPosition.y + 0.5f;
+        float positionY = 1.0f + PlayManager.Instance.tempInit.cameraRender.transform.position.y;
         obj.transform.position = new Vector2(destPosition.x, positionY);
     }
 
     public override void Execute(SkillController obj)
     {
-        obj.transform.localPosition += Vector3.down * 1.2f;
+        obj.transform.localPosition += Vector3.down * (Speed / 2);
         if (Vector2.Distance(obj.transform.position, destPosition) <= 0.05f)
         {
             goNextState();

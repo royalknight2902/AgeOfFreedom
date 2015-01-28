@@ -28,6 +28,7 @@ public class ReadDatabase
     public Dictionary<int, QuestData> QuestInfo;
     public Dictionary<int, AchievementData> AchievementInfo;
     public Dictionary<string, SkillData> SkillInfo;
+    public Dictionary<string, ObjectGameData> ObjectInfo;
     public DragonData DragonInfo;
 
     ReadDatabase()
@@ -42,6 +43,7 @@ public class ReadDatabase
         readAchievement();
         readDragon();
         readSkill();
+        readObject();
     }
 
     #region ENEMY
@@ -64,12 +66,14 @@ public class ReadDatabase
             data.Region = s[3].Replace('\"', ' ').ToString().Trim();
             data.Branch = s[4].Replace('\"', ' ').ToString().Trim();
 
-            data.HP = (int)(float.Parse(s[5].ToString()));
-            data.Speed = float.Parse(s[7].ToString());
-            data.DEF = (int)(float.Parse(s[9].ToString()));
+            data.HP = (int)float.Parse(s[5]);
+            data.Speed = float.Parse(s[7]);
+            data.DEF = int.Parse(s[9]);
             data.Coin = (float.Parse(s[10].ToString()) - (int)(float.Parse(s[10].ToString())) >= 0.5)
                 ? (int)(float.Parse(s[10].ToString())) + 1 : (int)(float.Parse(s[10].ToString()));
-            data.Level = (int)(float.Parse(s[11].ToString()));
+            data.Level = int.Parse(s[11]);
+            data.Scale = int.Parse(s[16]);
+            data.EXP = int.Parse(s[17]);
 
             string[] tempState = s[13].Split('-');
             string[] tempTimeFrame = s[14].Split('-');
@@ -345,6 +349,7 @@ public class ReadDatabase
         readDragonPlayer();
         readDragonHouse();
         readDragonItem();
+        readDragonConfig();
     }
 
     void readDragonPlayer()
@@ -487,6 +492,28 @@ public class ReadDatabase
             DragonInfo.Item.Add(id, dragonItemData);
         }
     }
+
+    void readDragonConfig()
+    {
+        TextAsset textAsset = (TextAsset)Resources.Load(GameConfig.DatabasePathDragonConfig);
+        string[] temp = textAsset.text.Split('\n');
+
+        int lenght = temp.Length;
+        for (int i = 1; i <= lenght - 1; i++)
+        {
+            if (temp[i].Equals(""))
+                break;
+
+            if (!string.IsNullOrEmpty(temp[i].Trim()))
+            {
+                string[] s = temp[i].Split(';');
+                DragonInfo.Config.ExpUpLV = int.Parse(s[0]);
+                DragonInfo.Config.ValueUpLV = float.Parse(s[1]);
+                DragonInfo.Config.MaxLV = int.Parse(s[2]);
+                DragonInfo.Config.ValueAttributeUpLV = float.Parse(s[3]);
+            }
+        }
+    }
     #endregion
 
     #region SKILL
@@ -509,8 +536,8 @@ public class ReadDatabase
             data.Cooldown = float.Parse(s[4]);
 
             #region SKILL TYPE
-            string skillLine = s[5].Substring(0, s[5].Length - 1);
-            string[] tempType = skillLine.Split('-');
+            s[5] = s[5].Trim();
+            string[] tempType = s[5].Split('-');
             ESkillType skillType = (ESkillType)Extensions.GetEnum(ESkillType.TARGET.GetType(), tempType[0].ToUpper());
             data.Type = skillType;
 
@@ -526,24 +553,16 @@ public class ReadDatabase
 
             #region STATE
             string[] tempState = s[6].Split('-');
-            string[] tempTimeFrame = s[7].Split('-');
             string[] tempEvent = null;
 
-            bool hasEvent = false;
-            skillLine = s[8].Substring(0, s[8].Length - 1);
-            if (!skillLine.Equals("none"))
-            {
-                tempEvent = s[8].Split(',');
-                hasEvent = true;
-            }
-
+            s[8] = s[8].Trim();
             for (int k1 = 0; k1 < tempState.Length; k1++)
             {
                 AnimationEventState animationState = new AnimationEventState();
-                animationState.TimeFrame = float.Parse(tempTimeFrame[k1]);
 
-                if (hasEvent)
+                if (!s[8].Equals("none"))
                 {
+                    tempEvent = s[8].Split(',');
                     for (int k2 = 0; k2 < tempEvent.Length; k2++)
                     {
                         if (tempEvent[k2] != "")
@@ -560,6 +579,34 @@ public class ReadDatabase
                     }
                 }
                 data.States.Add(tempState[k1].ToUpper(), animationState);
+            }
+            #endregion
+
+            #region TIME FRAME
+            s[7] = s[7].Trim();
+            if (!s[7].Equals("none"))
+            {
+                string[] tempTimeFrame = s[7].Split(',');
+
+                for (int t = 0; t < tempTimeFrame.Length; t++)
+                {
+                    tempTimeFrame[t] = tempTimeFrame[t].Trim();
+                    int index = tempTimeFrame[t].IndexOf('(');
+                    if (index != -1)
+                    {
+                        string state = tempTimeFrame[t].Substring(0, index);
+                        foreach (KeyValuePair<string, AnimationEventState> iterator in data.States)
+                        {
+                            if (state.ToUpper().Equals(iterator.Key))
+                            {
+                                string value = tempTimeFrame[t].Substring(index, tempTimeFrame[t].Length - index);
+                                value = value.Substring(1, value.Length - 2); // substring '(' & ')'
+
+                                iterator.Value.TimeFrame = float.Parse(value);
+                            }
+                        }
+                    }
+                }
             }
             #endregion
 
@@ -625,8 +672,8 @@ public class ReadDatabase
                             {
                                 string value = tempValue[t].Substring(index, tempValue[t].Length - index);
                                 value = value.Substring(1, value.Length - 2); // substring '(' & ')'
-                                string[] ss = value.Trim().Split('-');
-                                foreach(string eachValue in ss)
+                                string[] ss = value.Trim().Split('_');
+                                foreach (string eachValue in ss)
                                 {
                                     string[] arrValue = eachValue.Trim().Split(':');
                                     iterator.Value.Values.Add(arrValue[0], arrValue[1]);
@@ -639,6 +686,128 @@ public class ReadDatabase
             #endregion
 
             SkillInfo.Add(s[1].ToUpper(), data);
+        }
+    }
+    #endregion
+
+    #region OBJECT
+    void readObject()
+    {
+        ObjectInfo = new Dictionary<string, ObjectGameData>();
+        TextAsset textAsset = (TextAsset)Resources.Load(GameConfig.DatabasePathObject);
+        string[] temp = textAsset.text.Split('\n');
+
+        int lenght = temp.Length;
+        for (int i = 1; i <= lenght - 1; i++)
+        {
+            if (temp[i].Equals(""))
+                break;
+
+            ObjectGameData data = new ObjectGameData();
+            string[] s = temp[i].Split(';');
+
+            #region STATE
+            string[] tempState = s[2].Split('-');
+            string[] tempEvent = null;
+
+            s[4] = s[4].Trim();
+            for (int k1 = 0; k1 < tempState.Length; k1++)
+            {
+                AnimationEventState animationState = new AnimationEventState();
+
+                if (!s[4].Equals("none"))
+                {
+                    tempEvent = s[4].Split(',');
+                    for (int k2 = 0; k2 < tempEvent.Length; k2++)
+                    {
+                        if (tempEvent[k2] != "")
+                        {
+                            string[] ss = tempEvent[k2].Split('-');
+                            if (tempState[k1].Equals(ss[0]))
+                            {
+                                for (int k3 = 1; k3 < ss.Length; k3++)
+                                    animationState.listKeyEventFrame.Add(ss[k3]);
+
+                                break;
+                            }
+                        }
+                    }
+                }
+                data.States.Add(tempState[k1].ToUpper(), animationState);
+            }
+            #endregion
+
+            #region TIME FRAME
+            s[3] = s[3].Trim();
+            if (!s[3].Equals("none"))
+            {
+                string[] tempTimeFrame = s[3].Split(',');
+
+                for (int t = 0; t < tempTimeFrame.Length; t++)
+                {
+                    tempTimeFrame[t] = tempTimeFrame[t].Trim();
+                    int index = tempTimeFrame[t].IndexOf('(');
+                    if (index != -1)
+                    {
+                        string state = tempTimeFrame[t].Substring(0, index);
+                        foreach (KeyValuePair<string, AnimationEventState> iterator in data.States)
+                        {
+                            if (state.ToUpper().Equals(iterator.Key))
+                            {
+                                string value = tempTimeFrame[t].Substring(index, tempTimeFrame[t].Length - index);
+                                value = value.Substring(1, value.Length - 2); // substring '(' & ')'
+
+                                iterator.Value.TimeFrame = float.Parse(value);
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region SPECIFIC LOOP
+            s[5] = s[5].Trim();
+            string[] tempPath = s[5].Split(',');
+
+            for (int t = 0; t < tempPath.Length; t++)
+            {
+                tempPath[t] = tempPath[t].Trim();
+                int index = tempPath[t].IndexOf('(');
+                if (index != -1)
+                {
+                    string state = tempPath[t].Substring(0, index);
+                    foreach (KeyValuePair<string, AnimationEventState> iterator in data.States)
+                    {
+                        if (state.ToUpper().Equals(iterator.Key))
+                        {
+                            tempPath[t] = tempPath[t].Substring(index, tempPath[t].Length - index);
+                            tempPath[t] = tempPath[t].Substring(1, tempPath[t].Length - 2).Trim(); // substring '(' & ')'
+
+                            int iSpecial = tempPath[t].IndexOf('(');
+                            if (iSpecial != -1)
+                            {
+                                iterator.Value.isSpecificLoop = true;
+
+                                string strSpecial = tempPath[t].Substring(iSpecial, tempPath[t].Length - iSpecial);
+                                strSpecial = strSpecial.Substring(1, strSpecial.Length - 2); // substring '(' & ')'
+
+                                string[] arr = strSpecial.Split('-');
+                                iterator.Value.SpecificLoopIndex = new int[arr.Length];
+                                for (int m = 0; m < arr.Length; m++)
+                                {
+                                    iterator.Value.SpecificLoopIndex[m] = int.Parse(arr[m]);
+                                }
+
+                                tempPath[t] = tempPath[t].Substring(0, iSpecial).Trim();
+                            }
+
+                            iterator.Value.ResourcePath = tempPath[t];
+                        }
+                    }
+                }
+            }
+            #endregion
+            ObjectInfo.Add(s[1].ToUpper(), data);
         }
     }
     #endregion

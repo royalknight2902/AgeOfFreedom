@@ -4,13 +4,13 @@ using System.Collections;
 public class DragonStateAttack : FSMState<DragonController>
 {
     public DragonController controller;
-	public GameObject target;
+    public GameObject target;
     public EDragonStateDirection direction;
 
     EDragonStateDirection preDirection;
 
-	public override void Enter (DragonController obj)
-	{
+    public override void Enter(DragonController obj)
+    {
         controller = obj;
 
         if (target.transform.position.x >= controller.transform.position.x)
@@ -21,10 +21,10 @@ public class DragonStateAttack : FSMState<DragonController>
         direction = controller.stateAttack.direction;
         preDirection = direction;
         setDirection();
-	}
-	
-	public override void Execute (DragonController obj)
-	{
+    }
+
+    public override void Execute(DragonController obj)
+    {
         if (target == null)
         {
             controller.dragonAttack.chooseEnemyToAttack();
@@ -39,7 +39,7 @@ public class DragonStateAttack : FSMState<DragonController>
                 target = null;
                 controller.dragonAttack.chooseEnemyToAttack();
 
-                enemy.StateAction = EEnemyStateAction.DIE;
+                enemy.die();
                 return;
             }
         }
@@ -58,12 +58,12 @@ public class DragonStateAttack : FSMState<DragonController>
             if (preDirection != direction)
                 setDirection();
         }
-	}
-	
-	public override void Exit (DragonController obj)
-	{
+    }
 
-	}
+    public override void Exit(DragonController obj)
+    {
+
+    }
 
     public void attackEnemy()
     {
@@ -79,11 +79,15 @@ public class DragonStateAttack : FSMState<DragonController>
                                                          enemyController.attribute.DEF);
         enemyController.attribute.HP.Current -= dmg;
 
+        if (enemyController.attribute.HP.Current <= 0)
+        {
+            enemyController.isKilledByPlayerDragon = true;
+            enemyController.attribute.HP.Current = 0;
+        }
+
         //show collision
         PlayDragonManager.Instance.showDragonAttackCollision(target.transform.position);
 
-        if (enemyController.attribute.HP.Current < 0)
-            enemyController.attribute.HP.Current = 0;
 
         float valueTo = enemyController.attribute.HP.Current / (float)enemyController.attribute.HP.Max;
         EffectSupportor.Instance.runSliderValue(enemyController.sliderHP, valueTo, EffectSupportor.TimeValueRunHP);

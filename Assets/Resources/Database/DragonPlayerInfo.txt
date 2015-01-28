@@ -1,6 +1,6 @@
 ID;Name;HP;MP;DEF;ATK;Branch;ATK Speed;Move Speed;State;Time Frame;Frame Event;Skill
-1;Fire Dragon;500;100;20;5-10;Fire;70;10;Idle-Move-Attack-Die;0.1-0.1-0.1-0.1;Die-end,Attack-5;meteor-explosion-doom-invoker(ss)
-2;Ice Dragon;600;100;20;30-50;Ice;80;10;Idle-Move-Attack-Die;0.1-0.1-0.1-0.1;Die-end,Attack-4;light-shield-brizzard(ss)
+1;Fire Dragon;500;100;20;5-10;Fire;70;10;Idle-Move-Attack-Die;0.1-0.1-0.1-0.1;Die-end,Attack-5;meteor-explosion-invoker(ss)
+2;Ice Dragon;600;100;20;30-50;Ice;80;10;Idle-Move-Attack-Die;0.1-0.1-0.1-0.1;Die-end,Attack-4;shark-wave-tornado(ss)
 3;Iron Dragon;700;100;20;30-50;Iron;90;10;Idle-Move-Attack-Die;0.1-0.1-0.1-0.1;Die-end,Attack-4;none
 4;Plant Dragon;800;100;20;30-50;Plant;90;10;Idle-Move-Attack-Die;0.1-0.1-0.1-0.1;Die-end,Attack-4;none
 5;Earth Dragon;900;100;20;5-10;Earth;90;10;Idle-Move-Attack-Die;0.1-0.1-0.1-0.1;Die-end,Attack-4;none

@@ -18,6 +18,12 @@ public class SkillAnimation : MonoBehaviour
 
     public void changeResources(ESkillAction stateAction)
     {
+        if(stateAction == ESkillAction.DESTROY)
+        {
+            MonoBehaviour.Destroy(controller.gameObject);
+            return;
+        }
+
         currentState = stateAction;
         float timeFrame = (float)getValueFromDatabase(EAnimationDataType.TIME_FRAME);
         string resourcePath = getValueFromDatabase(EAnimationDataType.RESOURCE_PATH).ToString().Trim();
@@ -26,6 +32,11 @@ public class SkillAnimation : MonoBehaviour
 
         switch (stateAction)
         {
+            case ESkillAction.ONCE:
+                animationFrames.createAnimation(ESkillAction.ONCE, "Image/Skill/" + resourcePath, timeFrame, false,
+                    (bool)specificLoop[0], (int[])specificLoop[1]);
+                callback = new EventDelegate(controller.listState[stateAction].goNextState);
+                break;
             case ESkillAction.DROP:
                 animationFrames.createAnimation(ESkillAction.DROP, "Image/Skill/" + resourcePath, timeFrame, true,
                     (bool)specificLoop[0], (int[])specificLoop[1]);
@@ -42,24 +53,24 @@ public class SkillAnimation : MonoBehaviour
                 animationFrames.createAnimation(ESkillAction.ARMAGGEDDON, "Image/Skill/" + resourcePath, timeFrame, true,
                     (bool)specificLoop[0], (int[])specificLoop[1]);
                 break;
-            case ESkillAction.END:
-                animationFrames.createAnimation(ESkillAction.END, "Image/Explosion/" + resourcePath, timeFrame, true,
+            case ESkillAction.EXPLOSION:
+                animationFrames.createAnimation(ESkillAction.EXPLOSION, "Image/Explosion/" + resourcePath, timeFrame, true,
                     (bool)specificLoop[0], (int[])specificLoop[1]);
-                callback = new EventDelegate(((SkillStateEnd)controller.listState[ESkillAction.END]).destroy);
+                callback = new EventDelegate(((SkillStateExplosion)controller.listState[ESkillAction.EXPLOSION]).destroy);
                 break;
             case ESkillAction.FADE:
                 break;
         }
 
         //set render queue
-        if (stateAction == ESkillAction.END)
-        {
-            SpriteRenderer render = this.GetComponent<SpriteRenderer>();
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().material.renderQueue = GameConfig.RenderQueueSkill;
-        }
+        //if (stateAction == ESkillAction.EXPLOSION)
+        //{
+        //    SpriteRenderer render = this.GetComponent<SpriteRenderer>();
+        //}
+        //else
+        //{
+        GetComponent<SpriteRenderer>().material.renderQueue = GameConfig.RenderQueueSkill;
+        //}
 
         object result = getValueFromDatabase(EAnimationDataType.EVENT);
         if (result != null)
@@ -70,6 +81,9 @@ public class SkillAnimation : MonoBehaviour
                 animationFrames.addEvent(events, callback, false);
             }
         }
+
+        if (controller.getCurrentState().hasCollider)
+            controller.getCurrentState().initCollider(animationFrames.frameLength, animationFrames.timeFrame);
     }
 
     object getValueFromDatabase(EAnimationDataType type)
@@ -99,7 +113,7 @@ public class SkillAnimation : MonoBehaviour
         else if (type == EAnimationDataType.RESOURCE_PATH)
         {
             string s = ReadDatabase.Instance.SkillInfo[controller.ID.ToUpper()].States[currentState.ToString().ToUpper()].ResourcePath;
-            if ((ESkillAction)currentState == ESkillAction.END) // Explosion texture
+            if ((ESkillAction)currentState == ESkillAction.EXPLOSION) // Explosion texture
             {
                 string[] arr = s.Split(' ');
                 result = ConvertSupportor.convertUpperFirstChar(arr[0]) + "/" + arr[1];

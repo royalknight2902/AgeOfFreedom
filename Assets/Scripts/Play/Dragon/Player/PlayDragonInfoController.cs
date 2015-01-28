@@ -5,6 +5,7 @@ public class PlayDragonInfoController : Singleton<PlayDragonInfoController>
 {
 	public UITexture spriteIcon;
 	public UISprite spriteBranch;
+    public UISprite spriteLevel;
 	public UILabel labelLevel;
 	public UILabel labelHP;
 	public UILabel labelMP;

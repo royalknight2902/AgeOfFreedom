@@ -26,6 +26,9 @@ public class EnemyStateAttack : FSMState<EnemyController>
 
 	public override void Execute (EnemyController obj)
 	{
+        if (!obj.isEnable)
+            return;
+
         if (target == null)
         {
             controller.stateMove.State = EEnemyMovement.MOVE_ON_PATHS;
@@ -142,7 +145,6 @@ public class EnemyStateAttack : FSMState<EnemyController>
             babyController.updateTextHP();
 
             EffectSupportor.Instance.runSliderValue(babyController.sliderHP, valueTo, EffectSupportor.TimeValueRunHP);
-
         }
     }
 

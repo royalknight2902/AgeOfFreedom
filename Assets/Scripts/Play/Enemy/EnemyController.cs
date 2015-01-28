@@ -32,12 +32,15 @@ public class EnemyController : MonoBehaviour
     public string ID;
     public int money;
     public float speed = 0;
+    public int EXP;
     public EEnemyRegion region;
     public EEnemyType type;
 
     public int waveID { get; set; }
+    public bool isEnable { get; set; }
     public bool isDie { get; set; }
-    public bool isVisible { get; set; } //set visible trong database để hiển thị những con đã xuất hiện
+    public bool isKilledByPlayerDragon { get; set; }
+
     public System.Collections.Generic.List<object> listEffected = new System.Collections.Generic.List<object>();
 
     [HideInInspector]
@@ -94,7 +97,7 @@ public class EnemyController : MonoBehaviour
             if (stateDirection != value)
             {
                 stateDirection = value;
-                if(stateDirection != EDirection.NONE)
+                if (stateDirection != EDirection.NONE)
                     runResources();
             }
         }
@@ -136,14 +139,17 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-
         attribute.HP.Current = attribute.HP.Max;
         sliderHP = GetComponentInChildren<UISlider>();
+
+        isEnable = true;
         isDie = false;
+        isKilledByPlayerDragon = false;
 
         FSM.Configure(this, stateMove);
 
         runResources();
+        setDepth();
     }
 
     public void updateHP()
@@ -152,6 +158,15 @@ public class EnemyController : MonoBehaviour
         if (sliderHP.value <= 0)
         {
             sliderHP.value = 0.0f;
+        }
+    }
+
+    void setDepth()
+    {
+        if (SceneState.Instance.State == ESceneState.ADVENTURE)
+        {
+            if (PlayTouchManager.Instance.currentOffense == ESkillOffense.SINGLE)
+                GetComponent<UIWidget>().depth = 1;
         }
     }
 
@@ -195,13 +210,21 @@ public class EnemyController : MonoBehaviour
         //Enemy die
         this.isDie = true;
 
-        StateAction = EEnemyStateAction.DIE;
 
         if (stateDirection == EDirection.LEFT)
         {
             gameObject.transform.Rotate(new Vector3(0, 180, 0));
         }
         sliderHP.gameObject.SetActive(false);
+
+        //If killed by dragon, give dragon EXP
+        if (SceneState.Instance.State == ESceneState.ADVENTURE)
+        {
+            DragonController dragonController = PlayDragonManager.Instance.PlayerDragon.GetComponent<DragonController>();
+            dragonController.EXP += EXP;
+        }
+
+        StateAction = EEnemyStateAction.DIE;
 
         //towerAction.enemyArray.Remove(_enemyController.gameObject);
 
@@ -217,5 +240,17 @@ public class EnemyController : MonoBehaviour
         {
             PlayManager.Instance.showVictory();
         }
+    }
+
+    public void stop()
+    {
+        enemyAnimation.enableAnimation(false);
+        isEnable = false;
+    }
+
+    public void resume()
+    {
+        enemyAnimation.enableAnimation(true);
+        isEnable = true;
     }
 }

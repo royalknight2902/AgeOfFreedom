@@ -42,6 +42,9 @@ public class EnemyStateMove : FSMState<EnemyController>
 
 	public override void Execute (EnemyController obj)
 	{
+        if (!obj.isEnable)
+            return;
+
 		if (!obj.isDie)
 		{
 			if(State == EEnemyMovement.MOVE_ON_PATHS)
