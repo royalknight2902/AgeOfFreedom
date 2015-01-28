@@ -29,7 +29,7 @@ public class TowerInfoController : MonoBehaviour
 	[HideInInspector]
 	public int rangeUpgrade;
 
-	bool isLock;
+	public static bool isLock;
 	TowerController controller;
     HouseController house;
 
@@ -228,16 +228,14 @@ public class TowerInfoController : MonoBehaviour
 
 	public void setNextTowerIcon(STowerID id)
 	{
-		if (isLock)
-		{
-			lockUpgrade(false);
-			isLock = false;
-		}
+		if (isLock) {
+						lockUpgrade (false);
+						isLock = false;
+				} 
 
 		string s = GameConfig.PathTowerIcon + id.Type.ToString().ToLower() + "-" + id.Level;
 
 		upgradeIcon.mainTexture = Resources.Load<Texture>(s);
-
 		UITexture texture = upgradeIcon.GetComponent<UITexture>();
         texture.keepAspectRatio = UIWidget.AspectRatioSource.Free;
         Vector2 localSize = new Vector2(texture.mainTexture.width, texture.mainTexture.height);
@@ -359,9 +357,9 @@ public class TowerInfoController : MonoBehaviour
 				if (child.name == PlayNameHashIDs.TowerInfoUpgrade)
 				{
 					child.GetComponent<UITowerInfo>().type = ETowerInfoType.UPGRADE;
-
 					foreach (Transform c in child.transform)
 					{
+						
 						if (c.name == PlayNameHashIDs.Label)
 						{
 							c.gameObject.SetActive(true);

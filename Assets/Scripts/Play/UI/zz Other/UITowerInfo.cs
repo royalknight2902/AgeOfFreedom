@@ -16,7 +16,6 @@ public class UITowerInfo : MonoBehaviour
 	void OnClick()
 	{
 		PlayManager playManager = PlayManager.Instance;
-
 		switch (type)
 		{
 			case ETowerInfoType.SELL:
@@ -67,6 +66,7 @@ public class UITowerInfo : MonoBehaviour
 				break;
 			case ETowerInfoType.UPGRADE:
 				// if implement upgrade tower
+
 				if (playManager.objectUpgrade.type == EObjectUpgradeType.UPGRADE)
 				{
 					playManager.towerInfoController.hasClickUpgrade = false;
@@ -116,8 +116,7 @@ public class UITowerInfo : MonoBehaviour
 		}
 	}
 
-	void 
-        setNextTowerInfo()
+	void setNextTowerInfo()
 	{
         if (PlayManager.Instance.towerInfoController.isOnTowerInfo)
         {

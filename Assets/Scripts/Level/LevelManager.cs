@@ -17,7 +17,6 @@ public class LevelManager : Singleton<LevelManager>
 
     void Awake()
     {
-        Debug.Log(SceneState.Instance.State);
 
         if (SceneState.Instance.State == ESceneState.BLUETOOTH)
         {

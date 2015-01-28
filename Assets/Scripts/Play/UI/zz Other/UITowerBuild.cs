@@ -18,6 +18,7 @@ public class UITowerBuild : MonoBehaviour
 
     void OnClick()
     {
+		
         if (!isEnable) //Open shop to buy
         {
             PlayManager.Instance.openShopWithTowerSelected(rootTowerBuild.GetComponent<TowerBuildController>().ID);

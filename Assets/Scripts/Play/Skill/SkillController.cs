@@ -171,7 +171,6 @@ public class SkillController : MonoBehaviour
             foreach (System.Collections.Generic.KeyValuePair<string, object> iterator in
                 ReadDatabase.Instance.SkillInfo[ID.ToUpper()].States[state.Key.ToString()].Values)
             {
-                Debug.Log(iterator.Key.ToUpper());
                 #region COMMON VALUE
                 switch (iterator.Key.ToUpper())
                 {

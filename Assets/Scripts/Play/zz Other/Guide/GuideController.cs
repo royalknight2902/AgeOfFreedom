@@ -433,7 +433,8 @@ public class GuideController : Singleton<GuideController>
     {
         if (currentLevel == level)
             return;
-
+		if (level > listTower.Count)
+						return;
         GameObject currentInfo = listTower[currentLevel - 1] as GameObject;
         GameObject nextInfo = listTower[level - 1] as GameObject;
 

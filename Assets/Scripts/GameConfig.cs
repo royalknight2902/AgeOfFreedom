@@ -59,10 +59,17 @@ public class GameConfig
     public const string PathSkillDragonIcon = "Image/Dragon/Skill/dragon-";
 
 
+
+
 	public const string ToastTowerBuyDefault = "You can't buy this tower!"; //Tower mac dinh duoc cho khi choi
 	public const string ToastTowerBuyEnable = "One more tap to buy selected tower!"; //Chua mua
 	public const string ToastTowerBuyUnable = "You has bought this tower!"; //Da~ mua
 
     public const string LocalIp = "127.0.0.1";
     public const int Port = 28000;
+
+
+	public const float TowerShopBluetoothCooldownTime = 5.0f;
+	public const int DestroyTowerBluetoothCost = 250;
+	public const int DecreaseTowerLevelBluetoothCost = 130;
 }

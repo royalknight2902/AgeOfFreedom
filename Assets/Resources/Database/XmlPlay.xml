@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="yes"?><LevelGame>
 	<Map MapID="1">
 		<Name>Map 1</Name>
-		<Money>400</Money>
+		<Money>4000</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
 		<TowerUsed>Architect-Ice-Gold</TowerUsed>

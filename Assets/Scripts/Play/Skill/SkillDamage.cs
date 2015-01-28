@@ -18,7 +18,6 @@ public class SkillDamage : MonoBehaviour
         if (enemyController.StateAction == EEnemyStateAction.DIE)
             return;
 
-        Debug.Log(state.hasDamage);
         if (state.hasDamage)
             runDamage(enemyController);
 
@@ -34,7 +33,6 @@ public class SkillDamage : MonoBehaviour
         if (other.tag == TagHashIDs.Enemy)
         {
             damage(other.gameObject);
-            Debug.Log("ok");
         }
     }
 

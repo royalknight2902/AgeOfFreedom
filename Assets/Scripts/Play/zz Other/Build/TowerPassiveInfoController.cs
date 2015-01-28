@@ -24,7 +24,7 @@ public class TowerPassiveInfoController : MonoBehaviour
 	public UILabel goldAbility;
 	public UISprite goldEffect;
 
-	bool isLock;
+	//bool isLock;
 	TowerPassiveController controller;
     HouseController house;
 
@@ -34,7 +34,7 @@ public class TowerPassiveInfoController : MonoBehaviour
 
 	void Start()
 	{
-		isLock = false;
+		//isLock = false;
 
         foreach (Transform child in transform)
         {
@@ -73,7 +73,7 @@ public class TowerPassiveInfoController : MonoBehaviour
 		{
 			//Khóa upgrade
 			lockUpgrade(true);
-			isLock = true;
+			TowerInfoController.isLock = true;
 		}
 		else
 			upgradeLabel.text = towerController.nextLevel.attribute.Cost.ToString();
@@ -184,10 +184,10 @@ public class TowerPassiveInfoController : MonoBehaviour
 
 	public void setNextTowerIcon(STowerID id)
 	{
-		if (isLock)
+		if (TowerInfoController.isLock)
 		{
 			lockUpgrade(false);
-			isLock = false;
+			TowerInfoController.isLock = false;
 		}
 
 		string s = GameConfig.PathTowerIcon + id.Type.ToString().ToLower() + "-" + id.Level;
@@ -230,16 +230,16 @@ public class TowerPassiveInfoController : MonoBehaviour
         {
             //Khóa upgrade
             lockUpgrade(true);
-            isLock = true;
+			TowerInfoController.isLock = true;
         }
     }
 
     public void setNextHouseIcon(STowerID id)
     {
-        if (isLock)
+		if (TowerInfoController.isLock)
         {
             lockUpgrade(false);
-            isLock = false;
+			TowerInfoController.isLock = false;
         }
 
         string s = GameConfig.PathHouseIcon + id.Level;

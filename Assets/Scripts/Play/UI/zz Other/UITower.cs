@@ -92,10 +92,9 @@ public class UITower : MonoBehaviour
 			else
 			{
 				TowerController nextLV = towerController.nextLevel;
-				
 				if (nextLV != null)
 				{
-					
+
 					playManager.towerInfoController.setTowerInfo(towerController);
 					
 					playManager.towerInfoController.setNextTowerIcon(nextLV.ID);
