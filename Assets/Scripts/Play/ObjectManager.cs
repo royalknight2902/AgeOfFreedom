@@ -9,8 +9,6 @@ public class ObjectManager : Singleton<ObjectManager>
     public GameObject[] TowersPassive;
     [HideInInspector]
     public GameObject DragonHouse;
-    [HideInInspector]
-    public GameObject House;
 
     void Awake()
     {
@@ -21,8 +19,6 @@ public class ObjectManager : Singleton<ObjectManager>
         getTowerDatabase();
         getTowerPassiveDatabase();
         getDragonHouseDatabase();
-
-        //DontDestroyOnLoad(this.gameObject);
     }
     void initTowers()
     {
@@ -41,7 +37,7 @@ public class ObjectManager : Singleton<ObjectManager>
 
     void initHouse()
     {
-        DragonHouse = Resources.Load<GameObject>("Prefab/House/House");
+        DragonHouse = Resources.Load<GameObject>("Prefab/House/House Dragon");
     }
 
     void getTowerDatabase()

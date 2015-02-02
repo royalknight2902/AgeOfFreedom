@@ -7,14 +7,14 @@
 		<Time>3</Time>
 		<Reward>Diamond</Reward>
 	</Quest>
-  <!--<Quest ID="2">
+  <Quest ID="2">
     <SceneName>DQ_3MinChallenge</SceneName>
     <Name>3 MINUTES CHALLENGE</Name>
     <Text>Destroy enemy as plenty as possible to get diamond</Text>
     <Time>3</Time>
     <Reward>Diamond</Reward>
-  </Quest>-->
-  <!--<Quest ID="3">
+  </Quest>
+  <Quest ID="3">
     <SceneName>DQ_3MinChallenge</SceneName>
     <Name>3 MINUTES CHALLENGE</Name>
     <Text>Destroy enemy as plenty as possible to get diamond</Text>
@@ -27,5 +27,5 @@
     <Text>Destroy enemy as plenty as possible to get diamond</Text>
     <Time>3</Time>
     <Reward>Diamond</Reward>
-  </Quest>-->
+  </Quest>
 </DailyQuest>

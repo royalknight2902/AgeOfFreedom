@@ -228,7 +228,7 @@ public class LevelManager : Singleton<LevelManager>
                 //dragonHouse.renderer.enabled = false;
                 yield break;
             }
-            //Debug.Log(2);
+
             if (dragonButton.transform.localPosition.y - stepDragonButton < currPositionDragonButton.y)
                 dragonButton.transform.localPosition = currPositionDragonButton;
             else
@@ -270,7 +270,7 @@ public class LevelManager : Singleton<LevelManager>
                 bagButton.transform.localPosition = currPositionBagButton;
                 yield break;
             }
-            //Debug.Log(2);
+
             if (dragonButton.transform.localPosition.y + stepDragonButton > 0)
                 dragonButton.transform.localPosition = Vector3.one;
             else
