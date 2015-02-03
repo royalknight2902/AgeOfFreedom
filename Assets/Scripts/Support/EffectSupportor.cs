@@ -67,8 +67,6 @@ public class EffectSupportor : Singleton<EffectSupportor>
     }
     #endregion
 
-    
-
     #region FADE OUT WITH CALLBACK EVENT
     public void fadeOutWithEvent(GameObject target, ESpriteType type, float time, EventDelegate callback)
     {
