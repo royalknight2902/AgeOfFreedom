@@ -37,23 +37,30 @@ public class MenuManager : Singleton<MenuManager>
 		ks [6] = new Keyframe (1.0f, 1.0f); ks [6].tangentMode = 0;
 		curve = new AnimationCurve(ks);
 
-        BluetoothManager.Instance.disconnectNetWork();
+        //BluetoothManager.Instance.disconnectNetWork();
 	}
 
+    #region 1 PLAYER
+
+    // to level scene with 1 player
     public void toLevelScene()
     {
         StartCoroutine(waitToLevelScene(0.1f));
     }
 
+    // coroutine with 1 player
     IEnumerator waitToLevelScene(float time)
     {
         yield return new WaitForSeconds(time);
         SceneManager.Instance.Load(SceneHashIDs.LEVEL);
     }
+    #endregion
+    
 
 
-	#region SETTING
+    #region SETTING
 
+    // open setting
 	public void openSetting()
 	{
 		float time = 0.0f;
@@ -82,12 +89,14 @@ public class MenuManager : Singleton<MenuManager>
 		StartCoroutine(waitToSetting(time));
 	}
 
+    // update slider audio (music and sound)
     private void updateSliderAudio()
     {
         SliderSound.value = (float)PlayerInfo.Instance.userInfo.volumeSound / 100;
 		SliderMusic.value = (float)PlayerInfo.Instance.userInfo.volumeMusic / 100;
     }
 
+    // coroutine of setting
 	IEnumerator waitToSetting(float time)
 	{
 		yield return new WaitForSeconds(time);
@@ -95,6 +104,7 @@ public class MenuManager : Singleton<MenuManager>
 		panelSetting.GetComponent<TweenScale>().PlayForward();
 	}
 
+    // update value music
     public void updateMusic()
     {
         PlayerInfo.Instance.userInfo.volumeMusic = (int)(SliderMusic.value * 100);
@@ -103,6 +113,7 @@ public class MenuManager : Singleton<MenuManager>
         Camera.main.GetComponent<AudioSource>().volume = SliderMusic.value;
     }
 
+    // update value sound
     public void updateSound()
     {
         PlayerInfo.Instance.userInfo.volumeSound = (int)(SliderSound.value * 100);
@@ -111,14 +122,18 @@ public class MenuManager : Singleton<MenuManager>
 
 	#endregion
 
-	#region MENU
 
+
+	#region MENU
+    
+    // open choose mode play (1 player or 2 player)
     public void openModePlay()
     {
 	
         StartCoroutine(waitToMode(0.2f));
     }
 
+    // coroutine mode play (1 player or 2 player)
     IEnumerator waitToMode(float time)
     {
 
@@ -136,6 +151,7 @@ public class MenuManager : Singleton<MenuManager>
 		yield return new WaitForSeconds(time);
     }
 
+    // open menu from setting
 	public void openMenu()
 	{
 		TweenScale tweenScale = panelSetting.GetComponent<TweenScale>();
@@ -145,6 +161,7 @@ public class MenuManager : Singleton<MenuManager>
 		StartCoroutine(waitToMenu(duration));
 	}
 
+    //coroutine open menu from setting
 	IEnumerator waitToMenu(float time)
 	{
 		yield return new WaitForSeconds(time);
@@ -161,11 +178,13 @@ public class MenuManager : Singleton<MenuManager>
         }
 	}
 
+    // open menu from mode play (back of mode play)
     public void backFromMode()
     {
         StartCoroutine(waitBackFromMode(0.1f));
     }
 
+    // coroutine open menu from mode play (back of mode play)
     IEnumerator waitBackFromMode(float time)
     {
         yield return new WaitForSeconds(time);
@@ -181,12 +200,17 @@ public class MenuManager : Singleton<MenuManager>
 	
     #endregion
 
+
+
     #region 2 PLAYER
+
+    // 2 player
     public void toBluetooth()
     {
         StartCoroutine(waitBluetooth(0.2f));
     }
 
+    // coroutine 2 player
     IEnumerator waitBluetooth(float time)
     {
         
@@ -203,14 +227,18 @@ public class MenuManager : Singleton<MenuManager>
 		yield return new WaitForSeconds(time);
     }
     #endregion
-
     
+
+
     #region SERVER
+
+    // back from mode bluetooth
     public void backFromServer()
     {
         StartCoroutine(waitBackFromServer(0.2f));
     }
 
+    // coroutine back from mode bluetooth
     IEnumerator waitBackFromServer(float time)
     {
         
@@ -228,7 +256,11 @@ public class MenuManager : Singleton<MenuManager>
     }
     #endregion
 
+
+
     #region ABOUT
+
+    // open about
     public void openAbout()
 	{
 		float time = 0.0f;
@@ -253,12 +285,15 @@ public class MenuManager : Singleton<MenuManager>
 		StartCoroutine(waitToAbout(time));
 	}
 
+    // coroutine open about
 	IEnumerator waitToAbout(float time)
 	{
 		yield return new WaitForSeconds(time);
 		panelAbout.SetActive(true);
 	}
 	#endregion
+
+
 
 	#region DEVICE - BACK, HOME (UPDATE)
 	void Update()
