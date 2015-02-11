@@ -1,6 +1,0 @@
-ID;Name;HP;MP;DEF;ATK;Branch;Speed;State;Time Frame;Frame Event;Skill
-1;Fire;100;100;20;30;Fire;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Fire1
-2;Ice;100;100;20;30;Ice;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Ice1
-3;Iron;100;100;20;30;Iron;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Iron1
-4;Tree;100;100;20;30;Tree;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Tree1
-5;Land;100;100;20;30;Land;10;Idle-Left-Right-Attack1-Die;0.1-0.1-0.1-0.1-0.1;Die-end;Land1

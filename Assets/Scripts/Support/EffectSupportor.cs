@@ -11,6 +11,7 @@ public enum ESpriteType
 public class EffectSupportor : Singleton<EffectSupportor>
 {
     #region RUN SLIDER VALUE
+
     public const float TimeValueRunHP = 0.35f;
     public const float TimeValueRunMP = 0.5f;
 
@@ -18,19 +19,22 @@ public class EffectSupportor : Singleton<EffectSupportor>
 
     public void runSliderValue(UISlider slider, float valueTo, float valueRun)
     {
-        if (!list.ContainsKey(slider.gameObject))
+        if (slider != null)
         {
-            string strValue = valueTo + "_" + valueRun;
+            if (!list.ContainsKey(slider.gameObject))
+            {
+                string strValue = valueTo + "_" + valueRun;
 
-            list.Add(slider.gameObject, strValue);
-            StartCoroutine(moveSliderValue(slider, valueTo, valueRun));
-        }
-        else
-        {
-            string[] ss = list[slider.gameObject].Split('_');
+                list.Add(slider.gameObject, strValue);
+                StartCoroutine(moveSliderValue(slider, valueTo, valueRun));
+            }
+            else
+            {
+                string[] ss = list[slider.gameObject].Split('_');
 
-            StopCoroutine(moveSliderValue(slider, float.Parse(ss[0]), float.Parse(ss[0])));
-            StartCoroutine(moveSliderValue(slider, valueTo, valueRun));
+                StopCoroutine(moveSliderValue(slider, float.Parse(ss[0]), float.Parse(ss[0])));
+                StartCoroutine(moveSliderValue(slider, valueTo, valueRun));
+            }
         }
     }
 
@@ -47,7 +51,7 @@ public class EffectSupportor : Singleton<EffectSupportor>
         float valueEachFrame = Time.deltaTime * value / valueRun; // 0.5 seconds
         int fps = 0;
 
-        while (true)
+        while (true && slider != null)
         {
             if (fps == (int)(60 * valueRun))
             {

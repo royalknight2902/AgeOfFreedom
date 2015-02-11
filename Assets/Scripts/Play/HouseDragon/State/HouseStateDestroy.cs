@@ -39,8 +39,7 @@ public class HouseStateDestroy : FSMState<HouseController>
             if (child.name.Equals("Animation"))
             {
                 //Animation
-                EffectSupportor.Instance.fadeOutAndDestroy(child.gameObject,
-                                                            ESpriteType.SPRITE_RENDERER, 1.0f);
+                EffectSupportor.Instance.fadeOutAndDestroy(child.gameObject, ESpriteType.SPRITE_RENDERER, 1.0f);
                 break;
             }
         }

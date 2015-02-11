@@ -84,7 +84,7 @@ public class QuestManager : Singleton<QuestManager> {
 		}
 
 		//Update amount of play
-		PlayerInfo.Instance.updateDailyQuest (controller.ID);
+		PlayerInfo.Instance.updateDailyQuest(controller.ID);
 		SceneState.Instance.State = ESceneState.DAILY_QUEST_3MINS;
 		SceneManager.Instance.Load (controller.SceneName);
 	}

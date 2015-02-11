@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
-    private static T m_Instance = null;
+    public static T m_Instance = null;
 
     public static T Instance
     {
@@ -27,6 +27,10 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
                 m_Instance.Init();
             }
             return m_Instance;
+        }
+        set
+        {
+            m_Instance = value;
         }
     }
     // If no other monobehaviour request the instance in an awake function

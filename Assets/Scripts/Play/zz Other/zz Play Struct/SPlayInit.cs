@@ -29,7 +29,10 @@ public class SPlayInit
 
 	void initCameraRender()
 	{
-		cameraRender = GameObject.FindGameObjectWithTag ("CameraRender");
+        if (SceneState.Instance.State == ESceneState.ADVENTURE || SceneState.Instance.State == ESceneState.BLUETOOTH)
+        {
+            cameraRender = GameObject.FindGameObjectWithTag("CameraRender");
+        }
 	}
 
 	void initTowerDownUp()

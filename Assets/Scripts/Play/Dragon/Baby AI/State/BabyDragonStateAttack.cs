@@ -86,7 +86,10 @@ public class BabyDragonStateAttack : FSMState<BabyDragonController>
             enemyController.attribute.HP.Current = 0;
 
         float valueTo = enemyController.attribute.HP.Current / (float)enemyController.attribute.HP.Max;
-        EffectSupportor.Instance.runSliderValue(enemyController.sliderHP, valueTo, EffectSupportor.TimeValueRunHP);
+        if (!enemyController.isDie)
+        {
+            EffectSupportor.Instance.runSliderValue(enemyController.sliderHP, valueTo, EffectSupportor.TimeValueRunHP);
+        }
     }
 
     void setDirection()

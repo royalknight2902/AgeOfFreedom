@@ -173,7 +173,7 @@ public class PlayManager : Singleton<PlayManager>
             initFlagTemp();
             initDragonTemp();
             initSkillTemp();
-			initBluetooth();
+			//initBluetooth();
 
             AutoDestroy.destroyChildren(itemBuffTemp);
         }

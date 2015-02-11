@@ -12,6 +12,15 @@ public class ObjectManager : Singleton<ObjectManager>
 
     void Awake()
     {
+        if (FindObjectsOfType(typeof(ObjectManager)).Length > 1)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        m_Instance = this;
+        DontDestroyOnLoad(this.gameObject);
+
         initTowers();
         initTowersPassive();
         initHouse();
