@@ -1,25 +1,25 @@
 <?xml version="1.0" standalone="yes"?><LevelGame>
 	<Map MapID="1">
 		<Name>Map 1</Name>
-		<Money>4000</Money>
+		<Money>400</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>1</TimeWave>
 				<TimeEnemy>4</TimeEnemy>
-        
-        <!--Level 1-->
-        <Enemy>Amy-25-1.5</Enemy>
+				
 				<!--Level 1-->
 				<Enemy>Wolf-8-2.5</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.5</Enemy>
+				<Enemy>Amy-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-8-2.0</Enemy>
+				<Enemy>RedBull-6-2.5</Enemy>
+				<!--Level 1-->
+				<Enemy>OrcBlack-8-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="2" hasBoss="false">
@@ -31,11 +31,11 @@
 				<!--Level 1-->
 				<Enemy>Amy-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-5-2.5</Enemy>
+				<Enemy>RedBull-5-2.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-6-2.5</Enemy>
+				<Enemy>Zombies2-6-2.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="3" hasBoss="false">
@@ -47,9 +47,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-8-2.0</Enemy>
+				<Enemy>Zombies1-8-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 			</Wave>
@@ -63,7 +63,7 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-6-2.5</Enemy>
 				<!--Level 3-->
@@ -83,7 +83,7 @@
 				<!--Level 3-->
 				<Enemy>Maku-6-2.5</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-4-2.5</Enemy>
+				<Enemy>WildBoar-4-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="true">
@@ -91,13 +91,13 @@
 				<TimeEnemy>3</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.0</Enemy>
+				<Enemy>RedBull-8-1.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-5-1.5</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-6-2.0</Enemy>
+				<Enemy>WildBoar-6-2.0</Enemy>
 				<!--Level 5-->
 				<Enemy>Buffalo-3-2.5</Enemy>
 			</Wave>
@@ -107,17 +107,17 @@
 				<TimeEnemy>3</TimeEnemy>
 				
 				<!--Level 2-->
-				<Enemy>Fat Zombie-8-2.0</Enemy>
+				<Enemy>Zombies2-8-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-6-2.0</Enemy>
+				<Enemy>Zombies1-6-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Maku-6-2.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-4-2.5</Enemy>
+				<Enemy>WildBoar-4-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="8" hasBoss="false">
@@ -125,17 +125,17 @@
 				<TimeEnemy>3</TimeEnemy>
 				
 				<!--Level 2-->
-				<Enemy>Fat Zombie-10-2.0</Enemy>
+				<Enemy>Zombies2-10-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-6-2.0</Enemy>
+				<Enemy>Zombies1-6-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-5-2.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-5-2.0</Enemy>
+				<Enemy>WildBoar-5-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="9" hasBoss="false">
@@ -143,15 +143,15 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 2-->
-				<Enemy>Thin Zombie-8-1.0</Enemy>
+				<Enemy>Zombies1-8-1.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-6-2.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-6-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-4-2.0</Enemy>
+				<Enemy>WildBoar-4-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-5-1.5</Enemy>
 			</Wave>
@@ -161,17 +161,17 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 2-->
-				<Enemy>Thin Zombie-10-1.0</Enemy>
+				<Enemy>Zombies1-10-1.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-3-2.0</Enemy>
+				<Enemy>WildBoar-3-2.0</Enemy>
 				<!--Level 5-->
 				<Enemy>Buffalo-5-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.5</Enemy>
+				<Enemy>Axes-4-2.5</Enemy>
 			</Wave>
 			
 		</Waves>
@@ -182,20 +182,20 @@
 		<Money>400</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
 				<TimeEnemy>4</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Orc Black-8-2.0</Enemy>
+				<Enemy>OrcBlack-8-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Amy-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Amy-8-1.5</Enemy>
 				<!--Level 1-->
@@ -207,17 +207,17 @@
 				<TimeEnemy>4</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-8-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Amy-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-5-1.5</Enemy>
+				<Enemy>RedBull-5-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-6-2.0</Enemy>
+				<Enemy>Zombies2-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="3" hasBoss="false">
@@ -229,9 +229,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-6-2.0</Enemy>
+				<Enemy>Zombies1-6-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 1-->
@@ -247,9 +247,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-6-1.5</Enemy>
+				<Enemy>Zombies2-6-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-1.5</Enemy>
+				<Enemy>Zombies1-5-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-6-2.5</Enemy>
 				<!--Level 3-->
@@ -269,9 +269,9 @@
 				<!--Level 3-->
 				<Enemy>Maku-6-2.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-4-2.6</Enemy>
+				<Enemy>WildBoar-4-2.6</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="true">
@@ -279,17 +279,17 @@
 				<TimeEnemy>3</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.0</Enemy>
+				<Enemy>RedBull-8-1.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-5-1.5</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-6-2.0</Enemy>
+				<Enemy>WildBoar-6-2.0</Enemy>
 				<!--Level 5-->
 				<Enemy>Buffalo-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-2-2.0</Enemy>
+				<Enemy>Axes-2-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="7" hasBoss="false">
@@ -297,15 +297,15 @@
 				<TimeEnemy>3</TimeEnemy>
 				
 				<!--Level 2-->
-				<Enemy>Fat Zombie-8-1.8</Enemy>
+				<Enemy>Zombies2-8-1.8</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-6-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Maku-5-2.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-4-2.0</Enemy>
+				<Enemy>Tyni-4-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-4-2.5</Enemy>
+				<Enemy>WildBoar-4-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-4-2.0</Enemy>
 			</Wave>
@@ -315,7 +315,7 @@
 				<TimeEnemy>3</TimeEnemy>
 				
 				<!--Level 2-->
-				<Enemy>Fat Zombie-8-1.6</Enemy>
+				<Enemy>Zombies2-8-1.6</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-6-2.0</Enemy>
 				<!--Level 3-->
@@ -323,7 +323,7 @@
 				<!--Level 4-->
 				<Enemy>Spider-6-2.5</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-5-2.5</Enemy>
+				<Enemy>WildBoar-5-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-6-2.0</Enemy>
 			</Wave>
@@ -337,11 +337,11 @@
 				<!--Level 3-->
 				<Enemy>Creep-5-1.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-6-2.0</Enemy>
+				<Enemy>WildBoar-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-4-2.0</Enemy>
 				<!--Level 3-->
@@ -357,17 +357,17 @@
 				<!--Level 1-->
 				<Enemy>Furi-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-5-2.0</Enemy>
+				<Enemy>WildBoar-5-2.0</Enemy>
 				<!--Level 5-->
 				<Enemy>Buffalo-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 		</Waves>
@@ -378,7 +378,7 @@
 		<Money>450</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -391,9 +391,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-1.5</Enemy>
+				<Enemy>OrcBlack-6-1.5</Enemy>
 				<!--Level 1-->
 				<Enemy>Scorpion-8-1.5</Enemy>
 			</Wave>
@@ -409,11 +409,11 @@
 				<!--Level 2-->
 				<Enemy>Orc-5-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.8</Enemy>
+				<Enemy>RedBull-8-1.8</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-6-2.0</Enemy>
+				<Enemy>Zombies2-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="3" hasBoss="false">
@@ -425,9 +425,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-6-2.0</Enemy>
+				<Enemy>Zombies1-6-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 1-->
@@ -439,13 +439,13 @@
 				<TimeEnemy>5</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.5</Enemy>
+				<Enemy>RedBull-8-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Soki-5-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-6-1.5</Enemy>
+				<Enemy>Zombies1-6-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-4-2.5</Enemy>
 				<!--Level 4-->
@@ -457,7 +457,7 @@
 				<TimeEnemy>4</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Orc Black-8-1.5</Enemy>
+				<Enemy>OrcBlack-8-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Thor-6-2.0</Enemy>
 				<!--Level 3-->
@@ -467,7 +467,7 @@
 				<!--Level 4-->
 				<Enemy>Spider-5-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="false">
@@ -475,7 +475,7 @@
 				<TimeEnemy>4</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.0</Enemy>
+				<Enemy>RedBull-8-1.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 3-->
@@ -493,7 +493,7 @@
 				<TimeEnemy>3</TimeEnemy>
 				
 				<!--Level 2-->
-				<Enemy>Thin Zombie-8-2.0</Enemy>
+				<Enemy>Zombies1-8-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Bat-6-2.2</Enemy>
 				<!--Level 3-->
@@ -533,15 +533,15 @@
 				<!--Level 3-->
 				<Enemy>Creep-5-2.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.5</Enemy>
+				<Enemy>Axes-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Blue Dragon-4-2.5</Enemy>
+				<Enemy>Dragon-4-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="10" hasBoss="false">
@@ -549,11 +549,11 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Orc Black-10-1.2</Enemy>
+				<Enemy>OrcBlack-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Amy-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-5-2.0</Enemy>
 				<!--Level 4-->
@@ -573,9 +573,9 @@
 				<!--Level 1-->
 				<Enemy>Haki-10-1.2</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-1.0</Enemy>
+				<Enemy>RedBull-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-5-2.0</Enemy>
 				<!--Level 4-->
@@ -585,7 +585,7 @@
 				<!--Level 4-->
 				<Enemy>Iron-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="12" hasBoss="true">
@@ -593,21 +593,21 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.2</Enemy>
+				<Enemy>RedBull-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.0</Enemy>
+				<Enemy>Dragon-5-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-6-2.5</Enemy>
+				<Enemy>Axes-6-2.5</Enemy>
 			</Wave>
 			
 		</Waves>
@@ -618,7 +618,7 @@
 		<Money>450</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -631,9 +631,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-8-2.0</Enemy>
+				<Enemy>OrcBlack-8-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Scorpion-6-1.5</Enemy>
 			</Wave>
@@ -647,13 +647,13 @@
 				<!--Level 1-->
 				<Enemy>Furi-8-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-7-1.5</Enemy>
+				<Enemy>RedBull-7-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-6-2.5</Enemy>
+				<Enemy>Zombies2-6-2.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="3" hasBoss="false">
@@ -665,9 +665,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Thor-6-1.5</Enemy>
 				<!--Level 1-->
@@ -683,7 +683,7 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-1.5</Enemy>
+				<Enemy>Zombies2-5-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Bee-8-1.5</Enemy>
 				<!--Level 3-->
@@ -707,7 +707,7 @@
 				<!--Level 4-->
 				<Enemy>Spider-6-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="false">
@@ -715,7 +715,7 @@
 				<TimeEnemy>4</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.0</Enemy>
+				<Enemy>RedBull-8-1.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 3-->
@@ -733,7 +733,7 @@
 				<TimeEnemy>3</TimeEnemy>
 				
 				<!--Level 2-->
-				<Enemy>Thin Zombie-8-1.5</Enemy>
+				<Enemy>Zombies1-8-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Bat-6-2.0</Enemy>
 				<!--Level 3-->
@@ -773,15 +773,15 @@
 				<!--Level 3-->
 				<Enemy>Creep-5-1.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-6-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.5</Enemy>
+				<Enemy>Axes-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="10" hasBoss="false">
@@ -793,13 +793,13 @@
 				<!--Level 1-->
 				<Enemy>Amy-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-5-2.0</Enemy>
+				<Enemy>WildBoar-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Bat-8-1.5</Enemy>
 				<!--Level 3-->
@@ -813,9 +813,9 @@
 				<!--Level 1-->
 				<Enemy>Wolf-10-1.2</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-1.0</Enemy>
+				<Enemy>RedBull-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
@@ -825,7 +825,7 @@
 				<!--Level 4-->
 				<Enemy>Iron-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="12" hasBoss="true">
@@ -833,21 +833,21 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.2</Enemy>
+				<Enemy>RedBull-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.0</Enemy>
+				<Enemy>Dragon-5-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-6-2.5</Enemy>
+				<Enemy>Axes-6-2.5</Enemy>
 			</Wave>
 			
 		</Waves>
@@ -858,7 +858,7 @@
 		<Money>500</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -869,9 +869,9 @@
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-2.5</Enemy>
+				<Enemy>OrcBlack-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Furi-8-2.0</Enemy>
 				<!--Level 1-->
@@ -887,7 +887,7 @@
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.5</Enemy>
+				<Enemy>RedBull-10-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.5</Enemy>
 				<!--Level 2-->
@@ -905,9 +905,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Thor-6-1.5</Enemy>
 				<!--Level 1-->
@@ -923,7 +923,7 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-1.5</Enemy>
+				<Enemy>Zombies2-5-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Bee-8-1.5</Enemy>
 				<!--Level 3-->
@@ -943,11 +943,11 @@
 				<!--Level 3-->
 				<Enemy>Maku-5-2.5</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-4-2.0</Enemy>
+				<Enemy>WildBoar-4-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="false">
@@ -1013,7 +1013,7 @@
 				<!--Level 3-->
 				<Enemy>Crow-5-1.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
@@ -1021,7 +1021,7 @@
 				<!--Level 5-->
 				<Enemy>Buffalo-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="10" hasBoss="false">
@@ -1039,7 +1039,7 @@
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-5-2.0</Enemy>
+				<Enemy>WildBoar-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Bat-8-1.5</Enemy>
 				<!--Level 3-->
@@ -1053,9 +1053,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.2</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-1.0</Enemy>
+				<Enemy>OrcBlack-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
@@ -1065,7 +1065,7 @@
 				<!--Level 4-->
 				<Enemy>Iron-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="12" hasBoss="true">
@@ -1073,21 +1073,21 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.2</Enemy>
+				<Enemy>RedBull-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.0</Enemy>
+				<Enemy>Dragon-5-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-6-2.5</Enemy>
+				<Enemy>Axes-6-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="13" hasBoss="false">
@@ -1095,7 +1095,7 @@
 				<TimeEnemy>1</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.0</Enemy>
+				<Enemy>RedBull-10-1.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-8-1.0</Enemy>
 				<!--Level 2-->
@@ -1105,13 +1105,13 @@
 				<!--Level 3-->
 				<Enemy>Bat-4-1.5</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-4-2.0</Enemy>
+				<Enemy>WildBoar-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-3-2.5</Enemy>
+				<Enemy>Dragon-3-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="14" hasBoss="false">
@@ -1131,11 +1131,11 @@
 				<!--Level 4-->
 				<Enemy>Iron-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 				<!--Level 5-->
 				<Enemy>Buffalo-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-4-2.0</Enemy>
+				<Enemy>Dragon-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="15" hasBoss="true">
@@ -1149,15 +1149,15 @@
 				<!--Level 3-->
 				<Enemy>Creep-5-1.5</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-5-1.2</Enemy>
+				<Enemy>WildBoar-5-1.2</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-1.5</Enemy>
+				<Enemy>Axes-4-1.5</Enemy>
 				<!--Level 5-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 6-->
-				<Enemy>Evil Demon-3-2.5</Enemy>
+				<Enemy>EvilDemon-3-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Snow-3-2.5</Enemy>
 			</Wave>
@@ -1170,7 +1170,7 @@
 		<Money>500</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -1181,9 +1181,9 @@
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-2.5</Enemy>
+				<Enemy>OrcBlack-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
@@ -1199,7 +1199,7 @@
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.5</Enemy>
+				<Enemy>RedBull-10-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.5</Enemy>
 				<!--Level 2-->
@@ -1217,9 +1217,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Thor-6-1.5</Enemy>
 				<!--Level 1-->
@@ -1235,7 +1235,7 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-1.5</Enemy>
+				<Enemy>Zombies2-5-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Bee-8-1.5</Enemy>
 				<!--Level 3-->
@@ -1259,7 +1259,7 @@
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="false">
@@ -1325,15 +1325,15 @@
 				<!--Level 3-->
 				<Enemy>Bat-5-1.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-6-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.5</Enemy>
+				<Enemy>KingKong-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="10" hasBoss="false">
@@ -1365,9 +1365,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.2</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-1.0</Enemy>
+				<Enemy>OrcBlack-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
@@ -1377,7 +1377,7 @@
 				<!--Level 4-->
 				<Enemy>Iron-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="12" hasBoss="true">
@@ -1385,21 +1385,21 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.2</Enemy>
+				<Enemy>RedBull-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.0</Enemy>
+				<Enemy>Dragon-5-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-6-2.5</Enemy>
+				<Enemy>Axes-6-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="13" hasBoss="false">
@@ -1407,7 +1407,7 @@
 				<TimeEnemy>1</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.0</Enemy>
+				<Enemy>RedBull-10-1.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-8-1.0</Enemy>
 				<!--Level 2-->
@@ -1419,11 +1419,11 @@
 				<!--Level 4-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-3-2.5</Enemy>
+				<Enemy>Dragon-3-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="14" hasBoss="false">
@@ -1443,11 +1443,11 @@
 				<!--Level 4-->
 				<Enemy>Iron-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.0</Enemy>
+				<Enemy>KingKong-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-4-2.0</Enemy>
+				<Enemy>Dragon-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="15" hasBoss="true">
@@ -1463,13 +1463,13 @@
 				<!--Level 4-->
 				<Enemy>Iron-5-1.2</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-1.5</Enemy>
+				<Enemy>Axes-4-1.5</Enemy>
 				<!--Level 5-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 6-->
-				<Enemy>Evil Demon-3-2.5</Enemy>
+				<Enemy>EvilDemon-3-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Snow-3-2.5</Enemy>
 			</Wave>
@@ -1482,7 +1482,7 @@
 		<Money>500</Money>
 		<Heart>10</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -1493,9 +1493,9 @@
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-2.5</Enemy>
+				<Enemy>OrcBlack-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
@@ -1511,7 +1511,7 @@
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.5</Enemy>
+				<Enemy>RedBull-10-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.5</Enemy>
 				<!--Level 2-->
@@ -1529,9 +1529,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Thor-6-1.5</Enemy>
 				<!--Level 1-->
@@ -1547,7 +1547,7 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-1.5</Enemy>
+				<Enemy>Zombies2-5-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Bee-8-1.5</Enemy>
 				<!--Level 3-->
@@ -1571,7 +1571,7 @@
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="false">
@@ -1637,15 +1637,15 @@
 				<!--Level 3-->
 				<Enemy>Bat-5-1.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-6-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.5</Enemy>
+				<Enemy>KingKong-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="10" hasBoss="false">
@@ -1677,9 +1677,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.2</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-1.0</Enemy>
+				<Enemy>OrcBlack-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
@@ -1689,7 +1689,7 @@
 				<!--Level 4-->
 				<Enemy>Iron-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="12" hasBoss="true">
@@ -1697,21 +1697,21 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.2</Enemy>
+				<Enemy>RedBull-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.0</Enemy>
+				<Enemy>Dragon-5-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-6-2.5</Enemy>
+				<Enemy>Axes-6-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="13" hasBoss="false">
@@ -1719,7 +1719,7 @@
 				<TimeEnemy>1</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.0</Enemy>
+				<Enemy>RedBull-10-1.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-8-1.0</Enemy>
 				<!--Level 2-->
@@ -1731,11 +1731,11 @@
 				<!--Level 4-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-3-2.5</Enemy>
+				<Enemy>Dragon-3-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="14" hasBoss="false">
@@ -1755,11 +1755,11 @@
 				<!--Level 4-->
 				<Enemy>Iron-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.0</Enemy>
+				<Enemy>KingKong-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-4-2.0</Enemy>
+				<Enemy>Dragon-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="15" hasBoss="true">
@@ -1775,13 +1775,13 @@
 				<!--Level 4-->
 				<Enemy>Iron-5-1.2</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-1.5</Enemy>
+				<Enemy>Axes-4-1.5</Enemy>
 				<!--Level 5-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 6-->
-				<Enemy>Evil Demon-3-2.5</Enemy>
+				<Enemy>EvilDemon-3-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Snow-3-2.5</Enemy>
 			</Wave>
@@ -1794,7 +1794,7 @@
 		<Money>600</Money>
 		<Heart>15</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -1805,9 +1805,9 @@
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-2.5</Enemy>
+				<Enemy>OrcBlack-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
@@ -1823,7 +1823,7 @@
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.5</Enemy>
+				<Enemy>RedBull-10-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.5</Enemy>
 				<!--Level 2-->
@@ -1841,9 +1841,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Thor-6-1.5</Enemy>
 				<!--Level 1-->
@@ -1859,7 +1859,7 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-1.5</Enemy>
+				<Enemy>Zombies2-5-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Bee-8-1.5</Enemy>
 				<!--Level 3-->
@@ -1879,11 +1879,11 @@
 				<!--Level 3-->
 				<Enemy>Maku-5-2.5</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-4-2.0</Enemy>
+				<Enemy>WildBoar-4-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="false">
@@ -1949,15 +1949,15 @@
 				<!--Level 3-->
 				<Enemy>Bat-5-1.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-6-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.5</Enemy>
+				<Enemy>KingKong-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="10" hasBoss="false">
@@ -1989,9 +1989,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.2</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-1.0</Enemy>
+				<Enemy>OrcBlack-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
@@ -2001,7 +2001,7 @@
 				<!--Level 4-->
 				<Enemy>Iron-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="12" hasBoss="true">
@@ -2009,21 +2009,21 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.2</Enemy>
+				<Enemy>RedBull-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.0</Enemy>
+				<Enemy>Dragon-5-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-6-2.5</Enemy>
+				<Enemy>Axes-6-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="13" hasBoss="false">
@@ -2031,7 +2031,7 @@
 				<TimeEnemy>1</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.0</Enemy>
+				<Enemy>RedBull-10-1.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-8-1.0</Enemy>
 				<!--Level 2-->
@@ -2043,11 +2043,11 @@
 				<!--Level 4-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-3-2.5</Enemy>
+				<Enemy>Dragon-3-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="14" hasBoss="false">
@@ -2067,11 +2067,11 @@
 				<!--Level 4-->
 				<Enemy>Iron-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.0</Enemy>
+				<Enemy>KingKong-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-4-2.0</Enemy>
+				<Enemy>Dragon-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="15" hasBoss="true">
@@ -2087,13 +2087,13 @@
 				<!--Level 4-->
 				<Enemy>Iron-5-1.2</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-1.5</Enemy>
+				<Enemy>Axes-4-1.5</Enemy>
 				<!--Level 5-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 6-->
-				<Enemy>Evil Demon-3-2.5</Enemy>
+				<Enemy>EvilDemon-3-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Snow-3-2.5</Enemy>
 			</Wave>
@@ -2105,7 +2105,7 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.0</Enemy>
+				<Enemy>RedBull-8-1.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Bee-5-1.5</Enemy>
 				<!--Level 2-->
@@ -2119,7 +2119,7 @@
 				<!--Level 4-->
 				<Enemy>Lava-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="17" hasBoss="false">
@@ -2139,11 +2139,11 @@
 				<!--Level 3-->
 				<Enemy>Maku-4-2.0</Enemy>
 				<!--Level 4-->
-				<Enemy>Wild Boar-3-2.5</Enemy>
+				<Enemy>WildBoar-3-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Lava-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-3-2.5</Enemy>
+				<Enemy>KingKong-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="18" hasBoss="true">
@@ -2161,9 +2161,9 @@
 				<!--Level 4-->
 				<Enemy>Lava-4-1.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-4-3.5</Enemy>
 				<!--Level 6-->
@@ -2178,7 +2178,7 @@
 		<Money>600</Money>
 		<Heart>15</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -2189,9 +2189,9 @@
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-2.5</Enemy>
+				<Enemy>OrcBlack-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-2.0</Enemy>
+				<Enemy>RedBull-6-2.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
@@ -2207,7 +2207,7 @@
 				<!--Level 1-->
 				<Enemy>Furi-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.5</Enemy>
+				<Enemy>RedBull-10-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.5</Enemy>
 				<!--Level 2-->
@@ -2225,9 +2225,9 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Thor-6-1.5</Enemy>
 				<!--Level 1-->
@@ -2243,7 +2243,7 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-1.5</Enemy>
+				<Enemy>Zombies2-5-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Bee-8-1.5</Enemy>
 				<!--Level 3-->
@@ -2267,7 +2267,7 @@
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="false">
@@ -2333,15 +2333,15 @@
 				<!--Level 3-->
 				<Enemy>Bat-5-1.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-6-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.5</Enemy>
+				<Enemy>KingKong-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="10" hasBoss="false">
@@ -2373,9 +2373,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.2</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-6-1.0</Enemy>
+				<Enemy>RedBull-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
@@ -2385,7 +2385,7 @@
 				<!--Level 4-->
 				<Enemy>Iron-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="12" hasBoss="true">
@@ -2393,21 +2393,21 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.2</Enemy>
+				<Enemy>RedBull-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.0</Enemy>
+				<Enemy>Dragon-5-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-6-2.5</Enemy>
+				<Enemy>Axes-6-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="13" hasBoss="false">
@@ -2415,7 +2415,7 @@
 				<TimeEnemy>1</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.0</Enemy>
+				<Enemy>RedBull-10-1.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-8-1.0</Enemy>
 				<!--Level 2-->
@@ -2427,11 +2427,11 @@
 				<!--Level 4-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-3-2.5</Enemy>
+				<Enemy>Dragon-3-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="14" hasBoss="false">
@@ -2451,11 +2451,11 @@
 				<!--Level 4-->
 				<Enemy>Iron-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.0</Enemy>
+				<Enemy>KingKong-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-4-2.0</Enemy>
+				<Enemy>Dragon-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="15" hasBoss="true">
@@ -2471,13 +2471,13 @@
 				<!--Level 4-->
 				<Enemy>Iron-5-1.2</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-1.5</Enemy>
+				<Enemy>Axes-4-1.5</Enemy>
 				<!--Level 5-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 6-->
-				<Enemy>Evil Demon-3-2.5</Enemy>
+				<Enemy>EvilDemon-3-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Snow-3-2.5</Enemy>
 			</Wave>
@@ -2489,7 +2489,7 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.0</Enemy>
+				<Enemy>RedBull-8-1.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Bee-5-1.5</Enemy>
 				<!--Level 2-->
@@ -2503,7 +2503,7 @@
 				<!--Level 4-->
 				<Enemy>Lava-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="17" hasBoss="false">
@@ -2527,7 +2527,7 @@
 				<!--Level 4-->
 				<Enemy>Lava-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-3-2.5</Enemy>
+				<Enemy>KingKong-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="18" hasBoss="true">
@@ -2545,9 +2545,9 @@
 				<!--Level 4-->
 				<Enemy>Lava-4-1.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-4-3.5</Enemy>
 				<!--Level 6-->
@@ -2562,7 +2562,7 @@
 		<Money>600</Money>
 		<Heart>15</Heart>
 		<StarTotal>3</StarTotal>
-		<TowerUsed>Architect-Ice-Gold</TowerUsed>
+		<TowerUsed>Architect-Ice</TowerUsed>
 		<Waves>
 			<Wave WaveID="1" hasBoss="false">
 				<TimeWave>10</TimeWave>
@@ -2573,7 +2573,7 @@
 				<!--Level 1-->
 				<Enemy>Kukan-6-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-2.5</Enemy>
+				<Enemy>OrcBlack-6-2.5</Enemy>
 				<!--Level 1-->
 				<Enemy>Haki-6-2.0</Enemy>
 				<!--Level 1-->
@@ -2589,9 +2589,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-8-2.5</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-2.0</Enemy>
+				<Enemy>OrcBlack-6-2.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.5</Enemy>
+				<Enemy>RedBull-10-1.5</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.5</Enemy>
 				<!--Level 2-->
@@ -2605,13 +2605,13 @@
 				<TimeEnemy>5</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-8-2.0</Enemy>
+				<Enemy>RedBull-8-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Orc-6-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Thin Zombie-5-2.0</Enemy>
+				<Enemy>Zombies1-5-2.0</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-2.0</Enemy>
+				<Enemy>Zombies2-5-2.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Thor-6-1.5</Enemy>
 				<!--Level 1-->
@@ -2627,7 +2627,7 @@
 				<!--Level 2-->
 				<Enemy>Orc-6-1.5</Enemy>
 				<!--Level 2-->
-				<Enemy>Fat Zombie-5-1.5</Enemy>
+				<Enemy>Zombies2-5-1.5</Enemy>
 				<!--Level 3-->
 				<Enemy>Bee-8-1.5</Enemy>
 				<!--Level 3-->
@@ -2651,7 +2651,7 @@
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="6" hasBoss="false">
@@ -2717,15 +2717,15 @@
 				<!--Level 3-->
 				<Enemy>Bat-5-1.5</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-6-2.0</Enemy>
+				<Enemy>Tyni-6-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Iron-6-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.5</Enemy>
+				<Enemy>KingKong-4-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="10" hasBoss="false">
@@ -2757,9 +2757,9 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.2</Enemy>
 				<!--Level 1-->
-				<Enemy>Orc Black-6-1.0</Enemy>
+				<Enemy>OrcBlack-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
@@ -2769,7 +2769,7 @@
 				<!--Level 4-->
 				<Enemy>Iron-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="12" hasBoss="true">
@@ -2777,21 +2777,21 @@
 				<TimeEnemy>2</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.2</Enemy>
+				<Enemy>RedBull-10-1.2</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-6-1.0</Enemy>
 				<!--Level 3-->
-				<Enemy>Tiny-5-2.0</Enemy>
+				<Enemy>Tyni-5-2.0</Enemy>
 				<!--Level 3-->
 				<Enemy>Creep-3-2.0</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-5-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.0</Enemy>
+				<Enemy>Dragon-5-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-6-2.5</Enemy>
+				<Enemy>Axes-6-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="13" hasBoss="false">
@@ -2799,7 +2799,7 @@
 				<TimeEnemy>1</TimeEnemy>
 				
 				<!--Level 1-->
-				<Enemy>Red Bull-10-1.0</Enemy>
+				<Enemy>RedBull-10-1.0</Enemy>
 				<!--Level 1-->
 				<Enemy>Kukan-8-1.0</Enemy>
 				<!--Level 2-->
@@ -2811,11 +2811,11 @@
 				<!--Level 4-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-3-2.5</Enemy>
+				<Enemy>Dragon-3-2.5</Enemy>
 				<!--Level 4-->
 				<Enemy>Spider-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="14" hasBoss="false">
@@ -2835,11 +2835,11 @@
 				<!--Level 4-->
 				<Enemy>Iron-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-4-2.0</Enemy>
+				<Enemy>KingKong-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-4-2.0</Enemy>
+				<Enemy>Dragon-4-2.0</Enemy>
 			</Wave>
 			
 			<Wave WaveID="15" hasBoss="true">
@@ -2855,13 +2855,13 @@
 				<!--Level 4-->
 				<Enemy>Iron-5-1.2</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-1.5</Enemy>
+				<Enemy>Axes-4-1.5</Enemy>
 				<!--Level 5-->
 				<Enemy>Lava-4-2.0</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-3-2.5</Enemy>
 				<!--Level 6-->
-				<Enemy>Evil Demon-3-2.5</Enemy>
+				<Enemy>EvilDemon-3-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Snow-3-2.5</Enemy>
 			</Wave>
@@ -2873,7 +2873,7 @@
 				<!--Level 1-->
 				<Enemy>Amy-10-1.0</Enemy>
 				<!--Level 1-->
-				<Enemy>Red Bull-8-1.0</Enemy>
+				<Enemy>RedBull-8-1.0</Enemy>
 				<!--Level 2-->
 				<Enemy>Bee-5-1.5</Enemy>
 				<!--Level 2-->
@@ -2887,7 +2887,7 @@
 				<!--Level 4-->
 				<Enemy>Lava-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-3-2.5</Enemy>
+				<Enemy>Axes-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="17" hasBoss="false">
@@ -2911,7 +2911,7 @@
 				<!--Level 4-->
 				<Enemy>Lava-3-2.5</Enemy>
 				<!--Level 5-->
-				<Enemy>King Kong-3-2.5</Enemy>
+				<Enemy>KingKong-3-2.5</Enemy>
 			</Wave>
 			
 			<Wave WaveID="18" hasBoss="true">
@@ -2929,9 +2929,9 @@
 				<!--Level 4-->
 				<Enemy>Lava-4-1.5</Enemy>
 				<!--Level 5-->
-				<Enemy>Axe-4-2.0</Enemy>
+				<Enemy>Axes-4-2.0</Enemy>
 				<!--Level 5-->
-				<Enemy>Blur Dragon-5-2.5</Enemy>
+				<Enemy>Dragon-5-2.5</Enemy>
 				<!--Level 6-->
 				<Enemy>Blood-4-3.5</Enemy>
 				<!--Level 6-->
